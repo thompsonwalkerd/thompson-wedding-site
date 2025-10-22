@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wedding Website
 
-## Getting Started
+A bilingual wedding website for my upcoming wedding. Built with Next.js as both a functional site for guests and a learning project while transitioning from C++ development to web development.
 
-First, run the development server:
+## Tech Stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- React 19
+
+## Current Features
+
+- Bilingual support (English/Czech) via URL-based routing (`/en`, `/cz`)
+- Type-safe translations with TypeScript
+- Server-side rendering
+- Basic responsive layout
+
+## Planned Features
+
+- RSVP functionality
+- Event details with location-specific information for US and Czech guests
+- Photo gallery
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── [locale]/          # Dynamic route for language switching
+│   │   ├── layout.tsx     # Locale-specific layout
+│   │   └── page.tsx       # Homepage with translations
+│   ├── layout.tsx         # Root layout (fonts, global styles)
+│   └── page.tsx           # Root redirect to /en
+├── lib/
+│   └── translations.ts    # Type-safe translation definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What I Learned
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**File-Based Routing**: Next.js maps folder structure directly to URLs. The `[locale]` folder acts as a dynamic parameter that captures the language code from the URL path.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Type-Safe i18n**: Instead of using a third-party library, I built a simple translation system using TypeScript. The type system ensures both languages have the same keys, catching mistakes at compile time.
 
-## Learn More
+**Server Components**: Next.js 15 defaults to server components, which render on the server and reduce the amount of JavaScript sent to the browser.
 
-To learn more about Next.js, take a look at the following resources:
+## Setup Instructions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository
+   ```bash
+   git clone <repository-url>
+   cd thompson-wedding-site
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Copy the example translations file:
+   ```bash
+   cp src/lib/translations.example.ts src/lib/translations.ts
+   ```
+   This repository uses placeholder data for privacy. The example file contains mock names and dates.
 
-## Deploy on Vercel
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Run development server:
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Open [http://localhost:3000](http://localhost:3000)
+
+The app will automatically redirect to `/en` (English) by default.
+
+## Why I Built It This Way
+
+**URL-based i18n**: Each language has its own URL (`/en`, `/cz`) instead of storing language preference in state or cookies. This makes links shareable, works better for SEO, and respects the browser's back button.
+
+**Custom translations**: I wrote a simple translation system instead of using next-intl or similar libraries. This helped me understand how internationalization works under the hood and gave me more control over the structure.
+
+**TypeScript everywhere**: Coming from C++, I appreciate strong typing. The type system catches a lot of mistakes before runtime.
