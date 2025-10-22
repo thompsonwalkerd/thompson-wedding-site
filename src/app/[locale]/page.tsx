@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { getTranslations, Locale } from '@/lib/translations';
+import Header from '@/components/Header';
 
 export default function Home({ params }: { params: { locale: string } }) {
   const locale = params.locale as Locale;
@@ -9,36 +10,18 @@ export default function Home({ params }: { params: { locale: string } }) {
   return (
     <div className='bg-black relative min-h-screen'>
       { /* Background Image Layer */ }
-      {/* <Image
-        src='/home-bg.jpg'
+      <Image
+        src='/home-bg-2.jpeg'
         alt='Home Background Image'
         fill
         className='object-cover'
         quality={85}
         priority
-      /> */}
+      />
 
       {/* Content Layer */}
       <div className="relative z-10 flex flex-col min-h-screen">
-        {/* Header */}
-        <header className='p-6 flex justify-between items-center'>
-          {/* Logo - left side */}
-          <div className='text-2xl'>{t.home.couple.groom} {t.home.couple.and} {t.home.couple.bride}</div>
-
-          {/* Language toggle - center */}
-          <div className='flex gap-2'>
-            <Link href='/en' className='px-3 py-1 rounded'>EN</Link>
-            <Link href='/cz' className='px-3 py-1 rounded'>CZ</Link>
-          </div>
-
-          {/* Nav - right side */}
-          <nav className='flex gap-4'>
-            <Link href={`/${locale}`}>{t.nav.home}</Link>
-            <Link href={`/${locale}/details`}>{t.nav.details}</Link>
-            <Link href={`/${locale}/registry`}>{t.nav.registry}</Link>
-            <Link href={`/${locale}/photos`}>{t.nav.photos}</Link>
-          </nav>
-        </header>
+        <Header locale={locale} t={t} />
 
         {/* Hero Section */}
         <main className='flex-1 flex flex-col items-center justify-center text-center'>

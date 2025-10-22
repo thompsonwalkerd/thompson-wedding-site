@@ -14,8 +14,9 @@ A bilingual wedding website for my upcoming wedding. Built with Next.js as both 
 - Bilingual support (English/Czech) via URL-based routing (`/en`, `/cz`)
 - Type-safe translations with TypeScript
 - Fully translatable UI including navigation and content
-- Server-side rendering
-- Basic responsive layout with background image support
+- Responsive navigation with mobile hamburger menu
+- Server-side rendering with client-side interactivity where needed
+- Mobile-first responsive design with Tailwind breakpoints
 
 ## Planned Features
 
@@ -33,6 +34,8 @@ src/
 │   │   └── page.tsx       # Homepage with translations
 │   ├── layout.tsx         # Root layout (fonts, global styles)
 │   └── page.tsx           # Root redirect to /en
+├── components/
+│   └── Header.tsx         # Responsive navigation component
 ├── lib/
 │   └── translations.ts    # Type-safe translation definitions
 ```
@@ -43,7 +46,9 @@ src/
 
 **Type-Safe i18n**: Instead of using a third-party library, I built a simple translation system using TypeScript. The type system ensures both languages have the same keys, catching mistakes at compile time.
 
-**Server Components**: Next.js 15 defaults to server components, which render on the server and reduce the amount of JavaScript sent to the browser.
+**Server vs Client Components**: Next.js 15 defaults to server components for better performance. Using the `'use client'` directive only where needed (like the interactive navigation) keeps the bundle small while enabling interactivity.
+
+**React State Management**: Implemented `useState` hook for managing mobile menu state, understanding how state triggers re-renders and enables dynamic UI.
 
 ## Setup Instructions
 
