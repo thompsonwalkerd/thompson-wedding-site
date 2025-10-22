@@ -13,8 +13,9 @@ A bilingual wedding website for my upcoming wedding. Built with Next.js as both 
 
 - Bilingual support (English/Czech) via URL-based routing (`/en`, `/cz`)
 - Type-safe translations with TypeScript
+- Fully translatable UI including navigation and content
 - Server-side rendering
-- Basic responsive layout
+- Basic responsive layout with background image support
 
 ## Planned Features
 

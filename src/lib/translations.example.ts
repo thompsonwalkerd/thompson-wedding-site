@@ -9,8 +9,9 @@ export type Translations = {
     };
     home: {
         tagline: string;
-        names: {
+        couple: {
             groom: string;
+            and: string;
             bride: string;
         };
         date: string;
@@ -33,8 +34,9 @@ export const translations: Record<Locale, Translations> = {
         },
         home: {
             tagline: 'Celebrate the wedding of',
-            names: {
+            couple: {
                 groom: 'John',
+                and: 'and',
                 bride: 'Jane',
             },
             date: 'on Saturday 29th of September 2026',
@@ -55,8 +57,9 @@ export const translations: Record<Locale, Translations> = {
         },
         home: {
             tagline: 'Oslavte svatbu',
-            names: {
+            couple: {
                 groom: 'Jan',
+                and: 'a',
                 bride: 'Jany',
             },
             date: 'v sobotu 29. září 2026',

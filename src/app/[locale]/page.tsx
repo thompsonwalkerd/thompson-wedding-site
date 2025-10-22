@@ -23,7 +23,7 @@ export default function Home({ params }: { params: { locale: string } }) {
         {/* Header */}
         <header className='p-6 flex justify-between items-center'>
           {/* Logo - left side */}
-          <div className='text-2xl'>Walker and Sofí</div>
+          <div className='text-2xl'>{t.home.couple.groom} {t.home.couple.and} {t.home.couple.bride}</div>
 
           {/* Language toggle - center */}
           <div className='flex gap-2'>
@@ -44,9 +44,9 @@ export default function Home({ params }: { params: { locale: string } }) {
         <main className='flex-1 flex flex-col items-center justify-center text-center'>
           <p className='text-sm uppercase tracking-widest mb-8'>{t.home.tagline}</p>
 
-          <h1 className='text-6xl mb-2'>{t.home.names.groom}</h1>
-          <p className='text-4xl italic mb-2'>and</p>
-          <h1 className='text-6xl mb-8'>{t.home.names.bride}</h1>
+          <h1 className='text-6xl mb-2'>{t.home.couple.groom}</h1>
+          <p className='text-4xl italic mb-2'>{t.home.couple.and}</p>
+          <h1 className='text-6xl mb-8'>{t.home.couple.bride}</h1>
 
           <p className='text-lg'>{t.home.date}</p>
         </main>
