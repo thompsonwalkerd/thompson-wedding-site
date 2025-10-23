@@ -15,6 +15,7 @@ A bilingual wedding website for my upcoming wedding. Built with Next.js as both 
 - Type-safe translations with TypeScript
 - Fully translatable UI including navigation and content
 - Responsive navigation with mobile hamburger menu
+- Custom design system with brand fonts and color palette
 - Server-side rendering with client-side interactivity where needed
 - Mobile-first responsive design with Tailwind breakpoints
 
@@ -49,6 +50,8 @@ src/
 **Server vs Client Components**: Next.js 15 defaults to server components for better performance. Using the `'use client'` directive only where needed (like the interactive navigation) keeps the bundle small while enabling interactivity.
 
 **React State Management**: Implemented `useState` hook for managing mobile menu state, understanding how state triggers re-renders and enables dynamic UI.
+
+**Design Systems with Tailwind v4**: Set up a custom design system using Tailwind's `@theme` directive to define brand colors and typography, loading Google Fonts with Next.js optimization.
 
 ## Setup Instructions
 

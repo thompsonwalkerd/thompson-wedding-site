@@ -25,18 +25,18 @@ export default function Home({ params }: { params: { locale: string } }) {
 
         {/* Hero Section */}
         <main className='flex-1 flex flex-col items-center justify-center text-center'>
-          <p className='text-sm uppercase tracking-widest mb-8'>{t.home.tagline}</p>
+          <p className='font-heading text-wedding-cream text-xl uppercase tracking-widest mb-8'>{t.home.tagline}</p>
 
-          <h1 className='text-6xl mb-2'>{t.home.couple.groom}</h1>
-          <p className='text-4xl italic mb-2'>{t.home.couple.and}</p>
-          <h1 className='text-6xl mb-8'>{t.home.couple.bride}</h1>
+          <h1 className='text-8xl mb-2 font-heading text-wedding-olive'>{t.home.couple.groom} {t.home.couple.and} {t.home.couple.bride}</h1>
+          {/* <p className='text-6xl italic mb-2 font-heading text-wedding-olive'>{t.home.couple.and}</p> */}
+          {/* <h1 className='text-8xl mb-8 font-heading text-wedding-cream'>{t.home.couple.bride}</h1> */}
 
-          <p className='text-lg'>{t.home.date}</p>
+          <p className='font-heading text-wedding-cream text-xl uppercase tracking-widest mb-8'>{t.home.date}</p>
         </main>
 
         {/* RSVP Button */}
         <div className='pb-12 flex justify-center'>
-          <button className='border-2 border-black px-12 py-3 rounded-full text-lg'>
+          <button className='bg-wedding-cream text-wedding-olive px-12 py-3 rounded-full text-2xl font-sans uppercase'>
             {t.home.rsvpButton}
           </button>
         </div>

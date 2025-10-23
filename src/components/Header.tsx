@@ -15,22 +15,22 @@ export default function Header({ locale, t}: HeaderProps) {
     return (
         <header className='p-6 flex justify-between items-center relative'>
             {/* Logo - left side */}
-            <div className='text-2xl'>
+            <div className='font-heading text-xl tracking-wide'>
                 {t.home.couple.groom} {t.home.couple.and} {t.home.couple.bride}
             </div>
 
             {/* Desktop: Language toggle - center (hidden on mobile) */}
             <div className='hidden md:flex absolute left-1/2 -translate-x-1/2 gap-2'>
-                <Link href='/en' className='px-3 py-1 rounded'>EN</Link>
-                <Link href='/cz' className='px-3 py-1 rounded'>CZ</Link>
+                <Link href='/en' className='px-3 py-1 rounded font-sans uppercase text-sm tracking-wide'>EN</Link>
+                <Link href='/cz' className='px-3 py-1 rounded font-sans uppercase text-sm tracking-wide'>CZ</Link>
             </div>
 
             {/* Desktop: Nav - right side (hidden on moile) */}
             <nav className='hidden md:flex gap-4'>
-                <Link href={`/${locale}`}>{t.nav.home}</Link>
-                <Link href={`/${locale}/details`}>{t.nav.details}</Link>
-                <Link href={`/${locale}/registry`}>{t.nav.registry}</Link>
-                <Link href={`/${locale}/photos`}>{t.nav.photos}</Link>
+                <Link href={`/${locale}`} className='font-sans uppercase text-sm tracking-wide'>{t.nav.home}</Link>
+                <Link href={`/${locale}/details`} className='font-sans uppercase text-sm tracking-wide'>{t.nav.details}</Link>
+                <Link href={`/${locale}/registry`} className='font-sans uppercase text-sm tracking-wide'>{t.nav.registry}</Link>
+                <Link href={`/${locale}/photos`} className='font-sans uppercase text-sm tracking-wide'>{t.nav.photos}</Link>
             </nav>
 
             {/* Mobile: Hamburger button (hidden on desktop) */}
