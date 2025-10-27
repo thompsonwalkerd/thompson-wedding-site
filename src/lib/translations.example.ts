@@ -7,6 +7,16 @@ export type Translations = {
         registry: string;
         photos: string;
     };
+    when: {
+        dayOfWeek: string;
+        dayBefore: string;
+        dayAfter: string;
+        day: string;
+        month: string;
+        year: string;
+        time: string;
+        dateString: string;
+    };
     home: {
         tagline: string;
         couple: {
@@ -14,14 +24,48 @@ export type Translations = {
             and: string;
             bride: string;
         };
-        date: string;
         rsvpButton: string;
     };
     details: {
-        prompt: string;
-        usButton: string;
-        czButton: string;
+        pageTitle: string;
+        usOnly: {
+            usTravelButton: string;
+        };
+        venue: {
+            sectionTitle: string;
+            name: string;
+            address: {
+                street: string;
+                number: string;
+                city: string;
+                country: string;
+            };
+            instructions: string;
+        };
+        dateAndTime: {
+            sectionTitle: string;
+        }
+        schedule: {
+            sectionTitle: string;
+            schedule: {
+                ceremonyHeader: string;
+                ceremonyDescription: string;
+                receptionHeader: string;
+                receptionDescription: string;
+            }
+        };
+        accommodations: {
+            sectionTitle: string;
+        }
+        dressCode: {
+            sectionTitle: string;
+            description: string;
+        };
     };
+    photos: {
+        title: string;
+        placeholder: string;
+    }
 };
 
 export const translations: Record<Locale, Translations> = {
@@ -32,6 +76,16 @@ export const translations: Record<Locale, Translations> = {
             registry: 'Registry',
             photos: "Photos",
         },
+        when: {
+            dayOfWeek: 'Saturday',
+            dayBefore: 'Friday',
+            dayAfter: 'Sunday',
+            day: '29',
+            month: 'September',
+            year: '2026',
+            time: 'The ceremony begins at 3:00 pm',
+            dateString: 'Saturday the 29th of September 2026',
+        },
         home: {
             tagline: 'Celebrate the wedding of',
             couple: {
@@ -39,13 +93,47 @@ export const translations: Record<Locale, Translations> = {
                 and: 'and',
                 bride: 'Jane',
             },
-            date: 'on Saturday 29th of September 2026',
             rsvpButton: 'RSVP',
         },
         details: {
-            prompt: 'Are you traveling from the US, or already in the Czech Republic?',
-            usButton: 'United States',
-            czButton: 'Czech Republic',
+            pageTitle: 'Event Details',
+            usOnly: {
+                usTravelButton: 'Traveling from the US?',
+            },
+            venue: {
+                sectionTitle: "Venue",
+                name: "[Venue Name]",
+                address: {
+                    street: '[Street]',
+                    number: '[Number]',
+                    city: '[City]',
+                    country: '[Country]',
+                },
+                instructions: "[Instructions...]"
+            },
+            dateAndTime: {
+                sectionTitle: "Date & Time"
+            },
+            schedule: {
+                sectionTitle: "Schedule",
+                schedule: {
+                    ceremonyHeader: '3:00 pm - Ceremony',
+                    ceremonyDescription: '[Details...]',
+                    receptionHeader: '4:00 pm - Reception',
+                    receptionDescription: '[Details...]',
+                },
+            },
+            accommodations: {
+                sectionTitle: "Accommodations",
+            },
+            dressCode: {
+                sectionTitle: "Dress Code",
+                description: "[dress code here]",
+            },
+        },
+        photos: {
+            title: 'Photos',
+            placeholder: 'Coming Soon',
         },
     },
     cz: {
@@ -55,6 +143,16 @@ export const translations: Record<Locale, Translations> = {
             registry: 'Svatební dary',
             photos: "Fotky",
         },
+        when: {
+            dayOfWeek: 'sobota',
+            dayBefore: 'pátek',
+            dayAfter: 'neděle',
+            day: '29',
+            month: 'září',
+            year: '2026',
+            time: 'Svatební obřad začíná v 15:00',
+            dateString: 'Sobota 29. září 2026',
+        },
         home: {
             tagline: 'Oslavte svatbu',
             couple: {
@@ -62,13 +160,47 @@ export const translations: Record<Locale, Translations> = {
                 and: 'a',
                 bride: 'Jany',
             },
-            date: 'v sobotu 29. září 2026',
             rsvpButton: 'Potvrzení účasti',
         },
         details: {
-            prompt: 'Cestujete z USA, nebo už jste v České republice?',
-            usButton: 'USA',
-            czButton: 'Česká republika',
+            pageTitle: 'Detaily akce',
+            usOnly: {
+                usTravelButton: 'Cestujete z USA?',
+            },
+            venue: {
+                sectionTitle: "Místo konání",
+                name: "[Název místa konání]",
+                address: {
+                    street: '[ulice]',
+                    number: '[číslo]',
+                    city: '[město]',
+                    country: '[země]',
+                },
+                instructions: "[Návod...]"
+            },
+            dateAndTime: {
+                sectionTitle: "Datum a čas",
+            },
+            schedule: {
+                sectionTitle: "Rozvrh",
+                schedule: {
+                    ceremonyHeader: '15:00 - Svatební obřad',
+                    ceremonyDescription: '[Podrobnosti...]',
+                    receptionHeader: '16:00 - Svatební hostina',
+                    receptionDescription: '[Podrobnosti...]',
+                },
+            },
+            accommodations: {
+                sectionTitle: "Ubytování",
+            },
+            dressCode: {
+                sectionTitle: "Oblečení",
+                description: "[dress code zde]",
+            },
+        },
+        photos: {
+            title: 'Fotky',
+            placeholder: 'Již brzy',
         },
     }
 };

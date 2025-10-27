@@ -7,31 +7,51 @@ import { Locale, Translations } from '@/lib/translations';
 type HeaderProps = {
     locale: Locale;
     t: Translations;
+    currentPath?: string; // Optional, defaults to empty (Home)
 };
 
-export default function Header({ locale, t}: HeaderProps) {
+export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const basePath = currentPath ? `/${currentPath}` : '';
 
     return (
         <header className='p-6 flex justify-between items-center relative'>
             {/* Logo - left side */}
-            <div className='font-heading text-xl tracking-wide'>
-                {t.home.couple.groom} {t.home.couple.and} {t.home.couple.bride}
+            <div className='font-script text-4xl tracking-wide'>
+                {t.home.couple.bride} {t.home.couple.and} {t.home.couple.groom}
             </div>
 
-            {/* Desktop: Language toggle - center (hidden on mobile) */}
-            <div className='hidden md:flex absolute left-1/2 -translate-x-1/2 gap-2'>
-                <Link href='/en' className='px-3 py-1 rounded font-sans uppercase text-sm tracking-wide'>EN</Link>
-                <Link href='/cz' className='px-3 py-1 rounded font-sans uppercase text-sm tracking-wide'>CZ</Link>
-            </div>
-
-            {/* Desktop: Nav - right side (hidden on moile) */}
-            <nav className='hidden md:flex gap-4'>
-                <Link href={`/${locale}`} className='font-sans uppercase text-sm tracking-wide'>{t.nav.home}</Link>
-                <Link href={`/${locale}/details`} className='font-sans uppercase text-sm tracking-wide'>{t.nav.details}</Link>
-                <Link href={`/${locale}/registry`} className='font-sans uppercase text-sm tracking-wide'>{t.nav.registry}</Link>
-                <Link href={`/${locale}/photos`} className='font-sans uppercase text-sm tracking-wide'>{t.nav.photos}</Link>
+            {/* Desktop: Nav - center (hidden on moile) */}
+            <nav className='hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8'>
+                <Link href={`/${locale}`} className='font-sans font-semibold uppercase text-md tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'>{t.nav.home}</Link>
+                <Link href={`/${locale}/details`} className='font-sans font-semibold uppercase text-md tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'>{t.nav.details}</Link>
+                <Link href={`/${locale}/registry`} className='font-sans font-semibold uppercase text-md tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'>{t.nav.registry}</Link>
+                <Link href={`/${locale}/photos`} className='font-sans font-semibold uppercase text-md tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'>{t.nav.photos}</Link>
             </nav>
+
+            {/* Desktop: Language toggle - right side (hidden on mobile) */}
+            <div className='hidden md:flex gap-2'>
+                <Link
+                    href={`/en${basePath}`}
+                    className={`px-3 py-1 rounded font-sans uppercase text-sm tracking-wide ${
+                    locale === 'en'
+                        ? 'border border-wedding-cream/50 bg-wedding-cream/10'
+                        : 'border border-transparent hover:border-wedding-cream/30'
+                    }`}
+                >
+                        EN
+                </Link>
+                <Link
+                    href={`/cz${basePath}`}
+                    className={`px-3 py-1 rounded font-sans uppercase text-sm tracking-wide ${
+                    locale === 'cz'
+                        ? 'border border-wedding-cream/50 bg-wedding-cream/5'
+                        : 'border border-transparent hover:border-wedding-cream/30'
+                    }`}
+                >
+                        CZ
+                </Link>
+            </div>
 
             {/* Mobile: Hamburger button (hidden on desktop) */}
             <button
@@ -49,8 +69,8 @@ export default function Header({ locale, t}: HeaderProps) {
                 <div className='md:hidden absolute top-full left-0 right-0 bg-black border-t border-gray-700 flex flex-col p-6 gap-4'>
                     {/* Language toggle */}
                     <div className='flex gap-2 justify-center pb-4 border-b border-gray-700'>
-                        <Link href='/en' className='px-3 py-1 rounded'>EN</Link>
-                        <Link href='/cz' className='px-3 py-1 rounded'>CZ</Link>
+                        <Link href={`/en${basePath}`} className='px-3 py-1 rounded'>EN</Link>
+                        <Link href={`/cz${basePath}`} className='px-3 py-1 rounded'>CZ</Link>
                     </div>
 
                     {/* Nav links */}

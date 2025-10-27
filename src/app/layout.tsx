@@ -1,17 +1,24 @@
 import type { Metadata } from "next";
-import { Poltawski_Nowy, Montserrat } from "next/font/google";
+import { Cormorant_Garamond, Raleway, Luxurious_Script } from "next/font/google";
 import "./globals.css";
 
-const poltawskiNowy = Poltawski_Nowy({
+const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-heading",
-  subsets: ["latin", "latin-ext"],  // latin-ext includes Polish characters
-  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],  // Includes italic for the "and"
 });
 
-const montserrat = Montserrat({
+const raleway = Raleway({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const luxuriousScript = Luxurious_Script({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -26,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poltawskiNowy.variable} ${montserrat.variable} antialiased`}>
+      <body className={`${cormorantGaramond.variable} ${raleway.variable} ${luxuriousScript.variable} antialiased`}>
         {children}
       </body>
     </html>
