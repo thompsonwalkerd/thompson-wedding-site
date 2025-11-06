@@ -21,7 +21,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
                 {t.home.couple.bride} {t.home.couple.and} {t.home.couple.groom}
             </div>
 
-            {/* Desktop: Nav - center (hidden on moile) */}
+            {/* Desktop: Nav - center (hidden on mobile) */}
             <nav className='hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8'>
                 <Link href={`/${locale}`} className='font-sans font-semibold uppercase text-md tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'>{t.nav.home}</Link>
                 <Link href={`/${locale}/details`} className='font-sans font-semibold uppercase text-md tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'>{t.nav.details}</Link>
