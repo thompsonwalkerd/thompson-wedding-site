@@ -1,5 +1,6 @@
 import { getTranslations, Locale } from '@/lib/translations';
 import Image from 'next/image';
+import Link from 'next/link';
 import Header from '@/components/Header';
 
 export default function Home({ params }: { params: { locale: string } }) {
@@ -36,9 +37,9 @@ export default function Home({ params }: { params: { locale: string } }) {
 
         {/* RSVP Button */}
         <div className='pb-12 flex justify-center'>
-          <button className='bg-wedding-cream text-wedding-olive px-20 py-2 rounded-full text-2xl font-sans uppercase insert-shadow-sm shadow-xl'>
+          <Link href={`/${locale}/rsvp`} className='bg-wedding-cream text-wedding-olive px-20 py-2 rounded-full text-2xl font-sans uppercase insert-shadow-sm shadow-xl'>
             {t.home.rsvpButton}
-          </button>
+          </Link>
         </div>
       </div>
     </div>

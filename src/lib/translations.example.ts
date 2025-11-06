@@ -65,7 +65,30 @@ export type Translations = {
     photos: {
         title: string;
         placeholder: string;
-    }
+    };
+    rsvp: {
+        pageTitle: string;
+        searchPrompt: string;
+        searchPlaceholder: string;
+        searchButton: string;
+        searching: string;
+        notFound: string;
+        resultsPrompt: string;
+        selectGuest: string;
+        alreadySubmitted: string;
+        groupLabel: string;
+        attendingLabel: string;
+        guestNameLabel: string;
+        guestNamePlaceholder: string;
+        emailLabel: string;
+        emailPlaceholder: string;
+        dietaryLabel: string;
+        dietaryPlaceholder: string;
+        submitButton: string;
+        submitting: string;
+        successMessage: string;
+        errorMessage: string;
+    };
 };
 
 export const translations: Record<Locale, Translations> = {
@@ -135,6 +158,29 @@ export const translations: Record<Locale, Translations> = {
             title: 'Photos',
             placeholder: 'Coming Soon',
         },
+        rsvp: {
+            pageTitle: 'RSVP',
+            searchPrompt: 'Please enter your name to find your invitation',
+            searchPlaceholder: 'Enter your name...',
+            searchButton: 'Search',
+            searching: 'Searching...',
+            notFound: 'No invitation found. Please check your spelling or contact us.',
+            resultsPrompt: 'Select your name from the results:',
+            selectGuest: 'Select',
+            alreadySubmitted: 'Your group has already submitted an RSVP. If you need to make changes, please contact us directly.',
+            groupLabel: 'RSVPing for:',
+            attendingLabel: 'Attending',
+            guestNameLabel: "Guest's Name",
+            guestNamePlaceholder: "Enter guest's name",
+            emailLabel: 'Email Address for Confirmation (optional)',
+            emailPlaceholder: 'your.email@example.com',
+            dietaryLabel: 'Dietary Restrictions or Notes',
+            dietaryPlaceholder: 'Any allergies, dietary restrictions, or special requests...',
+            submitButton: 'Submit RSVP',
+            submitting: 'Submitting...',
+            successMessage: 'Thank you! Your RSVP has been received.',
+            errorMessage: 'Something went wrong. Please try again.',
+        },
     },
     cz: {
         nav: {
@@ -201,6 +247,29 @@ export const translations: Record<Locale, Translations> = {
         photos: {
             title: 'Fotky',
             placeholder: 'Již brzy',
+        },
+        rsvp: {
+            pageTitle: 'Potvrzení účasti',
+            searchPrompt: 'Zadejte prosím své jméno pro nalezení pozvánky',
+            searchPlaceholder: 'Zadejte své jméno...',
+            searchButton: 'Hledat',
+            searching: 'Hledám...',
+            notFound: 'Pozvánka nenalezena. Zkontrolujte prosím pravopis nebo nás kontaktujte.',
+            resultsPrompt: 'Vyberte své jméno z výsledků:',
+            selectGuest: 'Vybrat',
+            alreadySubmitted: 'Vaše skupina již odeslala potvrzení účasti. Pokud potřebujete provést změny, kontaktujte nás prosím přímo.',
+            groupLabel: 'Potvrzuji účast za:',
+            attendingLabel: 'Účast',
+            guestNameLabel: 'Jméno hosta',
+            guestNamePlaceholder: 'Zadejte jméno hosta',
+            emailLabel: 'E-mailová adresa',
+            emailPlaceholder: 'vas.email@priklad.cz',
+            dietaryLabel: 'Dietní omezení nebo poznámky',
+            dietaryPlaceholder: 'Alergie, dietní omezení nebo speciální požadavky...',
+            submitButton: 'Odeslat potvrzení',
+            submitting: 'Odesílám...',
+            successMessage: 'Děkujeme! Vaše potvrzení účasti bylo přijato.',
+            errorMessage: 'Něco se pokazilo. Zkuste to prosím znovu.',
         },
     }
 };
