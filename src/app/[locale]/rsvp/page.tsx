@@ -1,7 +1,8 @@
 'use client';
 
 import { use, useState } from 'react';
-import { getTranslations, Locale } from '@/lib/translations';
+import { getTranslations } from '@/lib/translations';
+import { validateLocale } from '@/utils/locale';
 import PageLayout from '@/components/PageLayout';
 import Link from 'next/link';
 import { searchGuests, submitRsvp, checkRsvpStatus, type GuestGroup, type RsvpAttendee } from '@/lib/mocks/rsvp';
@@ -14,7 +15,7 @@ type FormState = 'search' | 'results' | 'form' | 'success' | 'already-submitted'
 
 export default function RsvpPage({ params }: RsvpPageProps) {
   const { locale: localeString } = use(params);
-  const locale = localeString as Locale;
+  const locale = validateLocale(localeString);
   const t = getTranslations(locale);
 
   // State management

@@ -1,9 +1,10 @@
-import { getTranslations, Locale } from '@/lib/translations';
+import { getTranslations } from '@/lib/translations';
+import { validateLocale } from '@/utils/locale';
 import PageLayout from '@/components/PageLayout';
 import Link from 'next/link';
 
 export default function USTravelPage({ params }: { params: { locale: string } }) {
-  const locale = params.locale as Locale;
+  const locale = validateLocale(params.locale);
   const t = getTranslations(locale);
 
   return (
