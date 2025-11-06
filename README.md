@@ -18,12 +18,23 @@ A bilingual wedding website for my upcoming wedding. Built with Next.js as both 
 - Custom design system with brand fonts and color palette
 - Server-side rendering with client-side interactivity where needed
 - Mobile-first responsive design with Tailwind breakpoints
+- Multi-step RSVP system:
+  - Guest search by name
+  - Group-based RSVP (families/couples)
+  - Attendance selection for each guest
+  - Email collection for confirmation
+  - Dietary restrictions/notes
+  - Duplicate submission prevention
+  - Confirmation page with email verification
+- Event details page with venue, schedule, and accommodations info
+- Photo gallery placeholder page
 
 ## Planned Features
 
-- RSVP functionality
-- Event details with location-specific information for US and Czech guests
-- Photo gallery
+- Python backend API for RSVP system
+- Database integration (SQLite potentially)
+- Email confirmation system
+- Admin dashboard for managing RSVPs
 
 ## Project Structure
 
@@ -31,6 +42,9 @@ A bilingual wedding website for my upcoming wedding. Built with Next.js as both 
 src/
 ├── app/
 │   ├── [locale]/          # Dynamic route for language switching
+│   │   ├── details/       # Wedding details page
+│   │   ├── photos/        # Photo gallery page
+│   │   ├── rsvp/          # RSVP system page
 │   │   ├── layout.tsx     # Locale-specific layout
 │   │   └── page.tsx       # Homepage with translations
 │   ├── layout.tsx         # Root layout (fonts, global styles)
@@ -38,6 +52,8 @@ src/
 ├── components/
 │   └── Header.tsx         # Responsive navigation component
 ├── lib/
+│   ├── mocks/
+│   │   └── rsvp.ts        # Mock RSVP API (temporary, for development)
 │   └── translations.ts    # Type-safe translation definitions
 ```
 
@@ -52,6 +68,10 @@ src/
 **React State Management**: Implemented `useState` hook for managing mobile menu state, understanding how state triggers re-renders and enables dynamic UI.
 
 **Design Systems with Tailwind v4**: Set up a custom design system using Tailwind's `@theme` directive to define brand colors and typography, loading Google Fonts with Next.js optimization.
+
+**Form State Management**: Built a multi-step form with complex state management, handling search results, form inputs, and submission states. Learned how to properly manage interdependent state values and conditional rendering.
+
+**Mock Data Pattern**: Created a mock API layer that mimics real backend behavior (delays, validation, error handling) to enable frontend development before the backend exists. This separates concerns and makes it easier to swap in real APIs later.
 
 ## Setup Instructions
 
