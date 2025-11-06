@@ -1,32 +1,14 @@
 import { getTranslations, Locale } from '@/lib/translations';
-import Header from '@/components/Header';
-import Image from 'next/image';
+import PageLayout from '@/components/PageLayout';
 import Link from 'next/link';
 
-export default function USTravel({ params }: { params: { locale: string } }) {
+export default function USTravelPage({ params }: { params: { locale: string } }) {
   const locale = params.locale as Locale;
   const t = getTranslations(locale);
 
   return (
-    <div className='bg-wedding-black relative min-h-screen'>
-      {/* Background */}
-      <Image
-        src='/second-bg.jpeg'
-        alt='Background'
-        fill
-        className='object-cover'
-        quality={85}
-        priority
-      />
-
-      {/* Gradient Overlay */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-wedding-black/70 to-transparent pointer-events-none z-10" />
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col min-h-screen">
-        <Header locale={locale} t={t} currentPath='details/us-travel' />
-
-        <main className='flex-1 px-6 py-12 max-w-4xl mx-auto'>
+    <PageLayout locale={locale} t={t} currentPath='details/us-travel'>
+      <div className='px-6 py-12 max-w-4xl mx-auto'>
           {/* Back Button */}
           <Link 
             href={`/${locale}/details`}
@@ -108,8 +90,7 @@ export default function USTravel({ params }: { params: { locale: string } }) {
               </div>
             </section>
           </div>
-        </main>
       </div>
-    </div>
+    </PageLayout>
   );
 }

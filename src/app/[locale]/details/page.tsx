@@ -1,32 +1,14 @@
 import { getTranslations, Locale } from "@/lib/translations";
-import Header from "@/components/Header";
-import Image from "next/image";
+import PageLayout from "@/components/PageLayout";
 import Link from "next/link";
 
-export default function Details({ params }: { params: { locale: string }}) {
+export default function DetailsPage({ params }: { params: { locale: string }}) {
     const locale = params.locale as Locale;
     const t = getTranslations(locale);
 
     return (
-        <div className='bg-wedding-black relative min-h-screen'>
-            { /* Background */}
-                <Image
-                src='/second-bg.jpeg'
-                alt='Background'
-                fill
-                className='object-cover'
-                quality={85}
-                priority
-            />  
-
-            {/* Gradient Overlay */}
-            <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-wedding-black/70 to-transparent pointer-events-none z-10" />
-
-            {/* Content */}
-            <div className="relative z-10 flex flex-col min-h-screen">
-                <Header locale={locale} t={t} currentPath='details' />
-
-                <main className='flex-1 px-6 py-12 max-w-4xl mx-auto'>
+        <PageLayout locale={locale} t={t} currentPath='details'>
+            <div className='px-6 py-12 max-w-4xl mx-auto'>
                     { /* Page Title */ }
                     <h1 className='text-5xl font-heading text-wedding-cream mb-6 border-b border-wedding-cream/30 pb-4'>
                         {t.details.pageTitle}
@@ -116,8 +98,7 @@ export default function Details({ params }: { params: { locale: string }}) {
                             </p>
                         </section>
                     </div>
-                </main>
             </div>
-        </div>
+        </PageLayout>
     );
 }

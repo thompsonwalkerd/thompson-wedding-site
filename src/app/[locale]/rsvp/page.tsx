@@ -2,8 +2,7 @@
 
 import { use, useState } from 'react';
 import { getTranslations, Locale } from '@/lib/translations';
-import Header from '@/components/Header';
-import Image from 'next/image';
+import PageLayout from '@/components/PageLayout';
 import Link from 'next/link';
 import { searchGuests, submitRsvp, checkRsvpStatus, type GuestGroup, type RsvpAttendee } from '@/lib/mocks/rsvp';
 
@@ -126,29 +125,12 @@ export default function RsvpPage({ params }: RsvpPageProps) {
   };
 
   return (
-    <div className='bg-wedding-black relative min-h-screen'>
-      {/* Background */}
-      <Image
-        src='/second-bg.jpeg'
-        alt='Background'
-        fill
-        className='object-cover'
-        quality={85}
-        priority
-      />
-
-      {/* Gradient Overlay */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-wedding-black/70 to-transparent pointer-events-none z-10" />
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col min-h-screen">
-        <Header locale={locale} t={t} currentPath='rsvp' />
-
-        <main className='flex-1 px-6 py-12 max-w-2xl mx-auto w-full'>
-          {/* Page Title */}
-          <h1 className='text-5xl font-heading text-wedding-cream mb-12 border-b border-wedding-cream/30 pb-4'>
-            {t.rsvp.pageTitle}
-          </h1>
+    <PageLayout locale={locale} t={t} currentPath='rsvp'>
+      <div className='px-6 py-12 max-w-2xl mx-auto w-full'>
+        {/* Page Title */}
+        <h1 className='text-5xl font-heading text-wedding-cream mb-12 border-b border-wedding-cream/30 pb-4'>
+          {t.rsvp.pageTitle}
+        </h1>
 
           {/* Search State */}
           {formState === 'search' && (
@@ -343,8 +325,7 @@ export default function RsvpPage({ params }: RsvpPageProps) {
               </p>
             </div>
           )}
-        </main>
       </div>
-    </div>
+    </PageLayout>
   );
 }
