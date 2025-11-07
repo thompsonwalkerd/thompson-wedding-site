@@ -15,9 +15,9 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
   const basePath = currentPath ? `/${currentPath}` : '';
 
   return (
-    <header className='p-6 flex justify-between items-center relative'>
+    <header className='p-4 md:p-6 flex justify-between items-center relative'>
       {/* Logo - left side */}
-      <div className='font-script text-4xl tracking-wide'>
+      <div className='font-script text-2xl sm:text-3xl md:text-4xl tracking-wide'>
         {t.home.couple.bride} {t.home.couple.and} {t.home.couple.groom}
       </div>
 
@@ -75,43 +75,85 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
 
       {/* Mobile: Hamburger button (hidden on desktop) */}
       <button
-        className='md:hidden flex flex-col gap-1'
+        className='md:hidden flex flex-col gap-1.5 p-2 hover:opacity-70 transition-opacity'
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label='Toggle menu'
       >
-        <span className='w-6 h-0.5 bg-white'></span>
-        <span className='w-6 h-0.5 bg-white'></span>
-        <span className='w-6 h-0.5 bg-white'></span>
+        <span
+          className={`w-6 h-0.5 bg-wedding-cream transition-all duration-300 ${
+            isMenuOpen ? 'rotate-45 translate-y-2' : ''
+          }`}
+        ></span>
+        <span
+          className={`w-6 h-0.5 bg-wedding-cream transition-all duration-300 ${
+            isMenuOpen ? 'opacity-0' : ''
+          }`}
+        ></span>
+        <span
+          className={`w-6 h-0.5 bg-wedding-cream transition-all duration-300 ${
+            isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+          }`}
+        ></span>
       </button>
 
       {/* Mobile: Dropdown menu (shown when hamburger clicked) */}
-      {isMenuOpen && (
-        <div className='md:hidden absolute top-full left-0 right-0 bg-black border-t border-gray-700 flex flex-col p-6 gap-4 z-50'>
-          {/* Language toggle */}
-          <div className='flex gap-2 justify-center pb-4 border-b border-gray-700'>
-            <Link href={`/en${basePath}`} className='px-3 py-1 rounded'>
-              EN
-            </Link>
-            <Link href={`/cz${basePath}`} className='px-3 py-1 rounded'>
-              CZ
-            </Link>
-          </div>
-
-          {/* Nav links */}
-          <Link href={`/${locale}`} className='text-center'>
-            {t.nav.home}
+      <div
+        className={`md:hidden absolute top-full left-0 right-0 bg-wedding-black/95 backdrop-blur-sm border-t border-wedding-cream/20 flex flex-col p-6 gap-4 z-50 transition-all duration-300 ${
+          isMenuOpen
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 -translate-y-4 pointer-events-none'
+        }`}
+      >
+        {/* Language toggle */}
+        <div className='flex gap-2 justify-center pb-4 border-b border-wedding-cream/20'>
+          <Link
+            href={`/en${basePath}`}
+            className={`px-4 py-2 rounded font-sans uppercase text-sm tracking-wide transition-all ${
+              locale === 'en'
+                ? 'border border-wedding-cream/50 bg-wedding-cream/10'
+                : 'border border-transparent hover:border-wedding-cream/30'
+            }`}
+          >
+            EN
           </Link>
-          <Link href={`/${locale}/details`} className='text-center'>
-            {t.nav.details}
-          </Link>
-          <Link href={`/${locale}/registry`} className='text-center'>
-            {t.nav.registry}
-          </Link>
-          <Link href={`/${locale}/photos`} className='text-center'>
-            {t.nav.photos}
+          <Link
+            href={`/cz${basePath}`}
+            className={`px-4 py-2 rounded font-sans uppercase text-sm tracking-wide transition-all ${
+              locale === 'cz'
+                ? 'border border-wedding-cream/50 bg-wedding-cream/10'
+                : 'border border-transparent hover:border-wedding-cream/30'
+            }`}
+          >
+            CZ
           </Link>
         </div>
-      )}
+
+        {/* Nav links */}
+        <Link
+          href={`/${locale}`}
+          className='text-center font-sans uppercase text-sm tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
+        >
+          {t.nav.home}
+        </Link>
+        <Link
+          href={`/${locale}/details`}
+          className='text-center font-sans uppercase text-sm tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
+        >
+          {t.nav.details}
+        </Link>
+        <Link
+          href={`/${locale}/registry`}
+          className='text-center font-sans uppercase text-sm tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
+        >
+          {t.nav.registry}
+        </Link>
+        <Link
+          href={`/${locale}/photos`}
+          className='text-center font-sans uppercase text-sm tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
+        >
+          {t.nav.photos}
+        </Link>
+      </div>
     </header>
   );
 }

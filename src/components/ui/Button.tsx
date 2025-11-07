@@ -25,9 +25,9 @@ export default function Button(props: ButtonProps) {
 
   const variantStyles = {
     primary:
-      'bg-wedding-cream text-wedding-olive px-20 py-2 rounded-full text-2xl font-sans uppercase insert-shadow-sm shadow-xl hover:bg-wedding-cream/90 transition-colors',
-    link: 'inline-flex items-center gap-2 text-wedding-cream/70 hover:text-wedding-cream transition-colors font-sans text-lg group',
-    back: 'inline-flex items-center gap-2 text-wedding-cream/70 hover:text-wedding-cream transition-colors font-sans',
+      'bg-wedding-cream text-wedding-olive px-12 sm:px-16 md:px-20 py-2.5 md:py-3 rounded-full text-xl md:text-2xl font-sans uppercase insert-shadow-sm shadow-xl hover:bg-wedding-cream/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out',
+    link: 'inline-flex items-center gap-2 text-wedding-cream/70 hover:text-wedding-cream transition-all duration-200 font-sans text-lg group',
+    back: 'inline-flex items-center gap-2 text-wedding-cream/70 hover:text-wedding-cream transition-all duration-200 font-sans',
   };
 
   const combinedClassName = `${variantStyles[variant]} ${className}`;

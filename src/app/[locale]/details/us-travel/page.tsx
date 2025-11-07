@@ -24,20 +24,22 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
         <PageTitle>Travel Information for US Guests</PageTitle>
 
         {/* Sections */}
-        <div className='space-y-12 text-wedding-cream'>
+        <div className='space-y-12 text-wedding-cream animate-fade-in'>
           {/* Flights */}
           <section>
             <SectionHeading>Flights</SectionHeading>
-            <div className='font-sans text-wedding-cream/90 space-y-3'>
+            <div className='font-sans text-wedding-cream/90 space-y-3 leading-relaxed'>
               <p>
-                <strong>Nearest Airport:</strong> Václav Havel Airport Prague (PRG)
+                <strong className='text-wedding-cream'>Nearest Airport:</strong> Václav Havel
+                Airport Prague (PRG)
               </p>
               <p>
-                <strong>From US:</strong> Direct flights available from major hubs (NYC, Chicago,
-                etc.) or connect through European cities
+                <strong className='text-wedding-cream'>From US:</strong> Direct flights available
+                from major hubs (NYC, Chicago, etc.) or connect through European cities
               </p>
               <p>
-                <strong>Flight Duration:</strong> ~9-10 hours direct from East Coast
+                <strong className='text-wedding-cream'>Flight Duration:</strong> ~9-10 hours direct
+                from East Coast
               </p>
             </div>
           </section>
@@ -45,10 +47,10 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
           {/* Visa Requirements */}
           <section>
             <SectionHeading>Visa & Entry</SectionHeading>
-            <div className='font-sans text-wedding-cream/90 space-y-3'>
+            <div className='font-sans text-wedding-cream/90 space-y-3 leading-relaxed'>
               <p>US citizens can enter Czech Republic visa-free for tourism up to 90 days.</p>
               <p>
-                <strong>Requirements:</strong>
+                <strong className='text-wedding-cream'>Requirements:</strong>
               </p>
               <ul className='list-disc ml-6 space-y-2'>
                 <li>Valid passport (at least 6 months beyond travel date)</li>
@@ -61,7 +63,7 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
           {/* Accommodation */}
           <section>
             <SectionHeading>Accommodation</SectionHeading>
-            <div className='font-sans text-wedding-cream/90 space-y-3'>
+            <div className='font-sans text-wedding-cream/90 space-y-3 leading-relaxed'>
               <p>Recommended hotels near the venue:</p>
               <ul className='list-disc ml-6 space-y-2'>
                 <li>[Hotel Name 1] - [Distance from venue]</li>
@@ -73,12 +75,14 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
           {/* Transportation */}
           <section>
             <SectionHeading>Getting Around</SectionHeading>
-            <div className='font-sans text-wedding-cream/90 space-y-3'>
+            <div className='font-sans text-wedding-cream/90 space-y-3 leading-relaxed'>
               <p>
-                <strong>Airport to Venue:</strong> ~30 minutes by taxi or rental car
+                <strong className='text-wedding-cream'>Airport to Venue:</strong> ~30 minutes by
+                taxi or rental car
               </p>
               <p>
-                <strong>Options:</strong> Uber/Bolt available, public transit, rental car
+                <strong className='text-wedding-cream'>Options:</strong> Uber/Bolt available, public
+                transit, rental car
               </p>
             </div>
           </section>
@@ -86,9 +90,9 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
           {/* Money */}
           <section>
             <SectionHeading>Currency & Money</SectionHeading>
-            <div className='font-sans text-wedding-cream/90 space-y-3'>
+            <div className='font-sans text-wedding-cream/90 space-y-3 leading-relaxed'>
               <p>
-                <strong>Currency:</strong> Czech Koruna (CZK)
+                <strong className='text-wedding-cream'>Currency:</strong> Czech Koruna (CZK)
               </p>
               <p>Credit cards widely accepted. ATMs available throughout the city.</p>
             </div>
@@ -97,18 +101,18 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
           {/* Useful Phrases */}
           <section>
             <SectionHeading>Useful Czech Phrases</SectionHeading>
-            <div className='font-sans text-wedding-cream/90 space-y-2'>
+            <div className='font-sans text-wedding-cream/90 space-y-2 leading-relaxed'>
               <p>
-                <strong>Dobrý den</strong> - Good day/Hello
+                <strong className='text-wedding-cream'>Dobrý den</strong> - Good day/Hello
               </p>
               <p>
-                <strong>Děkuji</strong> - Thank you
+                <strong className='text-wedding-cream'>Děkuji</strong> - Thank you
               </p>
               <p>
-                <strong>Prosím</strong> - Please/You're welcome
+                <strong className='text-wedding-cream'>Prosím</strong> - Please/You're welcome
               </p>
               <p>
-                <strong>Na zdraví!</strong> - Cheers!
+                <strong className='text-wedding-cream'>Na zdraví!</strong> - Cheers!
               </p>
             </div>
           </section>

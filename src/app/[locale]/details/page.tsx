@@ -26,12 +26,12 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
         </Button>
 
         {/* Main Details Content */}
-        <div>
+        <div className='space-y-12'>
           {/* Venue Section */}
-          <section>
+          <section className='animate-fade-in'>
             <SectionHeading>{t.details.venue.sectionTitle}</SectionHeading>
-            <div className='font-sans text-wedding-cream/90 space-y-2'>
-              <p className='text-xl'>{t.details.venue.name}</p>
+            <div className='font-sans text-wedding-cream/90 space-y-2 leading-relaxed'>
+              <p className='text-xl font-semibold'>{t.details.venue.name}</p>
               <p>
                 {t.details.venue.address.number} {t.details.venue.address.street}
               </p>
@@ -42,62 +42,78 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
           </section>
 
           {/* Date & Time */}
-          <section className='pt-10'>
+          <section className='animate-fade-in-delay-1'>
             <SectionHeading>{t.details.dateAndTime.sectionTitle}</SectionHeading>
-            <div className='font-sans text-wedding-cream/90'>
-              <p className='text-xl'>{t.when.dateString}</p>
+            <div className='font-sans text-wedding-cream/90 leading-relaxed'>
+              <p className='text-xl font-semibold'>{t.when.dateString}</p>
               <p>{t.when.time}</p>
             </div>
           </section>
 
           {/* Schedule */}
-          <section className='pt-10'>
+          <section className='animate-fade-in-delay-2'>
             <SectionHeading>{t.details.schedule.sectionTitle}</SectionHeading>
-            <div className='font-sans text-wedding-cream/90 space-y-3'>
-              <h3 className='text-2xl font-heading border-wedding-cream/30 pb-2 pt-4'>
-                {t.when.dayOfWeek}
-              </h3>
+            <div className='font-sans text-wedding-cream/90 space-y-6'>
               <div>
-                <p className='font-semibold'>{t.details.schedule.schedule.ceremonyHeader}</p>
-                <p className='text-sm text-wedding-cream/70'>
-                  {t.details.schedule.schedule.ceremonyDescription}
-                </p>
+                <h3 className='text-2xl font-heading text-wedding-cream border-b border-wedding-cream/30 pb-2 mb-4'>
+                  {t.when.dayOfWeek}
+                </h3>
+                <div className='space-y-3'>
+                  <div>
+                    <p className='font-semibold text-wedding-cream'>
+                      {t.details.schedule.schedule.ceremonyHeader}
+                    </p>
+                    <p className='text-sm text-wedding-cream/70 leading-relaxed'>
+                      {t.details.schedule.schedule.ceremonyDescription}
+                    </p>
+                  </div>
+                  <div>
+                    <p className='font-semibold text-wedding-cream'>
+                      {t.details.schedule.schedule.receptionHeader}
+                    </p>
+                    <p className='text-sm text-wedding-cream/70 leading-relaxed'>
+                      {t.details.schedule.schedule.receptionDescription}
+                    </p>
+                  </div>
+                </div>
               </div>
               <div>
-                <p className='font-semibold'>{t.details.schedule.schedule.receptionHeader}</p>
-                <p className='text-sm text-wedding-cream/70'>
-                  {t.details.schedule.schedule.receptionDescription}
-                </p>
-              </div>
-            </div>
-            <div className='font-sans text-wedding-cream/90 space-y-3'>
-              <h3 className='text-2xl font-heading border-wedding-cream/30 pt-10'>
-                {t.when.dayAfter}
-              </h3>
-              <div>
-                <p className='font-semibold'>{t.details.schedule.schedule.ceremonyHeader}</p>
-                <p className='text-sm text-wedding-cream/70'>
-                  {t.details.schedule.schedule.ceremonyDescription}
-                </p>
-              </div>
-              <div>
-                <p className='font-semibold'>{t.details.schedule.schedule.receptionHeader}</p>
-                <p className='text-sm text-wedding-cream/70'>
-                  {t.details.schedule.schedule.receptionDescription}
-                </p>
+                <h3 className='text-2xl font-heading text-wedding-cream border-b border-wedding-cream/30 pb-2 mb-4'>
+                  {t.when.dayAfter}
+                </h3>
+                <div className='space-y-3'>
+                  <div>
+                    <p className='font-semibold text-wedding-cream'>
+                      {t.details.schedule.schedule.ceremonyHeader}
+                    </p>
+                    <p className='text-sm text-wedding-cream/70 leading-relaxed'>
+                      {t.details.schedule.schedule.ceremonyDescription}
+                    </p>
+                  </div>
+                  <div>
+                    <p className='font-semibold text-wedding-cream'>
+                      {t.details.schedule.schedule.receptionHeader}
+                    </p>
+                    <p className='text-sm text-wedding-cream/70 leading-relaxed'>
+                      {t.details.schedule.schedule.receptionDescription}
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
 
           {/* Accommodations */}
-          <section className='pt-10 pb-10'>
+          <section className='animate-fade-in-delay-3'>
             <SectionHeading>{t.details.accommodations.sectionTitle}</SectionHeading>
           </section>
 
           {/* Dress Code */}
-          <section className='pt-10'>
+          <section className='animate-fade-in-delay-3'>
             <SectionHeading>{t.details.dressCode.sectionTitle}</SectionHeading>
-            <p className='font-sans text-wedding-cream/90'>{t.details.dressCode.description}</p>
+            <p className='font-sans text-wedding-cream/90 leading-relaxed'>
+              {t.details.dressCode.description}
+            </p>
           </section>
         </div>
       </Container>

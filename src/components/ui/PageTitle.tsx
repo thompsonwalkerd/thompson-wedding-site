@@ -4,7 +4,7 @@ type PageTitleProps = {
 
 export default function PageTitle({ children }: PageTitleProps) {
   return (
-    <h1 className='text-5xl font-heading text-wedding-cream mb-12 border-b border-wedding-cream/30 pb-4'>
+    <h1 className='text-3xl sm:text-4xl md:text-5xl font-heading text-wedding-cream mb-8 md:mb-12 border-b border-wedding-cream/30 pb-3 md:pb-4 leading-tight'>
       {children}
     </h1>
   );

@@ -10,5 +10,11 @@ export default function Container({ children, size = 'default', className = '' }
     wide: 'max-w-6xl',
   };
 
-  return <div className={`px-6 py-12 ${sizeStyles[size]} mx-auto ${className}`}>{children}</div>;
+  return (
+    <div
+      className={`px-4 sm:px-6 py-8 md:py-12 ${sizeStyles[size]} mx-auto animate-fade-in ${className}`}
+    >
+      {children}
+    </div>
+  );
 }
