@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -6,12 +6,11 @@
 }
 
 @theme inline {
-  
   /* Wedding brand colors */
-  --color-wedding-olive: #63704F;
-  --color-wedding-black: #10120D;
-  --color-wedding-cream: #E6EAE1;
-  
+  --color-wedding-olive: #63704f;
+  --color-wedding-black: #10120d;
+  --color-wedding-cream: #e6eae1;
+
   /* Custom fonts */
   --font-heading: 'Cormorant Garamond', serif;
   --font-sans: 'Raleway', sans-serif;
@@ -27,14 +26,16 @@
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 10px rgba(230, 234, 225, 0.3),
-                 0 0 20px rgba(230, 234, 225, 0.2);
+    text-shadow:
+      0 0 10px rgba(230, 234, 225, 0.3),
+      0 0 20px rgba(230, 234, 225, 0.2);
   }
-  
+
   .text-glow-strong {
-    text-shadow: 0 0 30px rgba(230, 234, 225, 1),
-                 0 0 60px rgba(230, 234, 225, 0.7),
-                 0 0 90px rgba(230, 234, 225, 0.4);
+    text-shadow:
+      0 0 30px rgba(230, 234, 225, 1),
+      0 0 60px rgba(230, 234, 225, 0.7),
+      0 0 90px rgba(230, 234, 225, 0.4);
   }
 }
 

@@ -9,7 +9,13 @@ import RsvpResults from '@/components/rsvp/RsvpResults';
 import RsvpForm from '@/components/rsvp/RsvpForm';
 import RsvpSuccess from '@/components/rsvp/RsvpSuccess';
 import RsvpAlreadySubmitted from '@/components/rsvp/RsvpAlreadySubmitted';
-import { searchGuests, submitRsvp, checkRsvpStatus, type GuestGroup, type RsvpAttendee } from '@/lib/mocks/rsvp';
+import {
+  searchGuests,
+  submitRsvp,
+  checkRsvpStatus,
+  type GuestGroup,
+  type RsvpAttendee,
+} from '@/lib/mocks/rsvp';
 
 type RsvpPageProps = {
   params: Promise<{ locale: string }>;
@@ -85,19 +91,13 @@ export default function RsvpPage({ params }: RsvpPageProps) {
 
   // Handle attendee checkbox change
   const handleAttendeeChange = (guestId: number, attending: boolean) => {
-    setAttendees(prev =>
-      prev.map(a =>
-        a.guest_id === guestId ? { ...a, attending } : a
-      )
-    );
+    setAttendees(prev => prev.map(a => (a.guest_id === guestId ? { ...a, attending } : a)));
   };
 
   // Handle plus-one name change
   const handlePlusOneNameChange = (guestId: number, name: string) => {
     setAttendees(prev =>
-      prev.map(a =>
-        a.guest_id === guestId ? { ...a, plus_one_name: name } : a
-      )
+      prev.map(a => (a.guest_id === guestId ? { ...a, plus_one_name: name } : a))
     );
   };
 
@@ -178,14 +178,10 @@ export default function RsvpPage({ params }: RsvpPageProps) {
         )}
 
         {/* Success State */}
-        {formState === 'success' && (
-          <RsvpSuccess t={t} locale={locale} email={email} />
-        )}
+        {formState === 'success' && <RsvpSuccess t={t} locale={locale} email={email} />}
 
         {/* Already Submitted State */}
-        {formState === 'already-submitted' && (
-          <RsvpAlreadySubmitted t={t} />
-        )}
+        {formState === 'already-submitted' && <RsvpAlreadySubmitted t={t} />}
       </div>
     </PageLayout>
   );

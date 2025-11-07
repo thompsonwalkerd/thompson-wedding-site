@@ -76,23 +76,28 @@ src/
 ## Setup Instructions
 
 1. Clone the repository
+
    ```bash
    git clone <repository-url>
    cd thompson-wedding-site
    ```
 
 2. Copy the example translations file:
+
    ```bash
    cp src/lib/translations.example.ts src/lib/translations.ts
    ```
+
    This repository uses placeholder data for privacy. The example file contains mock names and dates.
 
 3. Install dependencies:
+
    ```bash
    npm install
    ```
 
 4. Run development server:
+
    ```bash
    npm run dev
    ```

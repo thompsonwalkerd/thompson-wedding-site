@@ -8,12 +8,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   const t = getTranslations(locale);
 
   return (
-    <PageLayout
-      locale={locale}
-      t={t}
-      currentPath=''
-      backgroundImage='/home-bg-1.jpeg'
-    >
+    <PageLayout locale={locale} t={t} currentPath='' backgroundImage='/home-bg-1.jpeg'>
       <div className='flex flex-col items-center justify-between h-full'>
         {/* Hero Section */}
         <div className='flex-1 flex flex-col items-center justify-top text-center'>

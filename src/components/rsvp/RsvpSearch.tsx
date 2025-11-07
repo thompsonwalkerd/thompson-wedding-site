@@ -19,23 +19,19 @@ export default function RsvpSearch({
 }: RsvpSearchProps) {
   return (
     <div className='space-y-6'>
-      <p className='text-wedding-cream font-sans text-lg'>
-        {t.rsvp.searchPrompt}
-      </p>
+      <p className='text-wedding-cream font-sans text-lg'>{t.rsvp.searchPrompt}</p>
 
       <form onSubmit={onSearch} className='space-y-4'>
         <input
           type='text'
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={e => setSearchQuery(e.target.value)}
           placeholder={t.rsvp.searchPlaceholder}
           className='w-full px-4 py-3 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream placeholder:text-wedding-cream/50 font-sans focus:outline-none focus:border-wedding-cream/60'
           disabled={isSearching}
         />
 
-        {searchError && (
-          <p className='text-red-400 font-sans text-sm'>{searchError}</p>
-        )}
+        {searchError && <p className='text-red-400 font-sans text-sm'>{searchError}</p>}
 
         <button
           type='submit'

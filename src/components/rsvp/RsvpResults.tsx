@@ -16,12 +16,10 @@ export default function RsvpResults({
 }: RsvpResultsProps) {
   return (
     <div className='space-y-6'>
-      <p className='text-wedding-cream font-sans text-lg mb-4'>
-        {t.rsvp.resultsPrompt}
-      </p>
+      <p className='text-wedding-cream font-sans text-lg mb-4'>{t.rsvp.resultsPrompt}</p>
 
       <div className='space-y-3'>
-        {searchResults.map((group) => (
+        {searchResults.map(group => (
           <button
             key={group.group_id}
             onClick={() => onSelectGuest(group)}

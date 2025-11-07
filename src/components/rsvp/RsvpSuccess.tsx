@@ -11,17 +11,11 @@ export default function RsvpSuccess({ t, locale, email }: RsvpSuccessProps) {
   return (
     <div className='text-center space-y-6'>
       <div className='text-6xl mb-4'>✓</div>
-      <p className='text-2xl font-heading text-wedding-cream'>
-        {t.rsvp.successMessage}
-      </p>
+      <p className='text-2xl font-heading text-wedding-cream'>{t.rsvp.successMessage}</p>
       {email && (
         <div className='space-y-2'>
-          <p className='text-wedding-cream/70 font-sans text-sm'>
-            {t.rsvp.confirmationSent}
-          </p>
-          <p className='text-wedding-cream font-sans text-lg'>
-            {email}
-          </p>
+          <p className='text-wedding-cream/70 font-sans text-sm'>{t.rsvp.confirmationSent}</p>
+          <p className='text-wedding-cream font-sans text-lg'>{email}</p>
         </div>
       )}
       <Link
