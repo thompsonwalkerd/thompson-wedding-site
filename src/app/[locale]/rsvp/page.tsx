@@ -1,14 +1,14 @@
 'use client';
 
 import { use, useState } from 'react';
-import { getTranslations } from '@/lib/translations';
-import { validateLocale } from '@/utils/locale';
 import PageLayout from '@/components/PageLayout';
-import RsvpSearch from '@/components/rsvp/RsvpSearch';
-import RsvpResults from '@/components/rsvp/RsvpResults';
-import RsvpForm from '@/components/rsvp/RsvpForm';
-import RsvpSuccess from '@/components/rsvp/RsvpSuccess';
 import RsvpAlreadySubmitted from '@/components/rsvp/RsvpAlreadySubmitted';
+import RsvpForm from '@/components/rsvp/RsvpForm';
+import RsvpResults from '@/components/rsvp/RsvpResults';
+import RsvpSearch from '@/components/rsvp/RsvpSearch';
+import RsvpSuccess from '@/components/rsvp/RsvpSuccess';
+import Container from '@/components/ui/Container';
+import PageTitle from '@/components/ui/PageTitle';
 import {
   searchGuests,
   submitRsvp,
@@ -16,6 +16,8 @@ import {
   type GuestGroup,
   type RsvpAttendee,
 } from '@/lib/mocks/rsvp';
+import { getTranslations } from '@/lib/translations';
+import { validateLocale } from '@/utils/locale';
 
 type RsvpPageProps = {
   params: Promise<{ locale: string }>;
@@ -61,7 +63,7 @@ export default function RsvpPage({ params }: RsvpPageProps) {
       // Show results for user to select
       setSearchResults(results);
       setFormState('results');
-    } catch (error) {
+    } catch {
       setSearchError(t.rsvp.errorMessage);
     } finally {
       setIsSearching(false);
@@ -122,7 +124,7 @@ export default function RsvpPage({ params }: RsvpPageProps) {
       } else {
         setSubmitError(result.message || t.rsvp.errorMessage);
       }
-    } catch (error) {
+    } catch {
       setSubmitError(t.rsvp.errorMessage);
     } finally {
       setIsSubmitting(false);
@@ -131,11 +133,8 @@ export default function RsvpPage({ params }: RsvpPageProps) {
 
   return (
     <PageLayout locale={locale} t={t} currentPath='rsvp'>
-      <div className='px-6 py-12 max-w-2xl mx-auto w-full'>
-        {/* Page Title */}
-        <h1 className='text-5xl font-heading text-wedding-cream mb-12 border-b border-wedding-cream/30 pb-4'>
-          {t.rsvp.pageTitle}
-        </h1>
+      <Container size='default' className='max-w-2xl w-full'>
+        <PageTitle>{t.rsvp.pageTitle}</PageTitle>
 
         {/* Search State */}
         {formState === 'search' && (
@@ -182,7 +181,7 @@ export default function RsvpPage({ params }: RsvpPageProps) {
 
         {/* Already Submitted State */}
         {formState === 'already-submitted' && <RsvpAlreadySubmitted t={t} />}
-      </div>
+      </Container>
     </PageLayout>
   );
 }

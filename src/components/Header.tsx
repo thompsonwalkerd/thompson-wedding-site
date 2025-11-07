@@ -86,7 +86,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
 
       {/* Mobile: Dropdown menu (shown when hamburger clicked) */}
       {isMenuOpen && (
-        <div className='md:hidden absolute top-full left-0 right-0 bg-black border-t border-gray-700 flex flex-col p-6 gap-4'>
+        <div className='md:hidden absolute top-full left-0 right-0 bg-black border-t border-gray-700 flex flex-col p-6 gap-4 z-50'>
           {/* Language toggle */}
           <div className='flex gap-2 justify-center pb-4 border-b border-gray-700'>
             <Link href={`/en${basePath}`} className='px-3 py-1 rounded'>

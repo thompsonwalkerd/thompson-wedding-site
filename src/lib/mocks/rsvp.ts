@@ -115,6 +115,7 @@ export async function submitRsvp(
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 500));
 
+  // eslint-disable-next-line no-console
   console.log('Mock RSVP Submission:', data);
 
   // Validate: at least one person attending

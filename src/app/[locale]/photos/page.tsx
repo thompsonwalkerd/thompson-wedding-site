@@ -1,9 +1,11 @@
+import { use } from 'react';
+import PageLayout from '@/components/PageLayout';
 import { getTranslations } from '@/lib/translations';
 import { validateLocale } from '@/utils/locale';
-import PageLayout from '@/components/PageLayout';
 
-export default function PhotosPage({ params }: { params: { locale: string } }) {
-  const locale = validateLocale(params.locale);
+export default function PhotosPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale: localeString } = use(params);
+  const locale = validateLocale(localeString);
   const t = getTranslations(locale);
 
   return (

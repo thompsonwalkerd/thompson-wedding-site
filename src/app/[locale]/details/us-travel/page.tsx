@@ -1,34 +1,33 @@
+import { use } from 'react';
+import PageLayout from '@/components/PageLayout';
+import Button from '@/components/ui/Button';
+import Container from '@/components/ui/Container';
+import PageTitle from '@/components/ui/PageTitle';
+import SectionHeading from '@/components/ui/SectionHeading';
 import { getTranslations } from '@/lib/translations';
 import { validateLocale } from '@/utils/locale';
-import PageLayout from '@/components/PageLayout';
-import Link from 'next/link';
 
-export default function USTravelPage({ params }: { params: { locale: string } }) {
-  const locale = validateLocale(params.locale);
+export default function USTravelPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale: localeString } = use(params);
+  const locale = validateLocale(localeString);
   const t = getTranslations(locale);
 
   return (
     <PageLayout locale={locale} t={t} currentPath='details/us-travel'>
-      <div className='px-6 py-12 max-w-4xl mx-auto'>
+      <Container>
         {/* Back Button */}
-        <Link
-          href={`/${locale}/details`}
-          className='inline-flex items-center gap-2 mb-8 text-wedding-cream/70 hover:text-wedding-cream transition-colors font-sans'
-        >
+        <Button as='link' href={`/${locale}/details`} variant='back' className='mb-8'>
           <span>←</span>
           <span>Back to Details</span>
-        </Link>
+        </Button>
 
-        {/* Page Title */}
-        <h1 className='text-5xl font-heading text-wedding-cream mb-12 border-b border-wedding-cream/30 pb-4'>
-          Travel Information for US Guests
-        </h1>
+        <PageTitle>Travel Information for US Guests</PageTitle>
 
         {/* Sections */}
         <div className='space-y-12 text-wedding-cream'>
           {/* Flights */}
           <section>
-            <h2 className='text-3xl font-heading mb-4'>Flights</h2>
+            <SectionHeading>Flights</SectionHeading>
             <div className='font-sans text-wedding-cream/90 space-y-3'>
               <p>
                 <strong>Nearest Airport:</strong> Václav Havel Airport Prague (PRG)
@@ -45,7 +44,7 @@ export default function USTravelPage({ params }: { params: { locale: string } })
 
           {/* Visa Requirements */}
           <section>
-            <h2 className='text-3xl font-heading mb-4'>Visa & Entry</h2>
+            <SectionHeading>Visa & Entry</SectionHeading>
             <div className='font-sans text-wedding-cream/90 space-y-3'>
               <p>US citizens can enter Czech Republic visa-free for tourism up to 90 days.</p>
               <p>
@@ -61,7 +60,7 @@ export default function USTravelPage({ params }: { params: { locale: string } })
 
           {/* Accommodation */}
           <section>
-            <h2 className='text-3xl font-heading mb-4'>Accommodation</h2>
+            <SectionHeading>Accommodation</SectionHeading>
             <div className='font-sans text-wedding-cream/90 space-y-3'>
               <p>Recommended hotels near the venue:</p>
               <ul className='list-disc ml-6 space-y-2'>
@@ -73,7 +72,7 @@ export default function USTravelPage({ params }: { params: { locale: string } })
 
           {/* Transportation */}
           <section>
-            <h2 className='text-3xl font-heading mb-4'>Getting Around</h2>
+            <SectionHeading>Getting Around</SectionHeading>
             <div className='font-sans text-wedding-cream/90 space-y-3'>
               <p>
                 <strong>Airport to Venue:</strong> ~30 minutes by taxi or rental car
@@ -86,7 +85,7 @@ export default function USTravelPage({ params }: { params: { locale: string } })
 
           {/* Money */}
           <section>
-            <h2 className='text-3xl font-heading mb-4'>Currency & Money</h2>
+            <SectionHeading>Currency & Money</SectionHeading>
             <div className='font-sans text-wedding-cream/90 space-y-3'>
               <p>
                 <strong>Currency:</strong> Czech Koruna (CZK)
@@ -97,7 +96,7 @@ export default function USTravelPage({ params }: { params: { locale: string } })
 
           {/* Useful Phrases */}
           <section>
-            <h2 className='text-3xl font-heading mb-4'>Useful Czech Phrases</h2>
+            <SectionHeading>Useful Czech Phrases</SectionHeading>
             <div className='font-sans text-wedding-cream/90 space-y-2'>
               <p>
                 <strong>Dobrý den</strong> - Good day/Hello
@@ -114,7 +113,7 @@ export default function USTravelPage({ params }: { params: { locale: string } })
             </div>
           </section>
         </div>
-      </div>
+      </Container>
     </PageLayout>
   );
 }

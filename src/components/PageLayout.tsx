@@ -1,6 +1,6 @@
-import { Locale, Translations } from '@/lib/translations';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import { Locale, Translations } from '@/lib/translations';
 
 type PageLayoutProps = {
   locale: Locale;

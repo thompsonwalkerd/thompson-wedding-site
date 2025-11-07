@@ -1,5 +1,5 @@
-import { Translations } from '@/lib/translations';
 import { GuestGroup } from '@/lib/mocks/rsvp';
+import { Translations } from '@/lib/translations';
 
 type RsvpResultsProps = {
   t: Translations;
