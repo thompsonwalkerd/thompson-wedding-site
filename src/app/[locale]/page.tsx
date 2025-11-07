@@ -11,8 +11,8 @@ export default function HomePage({ params }: { params: { locale: string } }) {
     <PageLayout locale={locale} t={t} currentPath='' backgroundImage='/home-bg-1.jpeg'>
       <div className='flex flex-col items-center justify-between h-full'>
         {/* Hero Section */}
-        <div className='flex-1 flex flex-col items-center justify-top text-center'>
-          <p className='font-heading text-wedding-cream text-xl text-glow uppercase tracking-widest mt-8 mb-2'>
+        <div className='flex-1 flex flex-col items-center justify-start text-center pt-16'>
+          <p className='font-heading text-wedding-cream text-xl text-glow uppercase tracking-widest mb-2'>
             {t.home.tagline}
           </p>
 
@@ -26,7 +26,7 @@ export default function HomePage({ params }: { params: { locale: string } }) {
         </div>
 
         {/* RSVP Button */}
-        <div className='pb-12 flex justify-center'>
+        <div className='pb-16 flex justify-center'>
           <Link
             href={`/${locale}/rsvp`}
             className='bg-wedding-cream text-wedding-olive px-20 py-2 rounded-full text-2xl font-sans uppercase insert-shadow-sm shadow-xl'
