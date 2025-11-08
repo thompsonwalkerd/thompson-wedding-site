@@ -1,10 +1,10 @@
-import { GuestGroup, RsvpAttendee } from '@/lib/mocks/rsvp';
+import { GuestGroup, RsvpGuestResponse } from '@/lib/mocks/rsvp';
 import { Translations } from '@/lib/translations';
 
 type RsvpFormProps = {
   t: Translations;
   guestGroup: GuestGroup;
-  attendees: RsvpAttendee[];
+  attendees: RsvpGuestResponse[];
   email: string;
   dietaryRestrictions: string;
   isSubmitting: boolean;
@@ -32,7 +32,7 @@ export default function RsvpForm({
     <form onSubmit={onSubmit} className='space-y-8'>
       {/* Group Label */}
       <div>
-        <h2 className='text-2xl font-heading text-wedding-cream mb-4'>{t.rsvp.groupLabel}</h2>
+        <h2 className='text-3xl font-heading text-wedding-cream mb-4'>{t.rsvp.groupLabel}</h2>
         <p className='text-wedding-cream/70 font-sans mb-6'>{guestGroup.group_name}</p>
 
         {/* Guest Checkboxes */}
@@ -84,7 +84,7 @@ export default function RsvpForm({
         />
       </div>
 
-      {submitError && <p className='text-red-400 font-sans text-sm'>{submitError}</p>}
+      {submitError && <p className='text-red-400 font-sans text-base'>{submitError}</p>}
 
       {/* Submit Button */}
       <button

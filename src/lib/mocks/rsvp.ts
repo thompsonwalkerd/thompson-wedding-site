@@ -12,7 +12,7 @@ export type GuestGroup = {
   guests: Guest[];
 };
 
-export type RsvpAttendee = {
+export type RsvpGuestResponse = {
   guest_id: number;
   attending: boolean;
 };
@@ -20,7 +20,7 @@ export type RsvpAttendee = {
 export type RsvpSubmission = {
   group_id: number;
   email: string;
-  attendees: RsvpAttendee[];
+  attendees: RsvpGuestResponse[];
   dietary_restrictions: string;
 };
 

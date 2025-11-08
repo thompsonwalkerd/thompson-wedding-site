@@ -19,7 +19,7 @@ export default function RsvpSearch({
 }: RsvpSearchProps) {
   return (
     <div className='space-y-6'>
-      <p className='text-wedding-cream font-sans text-lg'>{t.rsvp.searchPrompt}</p>
+      <p className='text-wedding-cream font-sans text-xl'>{t.rsvp.searchPrompt}</p>
 
       <form onSubmit={onSearch} className='space-y-4'>
         <input
@@ -31,7 +31,7 @@ export default function RsvpSearch({
           disabled={isSearching}
         />
 
-        {searchError && <p className='text-red-400 font-sans text-sm'>{searchError}</p>}
+        {searchError && <p className='text-red-400 font-sans text-base'>{searchError}</p>}
 
         <button
           type='submit'

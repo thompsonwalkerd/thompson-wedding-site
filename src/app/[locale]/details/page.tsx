@@ -31,7 +31,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
           <section className='animate-fade-in'>
             <SectionHeading>{t.details.venue.sectionTitle}</SectionHeading>
             <div className='font-sans text-wedding-cream/90 space-y-2 leading-relaxed'>
-              <p className='text-xl font-semibold'>{t.details.venue.name}</p>
+              <p className='text-2xl font-semibold'>{t.details.venue.name}</p>
               <p>
                 {t.details.venue.address.number} {t.details.venue.address.street}
               </p>
@@ -45,7 +45,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
           <section className='animate-fade-in-delay-1'>
             <SectionHeading>{t.details.dateAndTime.sectionTitle}</SectionHeading>
             <div className='font-sans text-wedding-cream/90 leading-relaxed'>
-              <p className='text-xl font-semibold'>{t.when.dateString}</p>
+              <p className='text-2xl font-semibold'>{t.when.dateString}</p>
               <p>{t.when.time}</p>
             </div>
           </section>
@@ -55,7 +55,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
             <SectionHeading>{t.details.schedule.sectionTitle}</SectionHeading>
             <div className='font-sans text-wedding-cream/90 space-y-6'>
               <div>
-                <h3 className='text-2xl font-heading text-wedding-cream border-b border-wedding-cream/30 pb-2 mb-4'>
+                <h3 className='text-3xl font-heading text-wedding-cream border-b border-wedding-cream/30 pb-2 mb-4'>
                   {t.when.dayOfWeek}
                 </h3>
                 <div className='space-y-3'>
@@ -63,7 +63,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
                     <p className='font-semibold text-wedding-cream'>
                       {t.details.schedule.schedule.ceremonyHeader}
                     </p>
-                    <p className='text-sm text-wedding-cream/70 leading-relaxed'>
+                    <p className='text-base text-wedding-cream/70 leading-relaxed'>
                       {t.details.schedule.schedule.ceremonyDescription}
                     </p>
                   </div>
@@ -71,14 +71,14 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
                     <p className='font-semibold text-wedding-cream'>
                       {t.details.schedule.schedule.receptionHeader}
                     </p>
-                    <p className='text-sm text-wedding-cream/70 leading-relaxed'>
+                    <p className='text-base text-wedding-cream/70 leading-relaxed'>
                       {t.details.schedule.schedule.receptionDescription}
                     </p>
                   </div>
                 </div>
               </div>
               <div>
-                <h3 className='text-2xl font-heading text-wedding-cream border-b border-wedding-cream/30 pb-2 mb-4'>
+                <h3 className='text-3xl font-heading text-wedding-cream border-b border-wedding-cream/30 pb-2 mb-4'>
                   {t.when.dayAfter}
                 </h3>
                 <div className='space-y-3'>
@@ -86,7 +86,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
                     <p className='font-semibold text-wedding-cream'>
                       {t.details.schedule.schedule.ceremonyHeader}
                     </p>
-                    <p className='text-sm text-wedding-cream/70 leading-relaxed'>
+                    <p className='text-base text-wedding-cream/70 leading-relaxed'>
                       {t.details.schedule.schedule.ceremonyDescription}
                     </p>
                   </div>
@@ -94,7 +94,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
                     <p className='font-semibold text-wedding-cream'>
                       {t.details.schedule.schedule.receptionHeader}
                     </p>
-                    <p className='text-sm text-wedding-cream/70 leading-relaxed'>
+                    <p className='text-base text-wedding-cream/70 leading-relaxed'>
                       {t.details.schedule.schedule.receptionDescription}
                     </p>
                   </div>

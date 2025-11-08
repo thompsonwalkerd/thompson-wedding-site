@@ -16,7 +16,7 @@ export default function RsvpResults({
 }: RsvpResultsProps) {
   return (
     <div className='space-y-6'>
-      <p className='text-wedding-cream font-sans text-lg mb-4'>{t.rsvp.resultsPrompt}</p>
+      <p className='text-wedding-cream font-sans text-xl mb-4'>{t.rsvp.resultsPrompt}</p>
 
       <div className='space-y-3'>
         {searchResults.map(group => (
@@ -27,8 +27,8 @@ export default function RsvpResults({
           >
             <div className='flex items-center justify-between'>
               <div>
-                <p className='text-lg font-heading'>{group.group_name}</p>
-                <p className='text-sm text-wedding-cream/70 mt-1'>
+                <p className='text-xl font-heading'>{group.group_name}</p>
+                <p className='text-base text-wedding-cream/70 mt-1'>
                   {group.guests.map(g => g.name).join(', ')}
                 </p>
               </div>
@@ -42,7 +42,7 @@ export default function RsvpResults({
 
       <button
         onClick={onBackToSearch}
-        className='text-wedding-cream/70 hover:text-wedding-cream font-sans text-sm transition-colors'
+        className='text-wedding-cream/70 hover:text-wedding-cream font-sans text-base transition-colors'
       >
         ← Back to search
       </button>

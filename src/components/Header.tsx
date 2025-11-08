@@ -17,7 +17,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
   return (
     <header className='p-4 md:p-6 flex justify-between items-center relative'>
       {/* Logo - left side */}
-      <div className='font-script text-2xl sm:text-3xl md:text-4xl tracking-wide'>
+      <div className='font-script text-3xl sm:text-4xl md:text-5xl tracking-wide'>
         {t.home.couple.bride} {t.home.couple.and} {t.home.couple.groom}
       </div>
 
@@ -25,25 +25,25 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
       <nav className='hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8'>
         <Link
           href={`/${locale}`}
-          className='font-sans font-semibold uppercase text-md tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'
+          className='font-sans font-semibold uppercase text-base tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'
         >
           {t.nav.home}
         </Link>
         <Link
           href={`/${locale}/details`}
-          className='font-sans font-semibold uppercase text-md tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'
+          className='font-sans font-semibold uppercase text-base tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'
         >
           {t.nav.details}
         </Link>
         <Link
           href={`/${locale}/registry`}
-          className='font-sans font-semibold uppercase text-md tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'
+          className='font-sans font-semibold uppercase text-base tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'
         >
           {t.nav.registry}
         </Link>
         <Link
           href={`/${locale}/photos`}
-          className='font-sans font-semibold uppercase text-md tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'
+          className='font-sans font-semibold uppercase text-base tracking-wide text-wedding-cream/70 hover:text-wedding-cream hover:border-b-2 hover:border-wedding-cream pb-1 transition-all duration-200'
         >
           {t.nav.photos}
         </Link>
@@ -53,7 +53,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
       <div className='hidden md:flex gap-2'>
         <Link
           href={`/en${basePath}`}
-          className={`px-3 py-1 rounded font-sans uppercase text-sm tracking-wide ${
+          className={`px-3 py-1 rounded font-sans uppercase text-base tracking-wide ${
             locale === 'en'
               ? 'border border-wedding-cream/50 bg-wedding-cream/10'
               : 'border border-transparent hover:border-wedding-cream/30'
@@ -63,7 +63,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
         </Link>
         <Link
           href={`/cz${basePath}`}
-          className={`px-3 py-1 rounded font-sans uppercase text-sm tracking-wide ${
+          className={`px-3 py-1 rounded font-sans uppercase text-base tracking-wide ${
             locale === 'cz'
               ? 'border border-wedding-cream/50 bg-wedding-cream/5'
               : 'border border-transparent hover:border-wedding-cream/30'
@@ -108,7 +108,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
         <div className='flex gap-2 justify-center pb-4 border-b border-wedding-cream/20'>
           <Link
             href={`/en${basePath}`}
-            className={`px-4 py-2 rounded font-sans uppercase text-sm tracking-wide transition-all ${
+            className={`px-4 py-2 rounded font-sans uppercase text-base tracking-wide transition-all ${
               locale === 'en'
                 ? 'border border-wedding-cream/50 bg-wedding-cream/10'
                 : 'border border-transparent hover:border-wedding-cream/30'
@@ -118,7 +118,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
           </Link>
           <Link
             href={`/cz${basePath}`}
-            className={`px-4 py-2 rounded font-sans uppercase text-sm tracking-wide transition-all ${
+            className={`px-4 py-2 rounded font-sans uppercase text-base tracking-wide transition-all ${
               locale === 'cz'
                 ? 'border border-wedding-cream/50 bg-wedding-cream/10'
                 : 'border border-transparent hover:border-wedding-cream/30'
@@ -131,25 +131,25 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
         {/* Nav links */}
         <Link
           href={`/${locale}`}
-          className='text-center font-sans uppercase text-sm tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
+          className='text-center font-sans uppercase text-base tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
         >
           {t.nav.home}
         </Link>
         <Link
           href={`/${locale}/details`}
-          className='text-center font-sans uppercase text-sm tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
+          className='text-center font-sans uppercase text-base tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
         >
           {t.nav.details}
         </Link>
         <Link
           href={`/${locale}/registry`}
-          className='text-center font-sans uppercase text-sm tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
+          className='text-center font-sans uppercase text-base tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
         >
           {t.nav.registry}
         </Link>
         <Link
           href={`/${locale}/photos`}
-          className='text-center font-sans uppercase text-sm tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
+          className='text-center font-sans uppercase text-base tracking-wide py-2 hover:text-wedding-cream/70 transition-colors'
         >
           {t.nav.photos}
         </Link>

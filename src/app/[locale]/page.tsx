@@ -14,20 +14,20 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
       <div className='flex flex-col items-center justify-center h-full relative px-4'>
         {/* Hero Section */}
         <div className='flex flex-col items-center justify-center text-center'>
-          <p className='font-heading text-wedding-cream text-lg md:text-xl text-glow uppercase tracking-widest mb-3 animate-fade-in'>
+          <p className='font-heading text-wedding-cream text-xl md:text-2xl text-glow tracking-widest animate-fade-in'>
             {t.home.tagline}
           </p>
 
-          <h1 className='text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-script text-wedding-cream text-glow mb-6 leading-tight animate-fade-in-delay-1'>
+          <h1 className='text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-script text-wedding-cream text-glow leading-tight -mt-2 animate-fade-in-delay-1'>
             {t.home.couple.bride} {t.home.couple.and} {t.home.couple.groom}
           </h1>
 
-          <p className='font-heading text-wedding-cream text-lg md:text-xl text-glow uppercase tracking-widest mb-12 animate-fade-in-delay-2'>
+          <p className='font-heading text-wedding-cream text-xl md:text-2xl text-glow tracking-widest mb-12 -mt-2 animate-fade-in-delay-2'>
             {t.when.dateString}
           </p>
 
           {/* RSVP Button */}
-          <div className='animate-fade-in-delay-3'>
+          <div className='animate-fade-in-delay-3 lg:pt-20 md:pt-30 pt-0'>
             <Button as='link' href={`/${locale}/rsvp`} variant='primary'>
               {t.home.rsvpButton}
             </Button>

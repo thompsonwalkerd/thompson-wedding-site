@@ -14,7 +14,7 @@ import {
   submitRsvp,
   checkRsvpStatus,
   type GuestGroup,
-  type RsvpAttendee,
+  type RsvpGuestResponse,
 } from '@/lib/mocks/rsvp';
 import { getTranslations } from '@/lib/translations';
 import { validateLocale } from '@/utils/locale';
@@ -38,7 +38,7 @@ export default function RsvpPage({ params }: RsvpPageProps) {
 
   const [searchResults, setSearchResults] = useState<GuestGroup[]>([]);
   const [guestGroup, setGuestGroup] = useState<GuestGroup | null>(null);
-  const [attendees, setAttendees] = useState<RsvpAttendee[]>([]);
+  const [attendees, setAttendees] = useState<RsvpGuestResponse[]>([]);
   const [email, setEmail] = useState('');
   const [dietaryRestrictions, setDietaryRestrictions] = useState('');
 
@@ -80,7 +80,7 @@ export default function RsvpPage({ params }: RsvpPageProps) {
     }
 
     // Initialize attendees array with all guests set to not attending
-    const initialAttendees: RsvpAttendee[] = group.guests.map(guest => ({
+    const initialAttendees: RsvpGuestResponse[] = group.guests.map(guest => ({
       guest_id: guest.id,
       attending: false,
     }));
