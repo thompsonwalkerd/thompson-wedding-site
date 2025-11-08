@@ -4,7 +4,6 @@
 export type Guest = {
   id: number;
   name: string;
-  is_plus_one_slot: boolean;
 };
 
 export type GuestGroup = {
@@ -16,7 +15,6 @@ export type GuestGroup = {
 export type RsvpAttendee = {
   guest_id: number;
   attending: boolean;
-  plus_one_name?: string;
 };
 
 export type RsvpSubmission = {
@@ -32,40 +30,40 @@ const mockGroups: GuestGroup[] = [
     group_id: 1,
     group_name: 'Smith Family',
     guests: [
-      { id: 1, name: 'Sarah Smith', is_plus_one_slot: false },
-      { id: 2, name: 'John Smith', is_plus_one_slot: false },
-      { id: 3, name: 'Emma Smith', is_plus_one_slot: false },
+      { id: 1, name: 'Sarah Smith' },
+      { id: 2, name: 'John Smith' },
+      { id: 3, name: 'Emma Smith' },
     ],
   },
   {
     group_id: 2,
-    group_name: 'Michael Johnson + Guest',
+    group_name: 'Michael Johnson & Partner',
     guests: [
-      { id: 4, name: 'Michael Johnson', is_plus_one_slot: false },
-      { id: 5, name: 'Guest', is_plus_one_slot: true },
+      { id: 4, name: 'Michael Johnson' },
+      { id: 5, name: 'Jamie Anderson' },
     ],
   },
   {
     group_id: 3,
     group_name: 'Emily Davis',
-    guests: [{ id: 6, name: 'Emily Davis', is_plus_one_slot: false }],
+    guests: [{ id: 6, name: 'Emily Davis' }],
   },
   {
     group_id: 4,
     group_name: 'The Williams Family',
     guests: [
-      { id: 7, name: 'Robert Williams', is_plus_one_slot: false },
-      { id: 8, name: 'Lisa Williams', is_plus_one_slot: false },
-      { id: 9, name: 'Jake Williams', is_plus_one_slot: false },
-      { id: 10, name: 'Sophie Williams', is_plus_one_slot: false },
+      { id: 7, name: 'Robert Williams' },
+      { id: 8, name: 'Lisa Williams' },
+      { id: 9, name: 'Jake Williams' },
+      { id: 10, name: 'Sophie Williams' },
     ],
   },
   {
     group_id: 5,
-    group_name: 'David Smith + Guest',
+    group_name: 'David & Sarah Chen',
     guests: [
-      { id: 11, name: 'David Smith', is_plus_one_slot: false },
-      { id: 12, name: 'Guest', is_plus_one_slot: true },
+      { id: 11, name: 'David Chen' },
+      { id: 12, name: 'Sarah Chen' },
     ],
   },
 ];
@@ -125,22 +123,6 @@ export async function submitRsvp(
       success: false,
       message: 'At least one person must be attending',
     };
-  }
-
-  // Validate: plus-one slots that are attending must have a name
-  const group = mockGroups.find(g => g.group_id === data.group_id);
-  if (group) {
-    for (const attendee of data.attendees) {
-      if (attendee.attending) {
-        const guest = group.guests.find(g => g.id === attendee.guest_id);
-        if (guest?.is_plus_one_slot && !attendee.plus_one_name?.trim()) {
-          return {
-            success: false,
-            message: 'Please provide a name for your guest',
-          };
-        }
-      }
-    }
   }
 
   // Mark as submitted

@@ -83,7 +83,6 @@ export default function RsvpPage({ params }: RsvpPageProps) {
     const initialAttendees: RsvpAttendee[] = group.guests.map(guest => ({
       guest_id: guest.id,
       attending: false,
-      plus_one_name: undefined,
     }));
 
     setGuestGroup(group);
@@ -94,13 +93,6 @@ export default function RsvpPage({ params }: RsvpPageProps) {
   // Handle attendee checkbox change
   const handleAttendeeChange = (guestId: number, attending: boolean) => {
     setAttendees(prev => prev.map(a => (a.guest_id === guestId ? { ...a, attending } : a)));
-  };
-
-  // Handle plus-one name change
-  const handlePlusOneNameChange = (guestId: number, name: string) => {
-    setAttendees(prev =>
-      prev.map(a => (a.guest_id === guestId ? { ...a, plus_one_name: name } : a))
-    );
   };
 
   // Handle RSVP submission
@@ -169,7 +161,6 @@ export default function RsvpPage({ params }: RsvpPageProps) {
             isSubmitting={isSubmitting}
             submitError={submitError}
             onAttendeeChange={handleAttendeeChange}
-            onPlusOneNameChange={handlePlusOneNameChange}
             onEmailChange={setEmail}
             onDietaryRestrictionsChange={setDietaryRestrictions}
             onSubmit={handleSubmit}

@@ -10,7 +10,6 @@ type RsvpFormProps = {
   isSubmitting: boolean;
   submitError: string;
   onAttendeeChange: (guestId: number, attending: boolean) => void;
-  onPlusOneNameChange: (guestId: number, name: string) => void;
   onEmailChange: (email: string) => void;
   onDietaryRestrictionsChange: (restrictions: string) => void;
   onSubmit: (e: React.FormEvent) => void;
@@ -25,7 +24,6 @@ export default function RsvpForm({
   isSubmitting,
   submitError,
   onAttendeeChange,
-  onPlusOneNameChange,
   onEmailChange,
   onDietaryRestrictionsChange,
   onSubmit,
@@ -44,28 +42,18 @@ export default function RsvpForm({
             if (!attendee) return null;
 
             return (
-              <div key={guest.id} className='space-y-2'>
-                <label className='flex items-center gap-3 text-wedding-cream font-sans cursor-pointer'>
-                  <input
-                    type='checkbox'
-                    checked={attendee.attending}
-                    onChange={e => onAttendeeChange(guest.id, e.target.checked)}
-                    className='w-5 h-5 rounded border-wedding-cream/30 bg-wedding-cream/10 text-wedding-olive focus:ring-wedding-olive focus:ring-offset-wedding-black'
-                  />
-                  <span>{guest.is_plus_one_slot ? t.rsvp.guestNameLabel : guest.name}</span>
-                </label>
-
-                {/* Plus-one name input */}
-                {guest.is_plus_one_slot && attendee.attending && (
-                  <input
-                    type='text'
-                    value={attendee.plus_one_name || ''}
-                    onChange={e => onPlusOneNameChange(guest.id, e.target.value)}
-                    placeholder={t.rsvp.guestNamePlaceholder}
-                    className='w-full ml-8 px-4 py-2 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream placeholder:text-wedding-cream/50 font-sans focus:outline-none focus:border-wedding-cream/60'
-                  />
-                )}
-              </div>
+              <label
+                key={guest.id}
+                className='flex items-center gap-3 text-wedding-cream font-sans cursor-pointer'
+              >
+                <input
+                  type='checkbox'
+                  checked={attendee.attending}
+                  onChange={e => onAttendeeChange(guest.id, e.target.checked)}
+                  className='w-5 h-5 rounded border-wedding-cream/30 bg-wedding-cream/10 text-wedding-olive focus:ring-wedding-olive focus:ring-offset-wedding-black'
+                />
+                <span>{guest.name}</span>
+              </label>
             );
           })}
         </div>
