@@ -8,8 +8,9 @@
 @theme inline {
   /* Wedding brand colors */
   --color-wedding-olive: #63704f;
-  --color-wedding-black: #10120d;
-  --color-wedding-cream: #e6eae1;
+  --color-wedding-black: #161616;
+  --color-wedding-cream: #f5f2ee;
+  --color-wedding-red: #802d20;
 
   /* Custom fonts */
   --font-heading: 'Cormorant Garamond', serif;

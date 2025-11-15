@@ -14,11 +14,11 @@ export default function PageLayout({
   locale,
   t,
   currentPath,
-  backgroundImage = '/second-bg.jpeg',
+  backgroundImage = '',
   children,
 }: PageLayoutProps) {
   return (
-    <div className='bg-wedding-black relative min-h-screen'>
+    <div className='bg-wedding-red relative min-h-screen'>
       <Image
         src={backgroundImage}
         alt='Background'

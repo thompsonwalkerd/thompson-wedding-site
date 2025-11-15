@@ -21,7 +21,8 @@ export type RsvpSubmission = {
   group_id: number;
   email: string;
   attendees: RsvpGuestResponse[];
-  dietary_restrictions: string;
+  notes: string;
+  songs: string;
 };
 
 // Mock guest data

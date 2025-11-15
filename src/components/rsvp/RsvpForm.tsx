@@ -6,11 +6,13 @@ type RsvpFormProps = {
   guestGroup: GuestGroup;
   attendees: RsvpGuestResponse[];
   email: string;
+  songs: string;
   dietaryRestrictions: string;
   isSubmitting: boolean;
   submitError: string;
   onAttendeeChange: (guestId: number, attending: boolean) => void;
   onEmailChange: (email: string) => void;
+  onSongsChange: (songs: string) => void;
   onDietaryRestrictionsChange: (restrictions: string) => void;
   onSubmit: (e: React.FormEvent) => void;
 };
@@ -20,11 +22,13 @@ export default function RsvpForm({
   guestGroup,
   attendees,
   email,
+  songs,
   dietaryRestrictions,
   isSubmitting,
   submitError,
   onAttendeeChange,
   onEmailChange,
+  onSongsChange,
   onDietaryRestrictionsChange,
   onSubmit,
 }: RsvpFormProps) {
@@ -69,6 +73,18 @@ export default function RsvpForm({
           placeholder={t.rsvp.emailPlaceholder}
           required
           className='w-full px-4 py-3 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream placeholder:text-wedding-cream/50 font-sans focus:outline-none focus:border-wedding-cream/60'
+        />
+      </div>
+
+      {/* Song Requests */}
+      <div>
+        <label className='block text-wedding-cream font-sans mb-2'>{t.rsvp.songLabel}</label>
+        <textarea
+          value={songs}
+          onChange={e => onSongsChange(e.target.value)}
+          placeholder={t.rsvp.songPlaceholder}
+          rows={1}
+          className='w-full px-4 py-3 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream placeholder:text-wedding-cream/50 font-sans focus:outline-none focus:border-wedding-cream/60 resize-none'
         />
       </div>
 
