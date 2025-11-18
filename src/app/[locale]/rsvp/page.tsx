@@ -39,6 +39,7 @@ export default function RsvpPage({ params }: RsvpPageProps) {
   const [songs, setSongs] = useState('');
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmittingDecline, setIsSubmittingDecline] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
   // Handle guest search
@@ -120,6 +121,37 @@ export default function RsvpPage({ params }: RsvpPageProps) {
     }
   };
 
+  // Handle decline (nobody attending)
+  const handleDecline = async () => {
+    if (!guestGroup) return;
+
+    setSubmitError('');
+    setIsSubmittingDecline(true);
+
+    try {
+      // Submit RSVP with all attendees marked as not attending
+      const declineAttendees = attendees.map(a => ({ ...a, attending: false }));
+
+      const result = await submitRsvp({
+        group_id: guestGroup.group_id,
+        email,
+        songs: '',
+        attendees: declineAttendees,
+        dietary_restrictions: '',
+      });
+
+      if (result.success) {
+        setFormState('success');
+      } else {
+        setSubmitError(result.message || t.rsvp.errorMessage);
+      }
+    } catch {
+      setSubmitError(t.rsvp.errorMessage);
+    } finally {
+      setIsSubmittingDecline(false);
+    }
+  };
+
   return (
     <PageLayout locale={locale} t={t} currentPath='rsvp'>
       <Container size='default' className='max-w-2xl w-full'>
@@ -157,12 +189,14 @@ export default function RsvpPage({ params }: RsvpPageProps) {
             songs={songs}
             dietaryRestrictions={dietaryRestrictions}
             isSubmitting={isSubmitting}
+            isSubmittingDecline={isSubmittingDecline}
             submitError={submitError}
             onAttendeeChange={handleAttendeeChange}
             onEmailChange={setEmail}
             onSongsChange={setSongs}
             onDietaryRestrictionsChange={setDietaryRestrictions}
             onSubmit={handleSubmit}
+            onDecline={handleDecline}
           />
         )}
 

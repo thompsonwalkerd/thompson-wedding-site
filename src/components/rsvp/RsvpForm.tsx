@@ -9,12 +9,14 @@ type RsvpFormProps = {
   songs: string;
   dietaryRestrictions: string;
   isSubmitting: boolean;
+  isSubmittingDecline: boolean;
   submitError: string;
   onAttendeeChange: (guestId: number, attending: boolean) => void;
   onEmailChange: (email: string) => void;
   onSongsChange: (songs: string) => void;
   onDietaryRestrictionsChange: (restrictions: string) => void;
   onSubmit: (e: React.FormEvent) => void;
+  onDecline: () => void;
 };
 
 export default function RsvpForm({
@@ -25,12 +27,14 @@ export default function RsvpForm({
   songs,
   dietaryRestrictions,
   isSubmitting,
+  isSubmittingDecline,
   submitError,
   onAttendeeChange,
   onEmailChange,
   onSongsChange,
   onDietaryRestrictionsChange,
   onSubmit,
+  onDecline,
 }: RsvpFormProps) {
   return (
     <form onSubmit={onSubmit} className='space-y-8'>
@@ -112,14 +116,25 @@ export default function RsvpForm({
         <p className='text-red-400 font-sans text-base'>{submitError}</p>
       )}
 
-      {/* Submit Button */}
-      <button
-        type='submit'
-        disabled={isSubmitting}
-        className='w-full px-6 py-3 bg-wedding-cream text-wedding-black font-sans rounded-lg hover:bg-wedding-cream/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
-      >
-        {isSubmitting ? t.rsvp.submitting : t.rsvp.submitButton}
-      </button>
+      {/* Action Buttons */}
+      <div className='flex flex-col sm:flex-row gap-4'>
+        <button
+          type='submit'
+          disabled={isSubmitting || isSubmittingDecline}
+          className='flex-1 px-6 py-3 bg-wedding-cream text-wedding-black font-sans rounded-lg hover:bg-wedding-cream/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+        >
+          {isSubmitting ? t.rsvp.submitting : t.rsvp.submitButton}
+        </button>
+
+        <button
+          type='button'
+          onClick={onDecline}
+          disabled={isSubmitting || isSubmittingDecline}
+          className='flex-1 px-6 py-3 bg-wedding-cream/10 border border-wedding-cream/30 text-wedding-cream font-sans rounded-lg hover:bg-wedding-cream/20 hover:border-wedding-cream/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+        >
+          {isSubmittingDecline ? t.rsvp.declining : t.rsvp.declineButton}
+        </button>
+      </div>
     </form>
   );
 }
