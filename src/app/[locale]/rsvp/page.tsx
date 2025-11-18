@@ -3,6 +3,7 @@
 import { use, useState } from 'react';
 import PageLayout from '@/components/PageLayout';
 import RsvpAlreadySubmitted from '@/components/rsvp/RsvpAlreadySubmitted';
+import RsvpConfirm from '@/components/rsvp/RsvpConfirm';
 import RsvpForm from '@/components/rsvp/RsvpForm';
 import RsvpResults from '@/components/rsvp/RsvpResults';
 import RsvpSearch from '@/components/rsvp/RsvpSearch';
@@ -18,7 +19,7 @@ type RsvpPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-type FormState = 'search' | 'results' | 'form' | 'success' | 'already-submitted';
+type FormState = 'search' | 'results' | 'form' | 'confirm' | 'success' | 'already-submitted';
 
 export default function RsvpPage({ params }: RsvpPageProps) {
   const { locale: localeString } = use(params);
@@ -39,7 +40,6 @@ export default function RsvpPage({ params }: RsvpPageProps) {
   const [songs, setSongs] = useState('');
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmittingDecline, setIsSubmittingDecline] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
   // Handle guest search
@@ -92,9 +92,15 @@ export default function RsvpPage({ params }: RsvpPageProps) {
     setAttendees(prev => prev.map(a => (a.guest_id === guestId ? { ...a, attending } : a)));
   };
 
-  // Handle RSVP submission
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Handle form submission - go to confirmation page
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError('');
+    setFormState('confirm');
+  };
+
+  // Handle final RSVP submission after confirmation
+  const handleConfirmSubmit = async () => {
     if (!guestGroup) return;
 
     setSubmitError('');
@@ -113,43 +119,26 @@ export default function RsvpPage({ params }: RsvpPageProps) {
         setFormState('success');
       } else {
         setSubmitError(result.message || t.rsvp.errorMessage);
+        setFormState('form'); // Go back to form if error
       }
     } catch {
       setSubmitError(t.rsvp.errorMessage);
+      setFormState('form'); // Go back to form if error
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // Handle decline (nobody attending)
-  const handleDecline = async () => {
-    if (!guestGroup) return;
-
+  // Handle decline (nobody attending) - set all to not attending and go to confirm
+  const handleDecline = () => {
+    // Set all attendees to not attending
+    setAttendees(prev => prev.map(a => ({ ...a, attending: false })));
+    // Clear optional fields
+    setSongs('');
+    setDietaryRestrictions('');
+    // Go to confirmation
     setSubmitError('');
-    setIsSubmittingDecline(true);
-
-    try {
-      // Submit RSVP with all attendees marked as not attending
-      const declineAttendees = attendees.map(a => ({ ...a, attending: false }));
-
-      const result = await submitRsvp({
-        group_id: guestGroup.group_id,
-        email,
-        songs: '',
-        attendees: declineAttendees,
-        dietary_restrictions: '',
-      });
-
-      if (result.success) {
-        setFormState('success');
-      } else {
-        setSubmitError(result.message || t.rsvp.errorMessage);
-      }
-    } catch {
-      setSubmitError(t.rsvp.errorMessage);
-    } finally {
-      setIsSubmittingDecline(false);
-    }
+    setFormState('confirm');
   };
 
   return (
@@ -189,7 +178,6 @@ export default function RsvpPage({ params }: RsvpPageProps) {
             songs={songs}
             dietaryRestrictions={dietaryRestrictions}
             isSubmitting={isSubmitting}
-            isSubmittingDecline={isSubmittingDecline}
             submitError={submitError}
             onAttendeeChange={handleAttendeeChange}
             onEmailChange={setEmail}
@@ -197,6 +185,21 @@ export default function RsvpPage({ params }: RsvpPageProps) {
             onDietaryRestrictionsChange={setDietaryRestrictions}
             onSubmit={handleSubmit}
             onDecline={handleDecline}
+          />
+        )}
+
+        {/* Confirm State */}
+        {formState === 'confirm' && guestGroup && (
+          <RsvpConfirm
+            t={t}
+            guestGroup={guestGroup}
+            attendees={attendees}
+            email={email}
+            songs={songs}
+            dietaryRestrictions={dietaryRestrictions}
+            isSubmitting={isSubmitting}
+            onConfirm={handleConfirmSubmit}
+            onGoBack={() => setFormState('form')}
           />
         )}
 

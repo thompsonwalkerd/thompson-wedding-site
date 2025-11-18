@@ -9,7 +9,6 @@ type RsvpFormProps = {
   songs: string;
   dietaryRestrictions: string;
   isSubmitting: boolean;
-  isSubmittingDecline: boolean;
   submitError: string;
   onAttendeeChange: (guestId: number, attending: boolean) => void;
   onEmailChange: (email: string) => void;
@@ -27,7 +26,6 @@ export default function RsvpForm({
   songs,
   dietaryRestrictions,
   isSubmitting,
-  isSubmittingDecline,
   submitError,
   onAttendeeChange,
   onEmailChange,
@@ -41,7 +39,7 @@ export default function RsvpForm({
       {/* Group Label */}
       <div>
         <h2 className='text-3xl font-heading text-wedding-cream mb-4'>{t.rsvp.groupLabel}</h2>
-        {guestGroup.group_name && guestGroup.group_name !== 'None' && (
+        {guestGroup.guests.length > 1 && guestGroup.group_name && (
           <p className='text-wedding-cream/70 font-sans mb-6'>{guestGroup.group_name}</p>
         )}
 
@@ -70,7 +68,16 @@ export default function RsvpForm({
 
         {/* Show attendee error near the attendees if it's about attendance */}
         {submitError && submitError.includes('attending') && (
-          <p className='text-red-400 font-sans text-base mt-4'>{submitError}</p>
+          <div className='mt-4'>
+            <p className='text-red-400 font-sans text-base'>{submitError}</p>
+            <button
+              type='button'
+              onClick={onDecline}
+              className='text-wedding-cream/70 hover:text-wedding-cream font-sans text-sm mt-2 underline'
+            >
+              Not able to attend?
+            </button>
+          </div>
         )}
       </div>
 
@@ -120,7 +127,7 @@ export default function RsvpForm({
       <div className='flex flex-col sm:flex-row gap-4'>
         <button
           type='submit'
-          disabled={isSubmitting || isSubmittingDecline}
+          disabled={isSubmitting}
           className='flex-1 px-6 py-3 bg-wedding-cream text-wedding-black font-sans rounded-lg hover:bg-wedding-cream/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isSubmitting ? t.rsvp.submitting : t.rsvp.submitButton}
@@ -129,10 +136,10 @@ export default function RsvpForm({
         <button
           type='button'
           onClick={onDecline}
-          disabled={isSubmitting || isSubmittingDecline}
+          disabled={isSubmitting}
           className='flex-1 px-6 py-3 bg-wedding-cream/10 border border-wedding-cream/30 text-wedding-cream font-sans rounded-lg hover:bg-wedding-cream/20 hover:border-wedding-cream/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
-          {isSubmittingDecline ? t.rsvp.declining : t.rsvp.declineButton}
+          {t.rsvp.declineButton}
         </button>
       </div>
     </form>

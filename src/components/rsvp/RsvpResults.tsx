@@ -27,8 +27,8 @@ export default function RsvpResults({
           >
             <div className='flex items-center justify-between'>
               <div>
-                {/* Show group name if it exists and is not "None", otherwise show guest names */}
-                {group.group_name && group.group_name !== 'None' ? (
+                {/* Show group name for multi-person groups, just names for singles */}
+                {group.guests.length > 1 && group.group_name != "None" ? (
                   <>
                     <p className='text-xl font-heading'>{group.group_name}</p>
                     <p className='text-base text-wedding-cream/70 mt-1'>
