@@ -37,7 +37,9 @@ export default function RsvpForm({
       {/* Group Label */}
       <div>
         <h2 className='text-3xl font-heading text-wedding-cream mb-4'>{t.rsvp.groupLabel}</h2>
-        <p className='text-wedding-cream/70 font-sans mb-6'>{guestGroup.group_name}</p>
+        {guestGroup.group_name && guestGroup.group_name !== 'None' && (
+          <p className='text-wedding-cream/70 font-sans mb-6'>{guestGroup.group_name}</p>
+        )}
 
         {/* Guest Checkboxes */}
         <div className='space-y-4'>
@@ -61,6 +63,11 @@ export default function RsvpForm({
             );
           })}
         </div>
+
+        {/* Show attendee error near the attendees if it's about attendance */}
+        {submitError && submitError.includes('attending') && (
+          <p className='text-red-400 font-sans text-base mt-4'>{submitError}</p>
+        )}
       </div>
 
       {/* Email Address */}
@@ -95,12 +102,15 @@ export default function RsvpForm({
           value={dietaryRestrictions}
           onChange={e => onDietaryRestrictionsChange(e.target.value)}
           placeholder={t.rsvp.dietaryPlaceholder}
-          rows={4}
+          rows={1}
           className='w-full px-4 py-3 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream placeholder:text-wedding-cream/50 font-sans focus:outline-none focus:border-wedding-cream/60 resize-none'
         />
       </div>
 
-      {submitError && <p className='text-red-400 font-sans text-base'>{submitError}</p>}
+      {/* Show other errors at the bottom */}
+      {submitError && !submitError.includes('attending') && (
+        <p className='text-red-400 font-sans text-base'>{submitError}</p>
+      )}
 
       {/* Submit Button */}
       <button

@@ -21,7 +21,7 @@ export type RsvpSubmission = {
   group_id: number;
   email: string;
   attendees: RsvpGuestResponse[];
-  notes: string;
+  dietary_restrictions: string;
   songs: string;
 };
 

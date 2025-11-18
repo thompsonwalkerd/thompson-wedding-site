@@ -27,10 +27,17 @@ export default function RsvpResults({
           >
             <div className='flex items-center justify-between'>
               <div>
-                <p className='text-xl font-heading'>{group.group_name}</p>
-                <p className='text-base text-wedding-cream/70 mt-1'>
-                  {group.guests.map(g => g.name).join(', ')}
-                </p>
+                {/* Show group name if it exists and is not "None", otherwise show guest names */}
+                {group.group_name && group.group_name !== 'None' ? (
+                  <>
+                    <p className='text-xl font-heading'>{group.group_name}</p>
+                    <p className='text-base text-wedding-cream/70 mt-1'>
+                      {group.guests.map(g => g.name).join(', ')}
+                    </p>
+                  </>
+                ) : (
+                  <p className='text-xl font-heading'>{group.guests.map(g => g.name).join(', ')}</p>
+                )}
               </div>
               <span className='text-wedding-cream/50 group-hover:text-wedding-cream group-hover:translate-x-1 transition-all'>
                 →

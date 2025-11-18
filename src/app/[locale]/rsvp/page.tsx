@@ -9,13 +9,8 @@ import RsvpSearch from '@/components/rsvp/RsvpSearch';
 import RsvpSuccess from '@/components/rsvp/RsvpSuccess';
 import Container from '@/components/ui/Container';
 import PageTitle from '@/components/ui/PageTitle';
-import {
-  searchGuests,
-  submitRsvp,
-  checkRsvpStatus,
-  type GuestGroup,
-  type RsvpGuestResponse,
-} from '@/lib/mocks/rsvp';
+import { searchGuests, submitRsvp, checkRsvpStatus } from '@/lib/api/rsvp-api';
+import type { GuestGroup, RsvpGuestResponse } from '@/lib/mocks/rsvp';
 import { getTranslations } from '@/lib/translations';
 import { validateLocale } from '@/utils/locale';
 
@@ -41,6 +36,7 @@ export default function RsvpPage({ params }: RsvpPageProps) {
   const [attendees, setAttendees] = useState<RsvpGuestResponse[]>([]);
   const [email, setEmail] = useState('');
   const [dietaryRestrictions, setDietaryRestrictions] = useState('');
+  const [songs, setSongs] = useState('');
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
@@ -107,6 +103,7 @@ export default function RsvpPage({ params }: RsvpPageProps) {
       const result = await submitRsvp({
         group_id: guestGroup.group_id,
         email,
+        songs,
         attendees,
         dietary_restrictions: dietaryRestrictions,
       });
@@ -157,11 +154,13 @@ export default function RsvpPage({ params }: RsvpPageProps) {
             guestGroup={guestGroup}
             attendees={attendees}
             email={email}
+            songs={songs}
             dietaryRestrictions={dietaryRestrictions}
             isSubmitting={isSubmitting}
             submitError={submitError}
             onAttendeeChange={handleAttendeeChange}
             onEmailChange={setEmail}
+            onSongsChange={setSongs}
             onDietaryRestrictionsChange={setDietaryRestrictions}
             onSubmit={handleSubmit}
           />
