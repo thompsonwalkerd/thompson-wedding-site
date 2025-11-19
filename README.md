@@ -1,115 +1,89 @@
-# Wedding Website
+# Thompson Wedding Site
 
-A bilingual wedding website for my upcoming wedding. Built with Next.js as both a functional site for guests and a learning project while transitioning from C++ development to web development.
+Bilingual (English/Czech) wedding website with full-stack RSVP system. Built as both a functional site for guests and a learning project to increase comfortability in full-stack web development.
 
 ## Tech Stack
 
-- Next.js 15
-- TypeScript
-- Tailwind CSS
-- React 19
+- **Next.js 15** with App Router
+- **React 19** and TypeScript
+- **Tailwind CSS v4** with custom design system
+- **Flask REST API** backend (separate repo)
 
-## Current Features
+## Features
 
-- Bilingual support (English/Czech) via URL-based routing (`/en`, `/cz`)
-- Type-safe translations with TypeScript
-- Fully translatable UI including navigation and content
+- URL-based bilingual routing (`/en`, `/cz`) with type-safe translations
 - Responsive navigation with mobile hamburger menu
 - Custom design system with brand fonts and color palette
-- Server-side rendering with client-side interactivity where needed
-- Mobile-first responsive design with Tailwind breakpoints
 - Multi-step RSVP system:
   - Guest search by name
-  - Group-based RSVP (families/couples)
-  - Attendance selection for each guest
-  - Email collection for confirmation
-  - Dietary restrictions/notes
+  - Group-based RSVP (families/couples/singles)
+  - Attendance selection with dietary restrictions
+  - Confirmation page before submission
   - Duplicate submission prevention
-  - Confirmation page with email verification
-- Event details page with venue, schedule, and accommodations info
-- Photo gallery placeholder page
-
-## Planned Features
-
-- Python backend API for RSVP system
-- Database integration (SQLite potentially)
-- Email confirmation system
-- Admin dashboard for managing RSVPs
+- Event details page with venue, schedule, and accommodations
+- Photo gallery page
 
 ## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── [locale]/          # Dynamic route for language switching
-│   │   ├── details/       # Wedding details page
-│   │   ├── photos/        # Photo gallery page
-│   │   ├── rsvp/          # RSVP system page
-│   │   ├── layout.tsx     # Locale-specific layout
-│   │   └── page.tsx       # Homepage with translations
-│   ├── layout.tsx         # Root layout (fonts, global styles)
-│   └── page.tsx           # Root redirect to /en
+│   ├── [locale]/              # Dynamic route for language switching
+│   │   ├── details/           # Wedding details page
+│   │   ├── photos/            # Photo gallery page
+│   │   ├── rsvp/              # RSVP system page
+│   │   └── page.tsx           # Homepage
+│   └── layout.tsx             # Root layout (fonts, global styles)
 ├── components/
-│   └── Header.tsx         # Responsive navigation component
+│   ├── Header.tsx             # Responsive navigation
+│   └── rsvp/
+│       ├── RsvpSearch.tsx     # Name search form
+│       ├── RsvpResults.tsx    # Guest group selection
+│       ├── RsvpForm.tsx       # Attendance/details form
+│       └── RsvpConfirm.tsx    # Confirmation/review page
 ├── lib/
-│   ├── mocks/
-│   │   └── rsvp.ts        # Mock RSVP API (temporary, for development)
-│   └── translations.ts    # Type-safe translation definitions
+│   ├── api/
+│   │   └── rsvp.ts            # API client for backend
+│   └── translations.ts        # Type-safe translations
 ```
+
+## Local Setup
+
+```bash
+npm install
+echo "NEXT_PUBLIC_API_URL=http://localhost:5000" > .env.local
+npm run dev                    # Open http://localhost:3000
+```
+
+**Note**: Backend API must be running for RSVP functionality. See [thompson-wedding-api](https://github.com/thompsonwalkerd/thompson-wedding-api).
+
+## Production Deployment
+
+Deployed on **Vercel** with auto-deploy from main branch.
+
+Environment variables:
+- `NEXT_PUBLIC_API_URL` - Production Flask API URL (Render)
+
+Backend uses Render + Supabase PostgreSQL.
+
+## Key Design Decisions
+
+**URL-based i18n**: Each language has its own URL (`/en`, `/cz`) instead of cookies/state. Makes links shareable and respects browser back button.
+
+**Custom Translation System**: Built a simple type-safe translation system using TypeScript instead of using. The type system ensures both languages have matching keys.
+
+**Server/Client Component Split**: Defaults to server components for performance, using `'use client'` only where needed (navigation, forms) to keep bundle size small.
+
+**Multi-Step Form State**: Complex state management across search → results → form → confirmation → success flow, with proper error handling and loading states at each step.
 
 ## What I Learned
 
-**File-Based Routing**: Next.js maps folder structure directly to URLs. The `[locale]` folder acts as a dynamic parameter that captures the language code from the URL path.
+**File-Based Routing**: Next.js maps folder structure to URLs. The `[locale]` folder captures language code as a dynamic parameter.
 
-**Type-Safe i18n**: Instead of using a third-party library, I built a simple translation system using TypeScript. The type system ensures both languages have the same keys, catching mistakes at compile time.
+**TypeScript Everywhere**: Coming from C++, I appreciate strong typing. The type system catches mistakes at compile time.
 
-**Server vs Client Components**: Next.js 15 defaults to server components for better performance. Using the `'use client'` directive only where needed (like the interactive navigation) keeps the bundle small while enabling interactivity.
+**React State Management**: Implemented `useState` for managing form state, understanding how state triggers re-renders and enables dynamic UI.
 
-**React State Management**: Implemented `useState` hook for managing mobile menu state, understanding how state triggers re-renders and enables dynamic UI.
+**Design Systems with Tailwind**: Set up custom design using Tailwind's `@theme` directive for brand colors and typography.
 
-**Design Systems with Tailwind v4**: Set up a custom design system using Tailwind's `@theme` directive to define brand colors and typography, loading Google Fonts with Next.js optimization.
-
-**Form State Management**: Built a multi-step form with complex state management, handling search results, form inputs, and submission states. Learned how to properly manage interdependent state values and conditional rendering.
-
-**Mock Data Pattern**: Created a mock API layer that mimics real backend behavior (delays, validation, error handling) to enable frontend development before the backend exists. This separates concerns and makes it easier to swap in real APIs later.
-
-## Setup Instructions
-
-1. Clone the repository
-
-   ```bash
-   git clone <repository-url>
-   cd thompson-wedding-site
-   ```
-
-2. Copy the example translations file:
-
-   ```bash
-   cp src/lib/translations.example.ts src/lib/translations.ts
-   ```
-
-   This repository uses placeholder data for privacy. The example file contains mock names and dates.
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Run development server:
-
-   ```bash
-   npm run dev
-   ```
-
-5. Open [http://localhost:3000](http://localhost:3000)
-
-The app will automatically redirect to `/en` (English) by default.
-
-## Why I Built It This Way
-
-**URL-based i18n**: Each language has its own URL (`/en`, `/cz`) instead of storing language preference in state or cookies. This makes links shareable, works better for SEO, and respects the browser's back button.
-
-**Custom translations**: I wrote a simple translation system instead of using next-intl or similar libraries. This helped me understand how internationalization works under the hood and gave me more control over the structure.
-
-**TypeScript everywhere**: Coming from C++, I appreciate strong typing. The type system catches a lot of mistakes before runtime.
+**API Integration**: Connected frontend to Flask backend with proper error handling, loading states, and duplicate prevention.
