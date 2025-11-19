@@ -14,47 +14,6 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
 
   return (
     <PageLayout locale={locale} t={t} currentPath='details'>
-      {/* Floating decorative images - positioned fixed relative to viewport */}
-      {/* Venue decoration - left side */}
-      {/* <div className='hidden lg:block fixed left-8 top-32 pointer-events-none border-2 border-red-500 z-10'>
-        <img
-          src='/decorations/venue.png'
-          alt=''
-          className='w-32 opacity-100'
-          style={{ position: 'sticky', top: '8rem' }}
-        />
-      </div> */}
-
-      {/* Schedule decoration - right side */}
-      {/* <div className='hidden lg:block fixed right-8 top-96 pointer-events-none border-2 border-red-500 z-10'>
-        <img
-          src='/decorations/schedule.png'
-          alt='schedule'
-          className='w-32 opacity-100'
-          style={{ position: 'sticky', top: '12rem' }}
-        />
-      </div> */}
-
-      {/* Accommodations decoration - left side */}
-      {/* <div className='hidden lg:block fixed left-8 top-[800px] pointer-events-none border-2 border-red-500 z-10'>
-        <img
-          src='/decorations/accommodations.png'
-          alt=''
-          className='w-32 opacity-100'
-          style={{ position: 'sticky', top: '16rem' }}
-        />
-      </div> */}
-
-      {/* Dress Code decoration - right side */}
-      {/* <div className='hidden lg:block fixed right-8 top-[1000px] pointer-events-none border-2 border-red-500 z-10'>
-        <img
-          src='/decorations/dress-code.png'
-          alt=''
-          className='w-32 opacity-100'
-          style={{ position: 'sticky', top: '20rem' }}
-        />
-      </div> */}
-
       <Container align='center'>
           <PageTitle>{t.details.pageTitle}</PageTitle>
 
