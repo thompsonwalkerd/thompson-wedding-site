@@ -16,14 +16,14 @@ export default function RsvpResults({
 }: RsvpResultsProps) {
   return (
     <div className='space-y-6'>
-      <p className='text-wedding-cream font-sans text-xl mb-4'>{t.rsvp.resultsPrompt}</p>
+      <p className='text-text font-sans text-xl mb-4'>{t.rsvp.resultsPrompt}</p>
 
       <div className='space-y-3'>
         {searchResults.map(group => (
           <button
             key={group.group_id}
             onClick={() => onSelectGuest(group)}
-            className='w-full text-left px-6 py-4 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream font-sans hover:bg-wedding-cream/20 hover:border-wedding-cream/50 transition-all group'
+            className='w-full text-left px-6 py-4 bg-surface/10 border border-text/30 rounded-lg text-text font-sans hover:bg-surface/20 hover:border-text/50 transition-all group'
           >
             <div className='flex items-center justify-between'>
               <div>
@@ -31,7 +31,7 @@ export default function RsvpResults({
                 {group.guests.length > 1 && group.group_name != "None" ? (
                   <>
                     <p className='text-xl font-heading'>{group.group_name}</p>
-                    <p className='text-base text-wedding-cream/70 mt-1'>
+                    <p className='text-base text-text/70 mt-1'>
                       {group.guests.map(g => g.name).join(', ')}
                     </p>
                   </>
@@ -39,7 +39,7 @@ export default function RsvpResults({
                   <p className='text-xl font-heading'>{group.guests.map(g => g.name).join(', ')}</p>
                 )}
               </div>
-              <span className='text-wedding-cream/50 group-hover:text-wedding-cream group-hover:translate-x-1 transition-all'>
+              <span className='text-text/50 group-hover:text-text group-hover:translate-x-1 transition-all'>
                 →
               </span>
             </div>
@@ -49,7 +49,7 @@ export default function RsvpResults({
 
       <button
         onClick={onBackToSearch}
-        className='text-wedding-cream/70 hover:text-wedding-cream font-sans text-base transition-colors'
+        className='text-text/70 hover:text-text font-sans text-base transition-colors'
       >
         ← Back to search
       </button>

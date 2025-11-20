@@ -15,27 +15,27 @@ export default function RegistryPage({ params }: { params: Promise<{ locale: str
 
   return (
     <PageLayout locale={locale} t={t} currentPath='registry'>
-      <Container>
+      <Container align='center'>
         <PageTitle>{t.registry.title}</PageTitle>
 
         <div className='max-w-3xl mx-auto space-y-12'>
           {/* Intro Message */}
           <div className='text-center'>
-            <p className='text-wedding-cream/80 font-sans text-lg'>
+            <p className='text-text/80 font-sans text-lg'>
               {t.registry.message}
             </p>
           </div>
 
           {/* Vinyl Record Gift Info */}
           {t.registry.vinylInfo && (
-            <div className='bg-wedding-cream/5 border border-wedding-cream/20 rounded-lg p-6'>
+            <div className='bg-surface/5 border border-text/20 rounded-lg p-6'>
               <div className='flex flex-col md:flex-row gap-6 items-start'>
                 <div className='flex-1'>
                   <SectionHeading>{t.registry.vinylTitle}</SectionHeading>
-                  <p className='text-wedding-cream/70 font-sans leading-relaxed mb-4'>
+                  <p className='text-text/70 font-sans leading-relaxed mb-4'>
                     {t.registry.vinylInfo}
                   </p>
-                  <p className='text-wedding-cream/60 font-sans text-sm italic mb-4'>
+                  <p className='text-text/60 font-sans text-sm italic mb-4'>
                     {t.registry.vinylsPurchased}
                   </p>
                   <VinylSearchClient
@@ -64,15 +64,15 @@ export default function RegistryPage({ params }: { params: Promise<{ locale: str
                 href={option.url}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='group bg-wedding-cream/5 border border-wedding-cream/20 rounded-lg p-8 hover:bg-wedding-cream/10 hover:border-wedding-cream/40 transition-all duration-300'
+                className='group bg-surface/5 border border-text/20 rounded-lg p-8 hover:bg-surface/10 hover:border-text/40 transition-all duration-300'
               >
-                <h3 className='text-2xl font-heading text-wedding-cream mb-3 group-hover:text-wedding-gold transition-colors'>
+                <h3 className='text-2xl font-heading text-heading mb-3 group-hover:text-accent transition-colors'>
                   {option.name}
                 </h3>
-                <p className='text-wedding-cream/70 font-sans mb-4'>
+                <p className='text-text/70 font-sans mb-4'>
                   {option.description}
                 </p>
-                <span className='text-wedding-gold font-sans text-sm group-hover:underline'>
+                <span className='text-accent font-sans text-sm group-hover:underline'>
                   {t.registry.externalLinkLabel} →
                 </span>
               </a>

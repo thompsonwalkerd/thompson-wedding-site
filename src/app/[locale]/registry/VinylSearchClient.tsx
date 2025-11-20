@@ -44,13 +44,13 @@ export default function VinylSearchClient({ searchPlaceholder, searchButton }: V
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder={searchPlaceholder}
-          className='flex-1 px-4 py-2 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream placeholder:text-wedding-cream/50 focus:outline-none focus:border-wedding-gold transition-colors font-sans text-sm'
+          className='flex-1 px-4 py-2 bg-surface/10 border border-text/30 rounded-lg text-text placeholder:text-text/50 focus:outline-none focus:border-accent transition-colors font-sans text-sm'
           disabled={isSearching}
         />
         <button
           type='submit'
           disabled={isSearching || !query.trim()}
-          className='px-6 py-2 bg-wedding-gold/20 border border-wedding-gold/40 rounded-lg text-wedding-cream font-sans text-sm hover:bg-wedding-gold/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='px-6 py-2 bg-accent/20 border border-accent/40 rounded-lg text-text font-sans text-sm hover:bg-accent/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isSearching ? '...' : searchButton}
         </button>
@@ -59,7 +59,7 @@ export default function VinylSearchClient({ searchPlaceholder, searchButton }: V
       {result && (
         <p
           className={`text-sm font-sans ${
-            result === 'available' ? 'text-green-400' : 'text-red-400'
+            result === 'available' ? 'text-success' : 'text-error'
           }`}
         >
           {result === 'available'

@@ -6,11 +6,21 @@
 }
 
 @theme inline {
-  /* Wedding brand colors */
+  /* Wedding brand colors - old naming (will be deprecated) */
   --color-wedding-olive: #63704f;
   --color-wedding-black: #161616;
   --color-wedding-cream: #f5f2ee;
   --color-wedding-red: #802d20;
+  --color-wedding-gold: #d4af37;
+
+  /* Semantic color system */
+  --color-bg: var(--color-wedding-cream);
+  --color-heading: var(--color-wedding-red);
+  --color-text: var(--color-wedding-red);
+  --color-accent: var(--color-wedding-gold);
+  --color-surface: var(--color-wedding-red);
+  --color-error: rgb(248 113 113);
+  --color-success: rgb(74 222 128);
 
   /* Custom fonts */
   --font-heading: 'Cormorant Garamond', serif;
@@ -72,7 +82,7 @@
 }
 
 body {
-  background: var(--color-wedding-black);
-  color: var(--color-wedding-cream);
+  background: black;
+  color: var(--color-text);
   font-family: var(--font-sans);
 }

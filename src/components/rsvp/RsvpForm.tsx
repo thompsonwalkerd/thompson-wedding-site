@@ -38,9 +38,9 @@ export default function RsvpForm({
     <form onSubmit={onSubmit} className='space-y-8'>
       {/* Group Label */}
       <div>
-        <h2 className='text-3xl font-heading text-wedding-cream mb-4'>{t.rsvp.groupLabel}</h2>
+        <h2 className='text-3xl font-heading text-heading mb-4'>{t.rsvp.groupLabel}</h2>
         {guestGroup.guests.length > 1 && guestGroup.group_name && (
-          <p className='text-wedding-cream/70 font-sans mb-6'>{guestGroup.group_name}</p>
+          <p className='text-text/70 font-sans mb-6'>{guestGroup.group_name}</p>
         )}
 
         {/* Guest Checkboxes */}
@@ -52,13 +52,13 @@ export default function RsvpForm({
             return (
               <label
                 key={guest.id}
-                className='flex items-center gap-3 text-wedding-cream font-sans cursor-pointer'
+                className='flex items-center gap-3 text-text font-sans cursor-pointer'
               >
                 <input
                   type='checkbox'
                   checked={attendee.attending}
                   onChange={e => onAttendeeChange(guest.id, e.target.checked)}
-                  className='w-5 h-5 rounded border-wedding-cream/30 bg-wedding-cream/10 text-wedding-olive focus:ring-wedding-olive focus:ring-offset-wedding-black'
+                  className='w-5 h-5 rounded border-text/30 bg-surface/10 text-accent focus:ring-accent focus:ring-offset-black'
                 />
                 <span>{guest.name}</span>
               </label>
@@ -69,11 +69,11 @@ export default function RsvpForm({
         {/* Show attendee error near the attendees if it's about attendance */}
         {submitError && submitError.includes('attending') && (
           <div className='mt-4'>
-            <p className='text-red-400 font-sans text-base'>{submitError}</p>
+            <p className='text-error font-sans text-base'>{submitError}</p>
             <button
               type='button'
               onClick={onDecline}
-              className='text-wedding-cream/70 hover:text-wedding-cream font-sans text-sm mt-2 underline'
+              className='text-text/70 hover:text-text font-sans text-sm mt-2 underline'
             >
               Not able to attend?
             </button>
@@ -83,44 +83,44 @@ export default function RsvpForm({
 
       {/* Email Address */}
       <div>
-        <label className='block text-wedding-cream font-sans mb-2'>{t.rsvp.emailLabel}</label>
+        <label className='block text-text font-sans mb-2'>{t.rsvp.emailLabel}</label>
         <input
           type='email'
           value={email}
           onChange={e => onEmailChange(e.target.value)}
           placeholder={t.rsvp.emailPlaceholder}
           required
-          className='w-full px-4 py-3 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream placeholder:text-wedding-cream/50 font-sans focus:outline-none focus:border-wedding-cream/60'
+          className='w-full px-4 py-3 bg-surface/10 border border-text/30 rounded-lg text-text placeholder:text-text/50 font-sans focus:outline-none focus:border-text/60'
         />
       </div>
 
       {/* Song Requests */}
       <div>
-        <label className='block text-wedding-cream font-sans mb-2'>{t.rsvp.songLabel}</label>
+        <label className='block text-text font-sans mb-2'>{t.rsvp.songLabel}</label>
         <textarea
           value={songs}
           onChange={e => onSongsChange(e.target.value)}
           placeholder={t.rsvp.songPlaceholder}
           rows={1}
-          className='w-full px-4 py-3 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream placeholder:text-wedding-cream/50 font-sans focus:outline-none focus:border-wedding-cream/60 resize-none'
+          className='w-full px-4 py-3 bg-surface/10 border border-text/30 rounded-lg text-text placeholder:text-text/50 font-sans focus:outline-none focus:border-text/60 resize-none'
         />
       </div>
 
       {/* Dietary Restrictions */}
       <div>
-        <label className='block text-wedding-cream font-sans mb-2'>{t.rsvp.dietaryLabel}</label>
+        <label className='block text-text font-sans mb-2'>{t.rsvp.dietaryLabel}</label>
         <textarea
           value={dietaryRestrictions}
           onChange={e => onDietaryRestrictionsChange(e.target.value)}
           placeholder={t.rsvp.dietaryPlaceholder}
           rows={1}
-          className='w-full px-4 py-3 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream placeholder:text-wedding-cream/50 font-sans focus:outline-none focus:border-wedding-cream/60 resize-none'
+          className='w-full px-4 py-3 bg-surface/10 border border-text/30 rounded-lg text-text placeholder:text-text/50 font-sans focus:outline-none focus:border-text/60 resize-none'
         />
       </div>
 
       {/* Show other errors at the bottom */}
       {submitError && !submitError.includes('attending') && (
-        <p className='text-red-400 font-sans text-base'>{submitError}</p>
+        <p className='text-error font-sans text-base'>{submitError}</p>
       )}
 
       {/* Action Buttons */}
@@ -128,7 +128,7 @@ export default function RsvpForm({
         <button
           type='submit'
           disabled={isSubmitting}
-          className='flex-1 px-6 py-3 bg-wedding-cream text-wedding-black font-sans rounded-lg hover:bg-wedding-cream/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='flex-1 px-6 py-3 bg-surface text-black font-sans rounded-lg hover:bg-surface/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isSubmitting ? t.rsvp.submitting : t.rsvp.submitButton}
         </button>
@@ -137,7 +137,7 @@ export default function RsvpForm({
           type='button'
           onClick={onDecline}
           disabled={isSubmitting}
-          className='flex-1 px-6 py-3 bg-wedding-cream/10 border border-wedding-cream/30 text-wedding-cream font-sans rounded-lg hover:bg-wedding-cream/20 hover:border-wedding-cream/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='flex-1 px-6 py-3 bg-surface/10 border border-text/30 text-text font-sans rounded-lg hover:bg-surface/20 hover:border-text/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {t.rsvp.declineButton}
         </button>

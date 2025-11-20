@@ -19,7 +19,7 @@ export default function RsvpSearch({
 }: RsvpSearchProps) {
   return (
     <div className='space-y-6'>
-      <p className='text-wedding-cream font-sans text-xl'>{t.rsvp.searchPrompt}</p>
+      <p className='text-text font-sans text-xl'>{t.rsvp.searchPrompt}</p>
 
       <form onSubmit={onSearch} className='space-y-4'>
         <input
@@ -27,16 +27,16 @@ export default function RsvpSearch({
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
           placeholder={t.rsvp.searchPlaceholder}
-          className='w-full px-4 py-3 bg-wedding-cream/10 border border-wedding-cream/30 rounded-lg text-wedding-cream placeholder:text-wedding-cream/50 font-sans focus:outline-none focus:border-wedding-cream/60'
+          className='w-full px-4 py-3 bg-surface/10 border border-text/30 rounded-lg text-text placeholder:text-text/50 font-sans focus:outline-none focus:border-text/60'
           disabled={isSearching}
         />
 
-        {searchError && <p className='text-red-400 font-sans text-base'>{searchError}</p>}
+        {searchError && <p className='text-error font-sans text-base'>{searchError}</p>}
 
         <button
           type='submit'
           disabled={isSearching || !searchQuery.trim()}
-          className='w-full px-6 py-3 bg-wedding-cream text-wedding-black font-sans rounded-lg hover:bg-wedding-cream/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='w-full px-6 py-3 bg-surface text-black font-sans rounded-lg hover:bg-surface/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isSearching ? t.rsvp.searching : t.rsvp.searchButton}
         </button>

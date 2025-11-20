@@ -18,7 +18,7 @@ export default function PageLayout({
   children,
 }: PageLayoutProps) {
   return (
-    <div className='bg-wedding-red relative min-h-screen'>
+    <div className='bg-bg relative min-h-screen'>
       <Image
         src={backgroundImage}
         alt='Background'
@@ -28,7 +28,7 @@ export default function PageLayout({
         priority
       />
 
-      <div className='absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-wedding-black/70 to-transparent pointer-events-none z-10' />
+      <div className='absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/70 to-transparent pointer-events-none z-10' />
 
       <div className='relative z-10 flex flex-col min-h-screen'>
         <Header locale={locale} t={t} currentPath={currentPath} />
