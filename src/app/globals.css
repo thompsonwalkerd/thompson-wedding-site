@@ -15,9 +15,10 @@
 
   /* Semantic color system */
   --color-bg: var(--color-wedding-cream);
+  --color-home-elements: var(--color-wedding-cream);
   --color-heading: var(--color-wedding-red);
   --color-text: var(--color-wedding-red);
-  --color-accent: var(--color-wedding-gold);
+  --color-accent: var(--color-wedding-red);
   --color-surface: var(--color-wedding-red);
   --color-error: rgb(248 113 113);
   --color-success: rgb(74 222 128);

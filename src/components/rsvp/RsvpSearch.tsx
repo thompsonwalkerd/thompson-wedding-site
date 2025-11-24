@@ -36,7 +36,7 @@ export default function RsvpSearch({
         <button
           type='submit'
           disabled={isSearching || !searchQuery.trim()}
-          className='w-full px-6 py-3 bg-surface text-black font-sans rounded-lg hover:bg-surface/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='w-full px-6 py-3 bg-surface text-home-elements font-sans rounded-lg hover:bg-surface/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isSearching ? t.rsvp.searching : t.rsvp.searchButton}
         </button>

@@ -96,16 +96,16 @@ export default function RsvpConfirm({
           type='button'
           onClick={onGoBack}
           disabled={isSubmitting}
-          className='flex-1 px-6 py-3 bg-surface/10 border border-text/30 text-text font-sans rounded-lg hover:bg-surface/20 hover:border-text/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='flex-1 px-6 py-3 bg-surface/20 border border-text/30 text-text font-sans rounded-lg hover:bg-surface/20 hover:border-text/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
-          � Go Back
+        Edit Form
         </button>
 
         <button
           type='button'
           onClick={onConfirm}
           disabled={isSubmitting}
-          className='flex-1 px-6 py-3 bg-surface text-black font-sans rounded-lg hover:bg-surface/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='flex-1 px-6 py-3 bg-surface text-home-elements font-sans rounded-lg hover:bg-surface/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isSubmitting ? 'Submitting...' : 'Confirm & Submit'}
         </button>

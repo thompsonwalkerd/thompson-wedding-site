@@ -128,7 +128,7 @@ export default function RsvpForm({
         <button
           type='submit'
           disabled={isSubmitting}
-          className='flex-1 px-6 py-3 bg-surface text-black font-sans rounded-lg hover:bg-surface/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='flex-1 px-6 py-3 bg-surface text-home-elements font-sans rounded-lg hover:bg-surface/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isSubmitting ? t.rsvp.submitting : t.rsvp.submitButton}
         </button>
@@ -137,7 +137,7 @@ export default function RsvpForm({
           type='button'
           onClick={onDecline}
           disabled={isSubmitting}
-          className='flex-1 px-6 py-3 bg-surface/10 border border-text/30 text-text font-sans rounded-lg hover:bg-surface/20 hover:border-text/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='flex-1 px-6 py-3 bg-surface/20 border border-text/30 text-text font-sans rounded-lg hover:bg-surface/20 hover:border-text/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {t.rsvp.declineButton}
         </button>

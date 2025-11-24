@@ -20,7 +20,7 @@ export default function RsvpSuccess({ t, locale, email }: RsvpSuccessProps) {
       )}
       <Link
         href={`/${locale}/details`}
-        className='inline-block mt-6 px-8 py-3 bg-surface text-black font-sans rounded-lg hover:bg-surface/90 transition-colors'
+        className='inline-block mt-6 px-8 py-3 bg-surface text-home-elements font-sans rounded-lg hover:bg-surface/90 transition-colors'
       >
         {t.rsvp.viewDetails}
       </Link>

@@ -18,7 +18,7 @@ export default function RsvpAlreadySubmitted({ t }: RsvpAlreadySubmittedProps) {
         <div className='space-y-2 text-text font-sans'>
           <p>
             <a
-              href='mailto:wedding@example.com'
+              href='mailto:thompsonwalker222@gmail.com'
               className='text-text hover:text-text/80 transition-colors underline'
             >
               thompsonwalker222@gmail.com

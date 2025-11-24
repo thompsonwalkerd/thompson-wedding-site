@@ -1,4 +1,5 @@
 import { use } from 'react';
+import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import Button from '@/components/ui/Button';
 import Container from '@/components/ui/Container';
@@ -22,9 +23,9 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
           as='link'
           href={`/${locale}/details/us-travel`}
           variant='link'
-          className='mb-8 -mt-20'
+          className='mb-4'
         >
-          <span className='underline underline-offset-6 decoration-1 hover:decoration-2 hover:underline-offset-4'>
+          <span className='text-sm md:text-lg underline underline-offset-6 decoration-1 hover:decoration-2 hover:underline-offset-4'>
             <strong>Traveling from the US?</strong> Click here for extra information.
           </span>
           <span className='group-hover:translate-x-1 transition-transform'>→</span>
@@ -51,97 +52,81 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
             {/* Date & Time */}
             <section>
               <SectionHeading className='mt-8'>{t.details.dateAndTime.sectionTitle}</SectionHeading>
-              <div className='font-sans text-text/90 leading-relaxed'>
+              <div className='font-sans text-text/90 space-y-2 leading-relaxed'>
                 <p className='text-2xl font-semibold'>{t.when.dateString}</p>
                 <p>{t.when.time}</p>
               </div>
             </section>
           </div>
 
-          {/* Schedule - 3-Day Timeline */}
+          {/* Schedule */}
           <section className='animate-fade-in-delay-1'>
             <SectionHeading className='mt-15'>{t.details.schedule.sectionTitle}</SectionHeading>
 
-            {/* Desktop: Horizontal 3-column layout */}
-            <div className='hidden md:grid md:grid-cols-[2fr_3fr_2fr] gap-6 font-sans text-text'>
-              {/* Day Before */}
-              {/* <div className='p-4 rounded-lg border border-text/20 bg-surface/5'>
-                <h3 className='text-lg font-heading text-text/70 mb-2'>
-                  {t.details.schedule.dayBefore.title}
-                </h3>
-                <p className='text-sm text-text/60 leading-relaxed'>
-                  {t.details.schedule.dayBefore.description}
-                </p>
-              </div> */}
+            {/* Timeline Container */}
+            <div className='relative max-w-3xl mx-auto py-8'>
+              {/* Vertical Center Line */}
+              <div className='absolute left-1/2 top-0 bottom-0 w-px bg-accent -translate-x-1/2' />
 
-              {/* Main Day - Emphasized */}
-              <div className='p-8 rounded-lg border-2 border-text shadow-lg shadow-text/20 bg-surface/10'>
-                <div className='space-y-4'>
-                  <div>
-                    <p className='text-lg font-semibold text-text'>
-                      {t.details.schedule.ceremonyTime} -{' '}
-                      {t.details.schedule.ceremony}
-                    </p>
+              {/* Timeline Items */}
+              {t.details.schedule.activities.map((activity, index) => {
+                const isEven = index % 2 === 0;
+
+                return (
+                  <div key={index} className='relative h-24'>
+                    {/* Dot on timeline - absolutely centered */}
+                    <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-bg border-accent border z-10' />
+
+                    {isEven ? (
+                      // Left side layout: [Icon] ─ ● (line extends left from center)
+                      <>
+                        {/* Connector Line - extends from center to left */}
+                        <div className='absolute left-1/2 top-1/2 -translate-y-1/2 w-12 h-px bg-accent origin-left -translate-x-full' />
+
+                        {/* Icon - at the end of the connector line */}
+                        <div className='absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-full flex items-center justify-end' style={{ marginLeft: '-64px', paddingRight: '8px' }}>
+                          <Image
+                            src={`/schedule/${activity.icon}`}
+                            alt={activity.name}
+                            width={50}
+                            height={50}
+                            className='object-contain'
+                          />
+                        </div>
+
+                        {/* Time and Name - Left side */}
+                        <div className='absolute left-0 right-1/2 top-1/2 -translate-y-1/2 pr-35 text-right'>
+                          <h3 className='text-3xl font-bold font-heading text-text'>{activity.time}</h3>
+                          <p className='text-2xl font-heading text-text mt-2'>{activity.name}</p>
+                        </div>
+                      </>
+                    ) : (
+                      // Right side layout: ● ─ [Icon] (line extends right from center)
+                      <>
+                        {/* Connector Line - extends from center to right */}
+                        <div className='absolute left-1/2 top-1/2 -translate-y-1/2 w-12 h-px bg-accent origin-left' />
+
+                        {/* Icon - at the end of the connector line */}
+                        <div className='absolute left-1/2 top-1/2 -translate-y-1/2 flex items-center justify-start' style={{ marginLeft: '64px', paddingLeft: '8px' }}>
+                          <Image
+                            src={`/schedule/${activity.icon}`}
+                            alt={activity.name}
+                            width={50}
+                            height={50}
+                            className='object-contain'
+                          />
+                        </div>
+
+                        {/* Time and Name - Right side */}
+                        <div className='absolute right-0 left-1/2 top-1/2 -translate-y-1/2 pl-35 text-left'>
+                          <h3 className='text-3xl font-bold font-heading text-text'>{activity.time}</h3>
+                          <p className='text-2xl font-heading text-text mt-2'>{activity.name}</p>
+                        </div>
+                      </>
+                    )}
                   </div>
-                  <div>
-                    <p className='text-lg font-semibold text-text'>
-                      {t.details.schedule.receptionTime} -{' '}
-                      {t.details.schedule.reception}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Day After */}
-              {/* <div className='p-4 rounded-lg border border-text/20 bg-surface/5'>
-                <h3 className='text-lg font-heading text-text/70 mb-2'>
-                  {t.details.schedule.dayAfter.title}
-                </h3>
-                <p className='text-sm text-text/60 leading-relaxed'>
-                  {t.details.schedule.dayAfter.description}
-                </p>
-                </div> */}
-              </div>
-
-            {/* Mobile: Vertical with emphasis */}
-            <div className='md:hidden space-y-6 font-sans text-text'>
-              {/* Day Before - Small */}
-              {/* <div className='p-4 rounded-lg border border-text/20 bg-surface/5'>
-                <h3 className='text-base font-heading text-text/70 mb-2'>
-                  {t.details.schedule.dayBefore.title}
-                </h3>
-                <p className='text-xs text-text/60 leading-relaxed'>
-                  {t.details.schedule.dayBefore.description}
-                </p>
-              </div> */}
-
-              {/* Main Day - Large emphasized card */}
-              <div className='p-6 rounded-lg border-2 border-text shadow-lg shadow-text/20 bg-surface/10'>
-                <div className='space-y-3'>
-                  <div>
-                    <p className='text-lg font-semibold text-text'>
-                      {t.details.schedule.ceremonyTime} -{' '}
-                      {t.details.schedule.ceremony}
-                    </p>
-                  </div>
-                  <div>
-                    <p className='text-lg font-semibold text-text'>
-                      {t.details.schedule.receptionTime} -{' '}
-                      {t.details.schedule.reception}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Day After - Small */}
-              {/* <div className='p-4 rounded-lg border border-text/20 bg-surface/5'>
-                <h3 className='text-base font-heading text-text/70 mb-2'>
-                  {t.details.schedule.dayAfter.title}
-                </h3>
-                <p className='text-xs text-text/60 leading-relaxed'>
-                  {t.details.schedule.dayAfter.description}
-                </p>
-              </div> */}
+                );
+              })}
             </div>
           </section>
 
@@ -152,20 +137,20 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
             </SectionHeading>
 
             {/* Accommodation Cards Grid */}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center'>
               {t.details.accommodations.options.map((hotel, index) => (
                 <div
                   key={index}
-                  className='rounded-lg overflow-hidden border border-text/20 hover:border-text/40 transition-all hover:shadow-lg hover:shadow-text/10'
+                  className='rounded-md overflow-hidden transition-all hover:shadow-lg hover:shadow-text/10'
                 >
                   {/* Background image section */}
                   <div
-                    className='h-48 bg-cover bg-center'
+                    className='h-50 bg-cover bg-center'
                     style={{ backgroundImage: `url(${hotel.image})` }}
                   />
                   {/* Details overlay at bottom */}
-                  <div className='p-4 bg-surface/10 border-t border-text/20'>
-                    <h3 className='text-xl font-heading text-text mb-2'>{hotel.name}</h3>
+                  <div className='p-6 bg-surface/10 border-t border-text/20'>
+                    <h3 className='text-xl font-heading text-text mb-1'>{hotel.name}</h3>
                     <p className='text-base text-text/70 font-sans'>{hotel.description}</p>
                     <p className='text-base text-text/70 font-sans'>{hotel.priceRange}</p>
                   </div>
@@ -176,16 +161,22 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
 
           {/* Dress Code */}
           <section className='animate-fade-in-delay-3'>
-            <SectionHeading className='mt-15'>{t.details.dressCode.sectionTitle}</SectionHeading>
-            <img
-              src='/details/color-palette.png'
-              alt='schedule'
-              className='opacity-100'
-              style={{ position: 'sticky', top: '12rem' }}
-            />
-            <p className='font-sans text-text/90 leading-relaxed'>
-              {t.details.dressCode.description}
-            </p>
+            <SectionHeading>{t.details.dressCode.sectionTitle}</SectionHeading>
+
+            <div className='flex flex-row justify-around items-center'>
+              <Image
+                src='/details/color-palette.png'
+                width={300}
+                height={300}
+                alt='schedule'
+                className='opacity-100'
+              />
+              <p className='font-sans text-text/90 leading-relaxed whitespace-break-spaces'>
+                {t.details.dressCode.description}
+              </p>
+            </div>
+
+
           </section>
         </div>
       </Container>
