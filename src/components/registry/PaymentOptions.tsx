@@ -50,10 +50,10 @@ export default function PaymentOptions({
       </button>
 
       {isOpen && (
-        <div className='mt-4 space-y-4 bg-surface/10 border border-text/20 rounded-lg p-6'>
+        <div className='mt-4 space-y-8 bg-surface/10 border border-text/20 rounded-lg p-10'>
           {paymentOptions.map((option) => (
             <div key={option.type} className='space-y-2'>
-              <h4 className='font-heading text-lg text-text'>{option.label}</h4>
+              <h4 className='font-heading text-2xl text-text'>{option.label}</h4>
 
               {option.type === 'qr' && option.qrImage ? (
                 <div className='flex flex-col items-center space-y-2'>
@@ -67,13 +67,13 @@ export default function PaymentOptions({
                   <p className='text-sm text-text/60 italic'>{labels.scanQr}</p>
                 </div>
               ) : (
-                <div className='flex items-center gap-2'>
-                  <code className='flex-1 bg-bg/50 text-text px-3 py-2 rounded text-sm border border-text/20'>
+                <div className='flex flex-col gap-2'>
+                  <code className='bg-bg/50 text-text px-3 py-2 rounded text-sm border border-text/20 break-all'>
                     {option.value}
                   </code>
                   <button
                     onClick={() => option.value && handleCopy(option.value, option.type)}
-                    className='bg-accent/80 hover:bg-accent text-bg px-3 py-2 rounded text-sm transition-colors whitespace-nowrap'
+                    className='w-full bg-accent/80 hover:bg-accent text-bg px-3 py-2 rounded text-sm transition-colors'
                   >
                     {copiedType === option.type ? labels.copiedButton : labels.copyButton}
                   </button>

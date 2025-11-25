@@ -204,7 +204,14 @@ export default function RsvpPage({ params }: RsvpPageProps) {
         )}
 
         {/* Success State */}
-        {formState === 'success' && <RsvpSuccess t={t} locale={locale} email={email} />}
+        {formState === 'success' && (
+          <RsvpSuccess
+            t={t}
+            locale={locale}
+            email={email}
+            hasAttendees={attendees.some(a => a.attending)}
+          />
+        )}
 
         {/* Already Submitted State */}
         {formState === 'already-submitted' && <RsvpAlreadySubmitted t={t} />}

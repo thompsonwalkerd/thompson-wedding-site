@@ -50,7 +50,7 @@ export default function VinylSearchClient({ searchPlaceholder, searchButton }: V
         <button
           type='submit'
           disabled={isSearching || !query.trim()}
-          className='px-6 py-2 bg-accent/20 border border-accent/40 rounded-lg text-text font-sans text-sm hover:bg-accent/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='px-6 py-2 bg-accent border border-accent/40 rounded-lg text-home-elements font-sans text-sm hover:bg-accent/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isSearching ? '...' : searchButton}
         </button>
