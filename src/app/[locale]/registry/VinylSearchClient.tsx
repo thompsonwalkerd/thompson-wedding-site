@@ -7,7 +7,10 @@ type VinylSearchClientProps = {
   searchButton: string;
 };
 
-export default function VinylSearchClient({ searchPlaceholder, searchButton }: VinylSearchClientProps) {
+export default function VinylSearchClient({
+  searchPlaceholder,
+  searchButton,
+}: VinylSearchClientProps) {
   const [query, setQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
   const [result, setResult] = useState<'available' | 'taken' | null>(null);
@@ -37,20 +40,29 @@ export default function VinylSearchClient({ searchPlaceholder, searchButton }: V
   };
 
   return (
-    <div className='mt-4 space-y-3'>
-      <form onSubmit={handleSearch} className='flex gap-2'>
+    <div className='mt-4'>
+      <form onSubmit={handleSearch} className='flex flex-col sm:flex-row gap-2'>
         <input
           type='text'
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={e => setQuery(e.target.value)}
           placeholder={searchPlaceholder}
           className='flex-1 px-4 py-2 bg-surface/10 border border-text/30 rounded-lg text-text placeholder:text-text/50 focus:outline-none focus:border-accent transition-colors font-sans text-sm'
           disabled={isSearching}
         />
+        {result && (
+          <p
+            className={`text-sm font-sans sm:hidden ${result === 'available' ? 'text-success' : 'text-error'}`}
+          >
+            {result === 'available'
+              ? `✓ "${lastSearchedQuery}" is available`
+              : `✗ "${lastSearchedQuery}" has already been chosen`}
+          </p>
+        )}
         <button
           type='submit'
           disabled={isSearching || !query.trim()}
-          className='px-6 py-2 bg-accent border border-accent/40 rounded-lg text-home-elements font-sans text-sm hover:bg-accent/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='w-full sm:w-auto px-6 py-2 bg-accent border border-accent/40 rounded-lg text-home-elements font-sans text-sm hover:bg-accent/30 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isSearching ? '...' : searchButton}
         </button>
@@ -58,9 +70,7 @@ export default function VinylSearchClient({ searchPlaceholder, searchButton }: V
 
       {result && (
         <p
-          className={`text-sm font-sans ${
-            result === 'available' ? 'text-success' : 'text-error'
-          }`}
+          className={`hidden sm:block mt-3 text-sm font-sans ${result === 'available' ? 'text-success' : 'text-error'}`}
         >
           {result === 'available'
             ? `✓ "${lastSearchedQuery}" is available`

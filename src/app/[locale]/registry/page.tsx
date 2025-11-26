@@ -1,13 +1,12 @@
-import { use } from 'react';
 import Image from 'next/image';
+import { use } from 'react';
+import PageLayout from '@/components/PageLayout';
+import PaymentOptions from '@/components/registry/PaymentOptions';
+import Container from '@/components/ui/Container';
+import PageTitle from '@/components/ui/PageTitle';
 import { getTranslations } from '@/lib/translations';
 import { validateLocale } from '@/utils/locale';
-import PageLayout from '@/components/PageLayout';
-import PageTitle from '@/components/ui/PageTitle';
-import SectionHeading from '@/components/ui/SectionHeading';
-import Container from '@/components/ui/Container';
 import VinylSearchClient from './VinylSearchClient';
-import PaymentOptions from '@/components/registry/PaymentOptions';
 
 export default function RegistryPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeString } = use(params);
@@ -19,17 +18,15 @@ export default function RegistryPage({ params }: { params: Promise<{ locale: str
       <Container align='center'>
         <PageTitle>{t.registry.title}</PageTitle>
 
-        <div className='max-w-3xl mx-auto space-y-12'>
+        <div className='max-w-3xl mx-auto space-y-10'>
           {/* Intro Message */}
           <div className='text-center'>
-            <p className='text-text/80 font-sans text-lg'>
-              {t.registry.message}
-            </p>
+            <p className='text-text/80 font-sans text-lg'>{t.registry.message}</p>
           </div>
 
           {/* Vinyl Record Gift Info */}
           {t.registry.vinylInfo && (
-            <div className='bg-surface/5 border border-text/20 rounded-lg p-8 transition-all duration-300'>
+            <div className='bg-surface/5 border border-text/20 rounded-lg p-8 transition-all duration-300 mb-4 md:mb-6'>
               <h3 className='text-3xl font-heading text-heading mb-3 flex items-center justify-center gap-4'>
                 {t.registry.vinylTitle}
                 <Image
@@ -40,10 +37,8 @@ export default function RegistryPage({ params }: { params: Promise<{ locale: str
                   className='object-contain'
                 />
               </h3>
-              <p className='text-text/70 font-sans mb-10 leading-relaxed'>
-                {t.registry.vinylInfo}
-              </p>
-              <p className='text-text/60 font-sans text-sm italic mb-4'>
+              <p className='text-text/70 font-sans mb-7 md:mb-12 leading-relaxed'>{t.registry.vinylInfo}</p>
+              <p className='text-text/50 font-sans text-sm italic mb-2'>
                 {t.registry.vinylsPurchased}
               </p>
               <VinylSearchClient
@@ -54,28 +49,30 @@ export default function RegistryPage({ params }: { params: Promise<{ locale: str
           )}
 
           {/* Fund Contribution Options */}
-          <div className='grid gap-4 md:grid-cols-2'>
+          <div className='grid gap-4 md:gap-6 md:grid-cols-2'>
             {t.registry.options.map((option, index) => {
-              const fundType = option.name.toLowerCase().includes('honeymoon') ? 'honeymoon' : 'car';
+              const fundType = option.name.toLowerCase().includes('honeymoon')
+                ? 'honeymoon'
+                : 'car';
 
               return (
                 <div
                   key={index}
-                  className='bg-surface/5 border border-text/20 rounded-lg p-6 transition-all duration-300'
+                  className='bg-surface/5 border border-text/20 rounded-lg p-6 transition-all duration-300 flex flex-col h-full'
                 >
-                  <h3 className='text-3xl font-heading text-heading mb-3 flex items-center justify-center gap-4'>
-                    {option.name}
-                    <Image
-                      src={option.icon}
-                      alt={`${option.name}`}
-                      width={50}
-                      height={50}
-                      className='object-contain'
-                    />
-                  </h3>
-                  <p className='text-text/70 font-sans mb-6'>
-                    {option.description}
-                  </p>
+                  <div className='flex-grow'>
+                    <h3 className='text-3xl font-heading text-heading mb-3 flex items-center justify-center gap-4'>
+                      {option.name}
+                      <Image
+                        src={option.icon}
+                        alt={`${option.name}`}
+                        width={50}
+                        height={50}
+                        className='object-contain'
+                      />
+                    </h3>
+                    <p className='text-text/70 font-sans mb-6'>{option.description}</p>
+                  </div>
                   <PaymentOptions
                     fundType={fundType}
                     buttonText={t.registry.externalLinkLabel}
@@ -86,7 +83,6 @@ export default function RegistryPage({ params }: { params: Promise<{ locale: str
               );
             })}
           </div>
-
         </div>
       </Container>
     </PageLayout>

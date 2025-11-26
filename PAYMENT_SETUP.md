@@ -35,8 +35,8 @@ registry: {
     copyButton: string;
     copiedButton: string;
     scanQr: string;
-  };
-};
+  }
+}
 ```
 
 ### 2. Add Payment Options to English Translations
@@ -118,6 +118,7 @@ registry: {
 2. Save it as: `public/registry/qr-code.png`
 
 **How to get your QR code:**
+
 - If you have a Czech bank account, most banking apps let you generate a QR code for receiving payments
 - Look for "Generate QR code" or "Payment QR" in your banking app
 - Screenshot or download it, then save to `public/registry/qr-code.png`
@@ -125,6 +126,7 @@ registry: {
 ### 5. Replace Placeholder Values
 
 Update these with your actual information:
+
 - `your-email@example.com` → Your Zelle email or phone number
 - `@your-venmo-handle` → Your Venmo username (starts with @)
 
@@ -143,6 +145,7 @@ Guests can easily copy your payment info or scan the QR code to send money!
 ## Need Help?
 
 If you have any questions about:
+
 - Where exactly to add these in your translations file
 - Getting your Czech bank QR code
 - Testing the payment options

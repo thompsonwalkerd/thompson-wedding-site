@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 interface PaymentOption {
   type: 'zelle' | 'venmo' | 'qr';
@@ -25,7 +25,7 @@ export default function PaymentOptions({
   fundType,
   buttonText,
   paymentOptions,
-  labels
+  labels,
 }: PaymentOptionsProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [copiedType, setCopiedType] = useState<string | null>(null);
@@ -44,14 +44,14 @@ export default function PaymentOptions({
     <div className='relative'>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className='w-full bg-accent/90 hover:bg-accent text-bg font-sans py-3 px-6 rounded-md transition-colors duration-200'
+        className='w-full bg-accent/90 hover:bg-accent text-bg font-sans py-2 px-6 rounded-lg transition-colors duration-200'
       >
         {buttonText} {isOpen ? '▲' : '▼'}
       </button>
 
       {isOpen && (
         <div className='mt-4 space-y-8 bg-surface/10 border border-text/20 rounded-lg p-10'>
-          {paymentOptions.map((option) => (
+          {paymentOptions.map(option => (
             <div key={option.type} className='space-y-2'>
               <h4 className='font-heading text-2xl text-text'>{option.label}</h4>
 

@@ -62,6 +62,7 @@ npm run dev                    # Open http://localhost:3000
 Deployed on **Vercel** with auto-deploy from main branch.
 
 Environment variables:
+
 - `NEXT_PUBLIC_API_URL` - Production Flask API URL (Render)
 
 Backend uses Render + Supabase PostgreSQL.

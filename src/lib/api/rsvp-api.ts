@@ -8,21 +8,21 @@ export async function searchGuests(name: string): Promise<GuestGroup[]> {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name }),
   });
-  
+
   if (!response.ok) {
     throw new Error('Search failed');
   }
-  
+
   return response.json();
 }
 
 export async function checkRsvpStatus(groupId: number): Promise<boolean> {
   const response = await fetch(`${API_BASE_URL}/api/rsvp/status/${groupId}`);
-  
+
   if (!response.ok) {
     throw new Error('Status check failed');
   }
-  
+
   const data = await response.json();
   return data.has_submitted;
 }
@@ -35,11 +35,11 @@ export async function submitRsvp(
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
-  
+
   if (!response.ok) {
     const error = await response.json();
     return { success: false, message: error.message || 'Submission failed' };
   }
-  
+
   return { success: true };
 }

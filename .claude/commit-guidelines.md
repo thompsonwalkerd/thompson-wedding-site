@@ -9,6 +9,7 @@
 5. **Format**: Use imperative mood ("Add feature" not "Added feature")
 
 ## Good Examples
+
 ```
 Add decline success page for RSVP flow
 Fix album image alignment on mobile
@@ -16,6 +17,7 @@ Update registry payment options styling
 ```
 
 ## Bad Examples
+
 ```
 Add decline success page for RSVP flow
 
@@ -24,4 +26,5 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
 ## Summary
+
 Write commit messages as if you're a human developer on the team. Simple, clear, and to the point.

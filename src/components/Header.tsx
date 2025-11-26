@@ -132,7 +132,9 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
       {/* Mobile: Dropdown menu (shown when hamburger clicked) */}
       <div
         className={`md:hidden absolute top-full left-0 right-0 backdrop-blur-sm flex flex-col p-6 gap-4 z-50 transition-all duration-300 ${
-          isHomePage ? 'bg-black/95 border-t border-home-elements/20' : 'bg-bg/95 border-t border-text/20'
+          isHomePage
+            ? 'bg-black/95 border-t border-home-elements/20'
+            : 'bg-bg/95 border-t border-text/20'
         } ${
           isMenuOpen
             ? 'opacity-100 translate-y-0 pointer-events-auto'
@@ -183,7 +185,9 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
         <Link
           href={`/${locale}`}
           className={`text-center font-sans uppercase text-base tracking-wide py-2 transition-colors ${
-            isHomePage ? 'text-home-elements hover:text-home-elements/70' : 'text-text hover:text-text/70'
+            isHomePage
+              ? 'text-home-elements hover:text-home-elements/70'
+              : 'text-text hover:text-text/70'
           }`}
         >
           {t.nav.home}
@@ -191,7 +195,9 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
         <Link
           href={`/${locale}/details`}
           className={`text-center font-sans uppercase text-base tracking-wide py-2 transition-colors ${
-            isHomePage ? 'text-home-elements hover:text-home-elements/70' : 'text-text hover:text-text/70'
+            isHomePage
+              ? 'text-home-elements hover:text-home-elements/70'
+              : 'text-text hover:text-text/70'
           }`}
         >
           {t.nav.details}
@@ -199,7 +205,9 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
         <Link
           href={`/${locale}/registry`}
           className={`text-center font-sans uppercase text-base tracking-wide py-2 transition-colors ${
-            isHomePage ? 'text-home-elements hover:text-home-elements/70' : 'text-text hover:text-text/70'
+            isHomePage
+              ? 'text-home-elements hover:text-home-elements/70'
+              : 'text-text hover:text-text/70'
           }`}
         >
           {t.nav.registry}
@@ -207,7 +215,9 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
         <Link
           href={`/${locale}/photos`}
           className={`text-center font-sans uppercase text-base tracking-wide py-2 transition-colors ${
-            isHomePage ? 'text-home-elements hover:text-home-elements/70' : 'text-text hover:text-text/70'
+            isHomePage
+              ? 'text-home-elements hover:text-home-elements/70'
+              : 'text-text hover:text-text/70'
           }`}
         >
           {t.nav.photos}

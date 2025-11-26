@@ -10,7 +10,7 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
   const t = getTranslations(locale);
 
   return (
-    <PageLayout locale={locale} t={t} currentPath='' backgroundImage='/home-bg-1.jpeg'>
+    <PageLayout locale={locale} t={t} currentPath='' backgroundImage='/home-bg.jpeg'>
       <div className='flex flex-col items-center justify-center h-full relative px-4'>
         {/* Hero Section */}
         <div className='flex flex-col items-center justify-center text-center'>

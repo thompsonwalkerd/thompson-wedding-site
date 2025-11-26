@@ -12,9 +12,7 @@ export default function RsvpAlreadySubmitted({ t }: RsvpAlreadySubmittedProps) {
 
       {/* Contact information */}
       <div className='mt-8 pt-6 border-t border-text/20'>
-        <p className='text-text/70 font-sans text-base mb-4'>
-          {t.rsvp.contactPrompt}
-        </p>
+        <p className='text-text/70 font-sans text-base mb-4'>{t.rsvp.contactPrompt}</p>
         <div className='space-y-2 text-text font-sans'>
           <p>
             <a

@@ -82,9 +82,7 @@ export default function RsvpConfirm({
         {/* Dietary */}
         {dietaryRestrictions && (
           <div>
-            <p className='text-text/70 font-sans text-sm mb-1'>
-              Dietary Restrictions:
-            </p>
+            <p className='text-text/70 font-sans text-sm mb-1'>Dietary Restrictions:</p>
             <p className='text-text font-sans'>{dietaryRestrictions}</p>
           </div>
         )}
@@ -98,7 +96,7 @@ export default function RsvpConfirm({
           disabled={isSubmitting}
           className='flex-1 px-6 py-3 bg-surface/20 border border-text/30 text-text font-sans rounded-lg hover:bg-surface/20 hover:border-text/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
-        Edit Form
+          Edit Form
         </button>
 
         <button

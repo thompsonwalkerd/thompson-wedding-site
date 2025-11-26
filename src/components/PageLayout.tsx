@@ -19,14 +19,16 @@ export default function PageLayout({
 }: PageLayoutProps) {
   return (
     <div className='bg-bg relative min-h-screen'>
-      <Image
-        src={backgroundImage}
-        alt='Background'
-        fill
-        className='object-cover'
-        quality={85}
-        priority
-      />
+      {backgroundImage && (
+        <Image
+          src={backgroundImage}
+          alt='Background'
+          fill
+          className='object-cover'
+          quality={85}
+          priority
+        />
+      )}
 
       <div className='absolute top-0 left-0 right-0 h-32 z-10' />
 
