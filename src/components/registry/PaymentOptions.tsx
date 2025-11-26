@@ -11,23 +11,27 @@ interface PaymentOption {
 }
 
 interface PaymentOptionsProps {
-  fundType: 'honeymoon' | 'car';
-  buttonText: string;
+  fundType?: 'honeymoon' | 'car';
+  buttonText?: string;
   paymentOptions: PaymentOption[];
   labels: {
     copyButton: string;
     copiedButton: string;
     scanQr: string;
   };
+  isExpanded?: boolean;
+  onToggle?: () => void;
+  onClose?: () => void;
 }
 
 export default function PaymentOptions({
-  fundType,
   buttonText,
   paymentOptions,
   labels,
+  isExpanded = false,
+  onToggle,
+  onClose,
 }: PaymentOptionsProps) {
-  const [isOpen, setIsOpen] = useState(false);
   const [copiedType, setCopiedType] = useState<string | null>(null);
 
   const handleCopy = async (text: string, type: string) => {
@@ -42,15 +46,27 @@ export default function PaymentOptions({
 
   return (
     <div className='relative'>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className='w-full bg-accent/90 hover:bg-accent text-bg font-sans py-2 px-6 rounded-lg transition-colors duration-200'
-      >
-        {buttonText} {isOpen ? '▲' : '▼'}
-      </button>
+      {!isExpanded && buttonText && onToggle && (
+        <button
+          onClick={onToggle}
+          className='w-full bg-accent/90 hover:bg-accent text-bg font-sans py-2 px-6 rounded-lg transition-colors duration-200'
+        >
+          {buttonText}
+        </button>
+      )}
 
-      {isOpen && (
-        <div className='mt-4 space-y-8 bg-surface/10 border border-text/20 rounded-lg p-10'>
+      {isExpanded && (
+        <div className='space-y-8 bg-surface/10 border border-text/20 rounded-lg p-6 md:p-8'>
+          {onClose && (
+            <div className='flex justify-end'>
+              <button
+                onClick={onClose}
+                className='text-text/60 hover:text-text transition-colors text-sm font-sans'
+              >
+                Close ✕
+              </button>
+            </div>
+          )}
           {paymentOptions.map(option => (
             <div key={option.type} className='space-y-2'>
               <h4 className='font-heading text-2xl text-text'>{option.label}</h4>
