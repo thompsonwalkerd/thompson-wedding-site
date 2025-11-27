@@ -18,9 +18,10 @@ Bilingual (English/Czech) wedding website with full-stack RSVP system. Built as 
   - Guest search by name
   - Group-based RSVP (families/couples/singles)
   - Attendance selection with dietary restrictions
-  - Confirmation page before submission
+  - 6-state flow with success and already-submitted handling
   - Duplicate submission prevention
 - Event details page with venue, schedule, and accommodations
+- Gift registry with client-side search filtering and multiple payment options
 - Photo gallery page
 
 ## Project Structure
@@ -30,21 +31,36 @@ src/
 ├── app/
 │   ├── [locale]/              # Dynamic route for language switching
 │   │   ├── details/           # Wedding details page
+│   │   │   └── us-travel/     # US travel info subpage
 │   │   ├── photos/            # Photo gallery page
+│   │   ├── registry/          # Gift registry page
 │   │   ├── rsvp/              # RSVP system page
 │   │   └── page.tsx           # Homepage
 │   └── layout.tsx             # Root layout (fonts, global styles)
 ├── components/
 │   ├── Header.tsx             # Responsive navigation
-│   └── rsvp/
-│       ├── RsvpSearch.tsx     # Name search form
-│       ├── RsvpResults.tsx    # Guest group selection
-│       ├── RsvpForm.tsx       # Attendance/details form
-│       └── RsvpConfirm.tsx    # Confirmation/review page
+│   ├── rsvp/
+│   │   ├── RsvpSearch.tsx     # Name search form
+│   │   ├── RsvpResults.tsx    # Guest group selection
+│   │   ├── RsvpForm.tsx       # Attendance/details form
+│   │   ├── RsvpConfirm.tsx    # Confirmation/review page
+│   │   ├── RsvpSuccess.tsx    # Success message
+│   │   └── RsvpAlreadySubmitted.tsx  # Already submitted message
+│   ├── registry/
+│   │   └── PaymentOptions.tsx # Payment method display
+│   └── ui/                    # Reusable UI components
+│       ├── Button.tsx
+│       ├── Container.tsx
+│       ├── PageTitle.tsx
+│       └── SectionHeading.tsx
 ├── lib/
 │   ├── api/
-│   │   └── rsvp.ts            # API client for backend
+│   │   └── rsvp-api.ts        # API client for backend
+│   ├── mocks/
+│   │   └── rsvp.ts            # TypeScript types for RSVP data
 │   └── translations.ts        # Type-safe translations
+└── utils/
+    └── locale.ts              # Locale validation utility
 ```
 
 ## Local Setup
