@@ -5,7 +5,7 @@ import Container from '@/components/ui/Container';
 import PageTitle from '@/components/ui/PageTitle';
 import { getTranslations } from '@/lib/translations';
 import { validateLocale } from '@/utils/locale';
-import VinylSearchClient from './VinylSearchClient';
+import AlbumRegistration from '@/components/registry/AlbumRegistration';
 import RegistryClient from './RegistryClient';
 
 export default function RegistryPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -41,10 +41,7 @@ export default function RegistryPage({ params }: { params: Promise<{ locale: str
               <p className='text-text/50 font-sans text-sm italic mb-2'>
                 {t.registry.vinylsPurchased}
               </p>
-              <VinylSearchClient
-                searchPlaceholder={t.registry.vinylSearchPlaceholder}
-                searchButton={t.registry.vinylSearchButton}
-              />
+              <AlbumRegistration translations={t.registry.albumRegistration} />
             </div>
           )}
 

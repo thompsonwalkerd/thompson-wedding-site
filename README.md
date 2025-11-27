@@ -21,7 +21,10 @@ Bilingual (English/Czech) wedding website with full-stack RSVP system. Built as 
   - 6-state flow with success and already-submitted handling
   - Duplicate submission prevention
 - Event details page with venue, schedule, and accommodations
-- Gift registry with client-side search filtering and multiple payment options
+- Gift registry:
+  - Album registration with iTunes API integration
+  - Real-time availability checking
+  - Multiple payment fund options
 - Photo gallery page
 
 ## Project Structure
@@ -47,6 +50,7 @@ src/
 │   │   ├── RsvpSuccess.tsx    # Success message
 │   │   └── RsvpAlreadySubmitted.tsx  # Already submitted message
 │   ├── registry/
+│   │   ├── AlbumRegistration.tsx  # Album search and registration
 │   │   └── PaymentOptions.tsx # Payment method display
 │   └── ui/                    # Reusable UI components
 │       ├── Button.tsx
@@ -55,9 +59,12 @@ src/
 │       └── SectionHeading.tsx
 ├── lib/
 │   ├── api/
-│   │   └── rsvp-api.ts        # API client for backend
+│   │   ├── albums-api.ts      # Album API client (iTunes + backend)
+│   │   └── rsvp-api.ts        # RSVP API client
 │   ├── mocks/
 │   │   └── rsvp.ts            # TypeScript types for RSVP data
+│   ├── types/
+│   │   └── albums.ts          # Album type definitions
 │   └── translations.ts        # Type-safe translations
 └── utils/
     └── locale.ts              # Locale validation utility
