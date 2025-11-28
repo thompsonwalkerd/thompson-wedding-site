@@ -1,16 +1,16 @@
 import type {
   Album,
-  iTunesSearchResponse,
+  DiscogsSearchResponse,
   BatchAvailabilityRequest,
   BatchAvailabilityResponse,
   AlbumRegistrationRequest,
 } from '@/lib/types/albums';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-const ITUNES_API_URL = 'https://itunes.apple.com/search';
+const DISCOGS_API_URL = 'https://api.discogs.com';
 
 /**
- * Search for albums using the iTunes API
+ * Search for albums using the Discogs API
  * @param query - Search query (artist name, album name, or both)
  * @returns Array of normalized Album objects (without isRegistered flag)
  */
@@ -21,28 +21,58 @@ export async function searchAlbums(query: string): Promise<Album[]> {
 
   try {
     const params = new URLSearchParams({
-      term: query,
-      entity: 'album',
-      limit: '5',
+      q: query,
+      type: 'release',
+      format: 'album',
+      per_page: '10',
     });
 
-    const response = await fetch(`${ITUNES_API_URL}?${params}`);
+    const headers: HeadersInit = {
+      'User-Agent': 'ThompsonWeddingRegistry/1.0',
+    };
 
-    if (!response.ok) {
-      throw new Error('iTunes search failed');
+    // Add authorization if token is available
+    const token = process.env.NEXT_PUBLIC_DISCOGS_TOKEN;
+    if (token) {
+      headers['Authorization'] = `Discogs token=${token}`;
     }
 
-    const data: iTunesSearchResponse = await response.json();
+    const response = await fetch(`${DISCOGS_API_URL}/database/search?${params}`, {
+      headers,
+    });
 
-    // Normalize iTunes results to our Album type
-    return data.results.map((track) => ({
-      id: track.collectionId.toString(),
-      artist: track.artistName,
-      title: track.collectionName,
-      coverUrl: track.artworkUrl100,
-      year: new Date(track.releaseDate).getFullYear(),
-      isRegistered: false, // Will be updated by checkMultipleAlbums
-    }));
+    if (!response.ok) {
+      throw new Error('Discogs search failed');
+    }
+
+    const data: DiscogsSearchResponse = await response.json();
+
+    // Filter and normalize Discogs results
+    const albums = data.results
+      .filter((result) => {
+        // Only include releases with proper titles and album format
+        if (!result.title || result.type === 'artist') return false;
+        // Prefer results with cover images
+        return true;
+      })
+      .slice(0, 5) // Take top 5
+      .map((result) => {
+        // Parse "Artist - Album" format
+        const parts = result.title.split(' - ');
+        const artist = parts[0] || 'Unknown Artist';
+        const title = parts.slice(1).join(' - ') || result.title;
+
+        return {
+          id: result.id.toString(),
+          artist: artist,
+          title: title,
+          coverUrl: result.cover_image || result.thumb || '/placeholder-album.png',
+          year: result.year ? parseInt(result.year) : new Date().getFullYear(),
+          isRegistered: false, // Will be updated by checkMultipleAlbums
+        };
+      });
+
+    return albums;
   } catch (error) {
     console.error('Error searching albums:', error);
     throw new Error('Failed to search albums');

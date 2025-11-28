@@ -1,15 +1,16 @@
-// iTunes API raw response types (only fields we need)
-export interface iTunesTrack {
-  collectionId: number;
-  artistName: string;
-  collectionName: string;
-  artworkUrl100: string;
-  releaseDate: string;
+// Discogs API raw response types (only fields we need)
+export interface DiscogsResult {
+  id: number;
+  title: string; // Format: "Artist - Album Name"
+  year?: string;
+  thumb?: string;
+  cover_image?: string;
+  format?: string[];
+  type: string; // "master" or "release"
 }
 
-export interface iTunesSearchResponse {
-  resultCount: number;
-  results: iTunesTrack[];
+export interface DiscogsSearchResponse {
+  results: DiscogsResult[];
 }
 
 // Normalized album type for frontend use

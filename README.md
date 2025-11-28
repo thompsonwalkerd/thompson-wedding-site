@@ -22,7 +22,7 @@ Bilingual (English/Czech) wedding website with full-stack RSVP system. Built as 
   - Duplicate submission prevention
 - Event details page with venue, schedule, and accommodations
 - Gift registry:
-  - Album registration with iTunes API integration
+  - Album registration with Discogs API integration
   - Real-time availability checking
   - Multiple payment fund options
 - Photo gallery page
