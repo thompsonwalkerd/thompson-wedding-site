@@ -22,9 +22,8 @@ export async function searchAlbums(query: string): Promise<Album[]> {
   try {
     const params = new URLSearchParams({
       q: query,
-      type: 'release',
-      format: 'album',
-      per_page: '10',
+      type: 'master', // Use master releases instead of individual releases
+      per_page: '20', // Masters are already deduplicated, so we need fewer
     });
 
     const headers: HeadersInit = {
@@ -48,14 +47,33 @@ export async function searchAlbums(query: string): Promise<Album[]> {
     const data: DiscogsSearchResponse = await response.json();
 
     // Filter and normalize Discogs results
+    const seenAlbums = new Set<string>();
     const albums = data.results
       .filter((result) => {
         // Only include releases with proper titles and album format
         if (!result.title || result.type === 'artist') return false;
-        // Prefer results with cover images
+
+        // Parse title to check for duplicates
+        const parts = result.title.split(' - ');
+        const artist = parts[0] || 'Unknown Artist';
+        const albumTitle = parts.slice(1).join(' - ') || result.title;
+
+        // Create unique key from artist + album (case-insensitive)
+        const uniqueKey = `${artist.toLowerCase().trim()}|${albumTitle.toLowerCase().trim()}`;
+
+        // Skip if we've already seen this artist/album combination
+        if (seenAlbums.has(uniqueKey)) return false;
+        seenAlbums.add(uniqueKey);
+
         return true;
       })
-      .slice(0, 5) // Take top 5
+      .sort((a, b) => {
+        // Sort by community "want" count (most wanted first)
+        const aWant = a.community?.want || 0;
+        const bWant = b.community?.want || 0;
+        return bWant - aWant;
+      })
+      .slice(0, 6) // Take top 6 most wanted unique albums
       .map((result) => {
         // Parse "Artist - Album" format
         const parts = result.title.split(' - ');

@@ -8,10 +8,10 @@ export function isLocale(value: string): value is Locale {
 }
 
 /**
- * Validates and returns a Locale, falling back to 'en' if invalid
+ * Validates and returns a Locale, falling back to 'cz' if invalid
  */
 export function validateLocale(value: string): Locale {
-  return isLocale(value) ? value : 'en';
+  return isLocale(value) ? value : 'cz';
 }
 
 /**

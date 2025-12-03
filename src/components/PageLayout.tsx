@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Header from '@/components/Header';
+import LanguageSwitcherNotification from '@/components/LanguageSwitcherNotification';
 import { Locale, Translations } from '@/lib/translations';
 
 type PageLayoutProps = {
@@ -34,6 +35,7 @@ export default function PageLayout({
 
       <div className='relative z-10 flex flex-col min-h-screen'>
         <Header locale={locale} t={t} currentPath={currentPath} />
+        <LanguageSwitcherNotification />
 
         <main className='flex-1'>{children}</main>
       </div>

@@ -7,6 +7,10 @@ export interface DiscogsResult {
   cover_image?: string;
   format?: string[];
   type: string; // "master" or "release"
+  community?: {
+    want: number; // Number of users who want this album
+    have: number; // Number of users who have this album
+  };
 }
 
 export interface DiscogsSearchResponse {

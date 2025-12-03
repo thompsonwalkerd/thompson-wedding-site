@@ -206,13 +206,13 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
       {!selectedAlbum && searchResults.length > 0 && (
         <div className="space-y-4">
           <p className="text-sm text-text/70">{t.selectAlbum}</p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
             {searchResults.map((album) => (
               <button
                 key={album.id}
                 onClick={() => handleAlbumSelect(album)}
                 disabled={album.isRegistered}
-                className={`group relative rounded-lg bg-surface/20 p-4 text-left transition-all w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)] max-w-xs ${
+                className={`group relative rounded-lg bg-surface/20 p-3 sm:p-4 text-left transition-all w-full max-w-xs ${
                   album.isRegistered
                     ? 'cursor-not-allowed opacity-50'
                     : 'hover:bg-surface/30 hover:shadow-lg cursor-pointer'
@@ -220,12 +220,27 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
               >
                 {/* Registered Badge */}
                 {album.isRegistered && (
-                  <div className="absolute top-2 right-2 rounded-md bg-red-500/90 px-2 py-1 text-xs font-bold text-white shadow-lg">
+                  <div className="absolute top-2 right-2 rounded-md bg-red-500/90 px-2 py-1 text-xs font-bold text-white shadow-lg z-10">
                     {t.registeredBadge}
                   </div>
                 )}
 
-                <div className="flex flex-col items-center gap-3">
+                {/* Mobile: Horizontal layout with smaller cover */}
+                <div className="flex sm:hidden items-center gap-3">
+                  <img
+                    src={album.coverUrl}
+                    alt={`${album.title} by ${album.artist}`}
+                    className="h-20 w-20 flex-shrink-0 rounded-md shadow-md"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <h5 className="font-display text-accent text-sm line-clamp-2 mb-1">{album.title}</h5>
+                    <p className="text-xs text-text/70 line-clamp-1">{album.artist}</p>
+                    <p className="text-xs text-text/50">{album.year}</p>
+                  </div>
+                </div>
+
+                {/* Desktop: Vertical layout with larger cover */}
+                <div className="hidden sm:flex flex-col items-center gap-3">
                   <img
                     src={album.coverUrl}
                     alt={`${album.title} by ${album.artist}`}

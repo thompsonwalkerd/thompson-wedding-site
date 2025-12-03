@@ -112,9 +112,10 @@ export default function RegistryClient({ t }: RegistryClientProps) {
               key={index}
               className={`bg-surface/5 border border-text/20 rounded-lg p-6 transition-all duration-500 ${
                 isHidden ? 'opacity-0 scale-95 hidden' : 'opacity-100 scale-100'
-              } ${isExpanded ? 'flex flex-row gap-8 items-start' : 'flex flex-col'}`}
+              } flex flex-col`}
             >
-              <div className={isExpanded ? 'flex-1' : 'flex-grow'}>
+              {/* Fund Info Section - Top */}
+              <div className={`${isExpanded ? 'text-center mb-6' : 'grow'}`}>
                 <h3 className='text-3xl font-heading text-heading mb-3 flex items-center justify-center gap-4'>
                   {option.name}
                   <Image
@@ -128,7 +129,8 @@ export default function RegistryClient({ t }: RegistryClientProps) {
                 <p className='text-text/70 font-sans mb-6'>{option.description}</p>
               </div>
 
-              <div className={isExpanded ? 'flex-1' : ''}>
+              {/* Payment Options Section - Bottom or Button */}
+              <div>
                 <PaymentOptions
                   fundType={fundType}
                   buttonText={t.registry.externalLinkLabel}

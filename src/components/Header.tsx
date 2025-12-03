@@ -16,18 +16,30 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
 
   // Use home-elements color on home page, text color elsewhere
   const isHomePage = currentPath === '';
-  const textColor = isHomePage ? 'text-home-elements' : 'text-text';
   const bgColor = isHomePage ? 'bg-home-elements' : 'bg-text';
+
+  const isRsvpPage = currentPath === 'rsvp';
 
   return (
     <header className='p-4 md:p-6 flex justify-between items-center relative'>
-      {/* Logo - left side */}
-      <div className={`font-script text-3xl sm:text-4xl md:text-5xl tracking-wide ${textColor}`}>
-        {t.home.couple.bride} {t.home.couple.and} {t.home.couple.groom}
-      </div>
+      {/* RSVP Button - left side (styled like language selector) - hidden on RSVP page */}
+      {!isRsvpPage ? (
+        <Link
+          href={`/${locale}/rsvp`}
+          className={`px-4 py-2 rounded font-sans font-base uppercase text-base tracking-wide border transition-colors ${
+            isHomePage
+              ? 'text-home-elements border border-home-elements/40 hover:border-home-elements/80 hover:bg-home-elements/10 hover:text-bg'
+              : 'text-text border-text hover:bg-text hover:text-bg'
+          }`}
+        >
+          {t.nav.rsvp}
+        </Link>
+      ) : (
+        <div className='px-4 py-2'></div>
+      )}
 
       {/* Desktop: Nav - center (hidden on mobile) */}
-      <nav className='hidden md:flex absolute left-1/2 -translate-x-1/2 gap-8'>
+      <nav className='hidden lg:flex absolute left-1/2 -translate-x-1/2 gap-8'>
         <Link
           href={`/${locale}`}
           className={`font-sans font-semibold uppercase text-base tracking-wide pb-1 transition-all duration-200 ${
@@ -71,7 +83,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
       </nav>
 
       {/* Desktop: Language toggle - right side (hidden on mobile) */}
-      <div className='hidden md:flex gap-2'>
+      <div className='hidden lg:flex gap-2'>
         <Link
           href={`/en${basePath}`}
           className={`px-3 py-1 rounded font-sans uppercase text-base tracking-wide ${
@@ -108,7 +120,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
 
       {/* Mobile: Hamburger button (hidden on desktop) */}
       <button
-        className='md:hidden flex flex-col gap-1.5 p-2 hover:opacity-70 transition-opacity'
+        className='lg:hidden flex flex-col gap-1.5 p-2 hover:opacity-70 transition-opacity'
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         aria-label='Toggle menu'
       >
@@ -131,7 +143,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
 
       {/* Mobile: Dropdown menu (shown when hamburger clicked) */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 backdrop-blur-sm flex flex-col p-6 gap-4 z-50 transition-all duration-300 ${
+        className={`lg:hidden absolute top-full left-0 right-0 backdrop-blur-sm flex flex-col p-6 gap-4 z-50 transition-all duration-300 ${
           isHomePage
             ? 'bg-black/95 border-t border-home-elements/20'
             : 'bg-bg/95 border-t border-text/20'

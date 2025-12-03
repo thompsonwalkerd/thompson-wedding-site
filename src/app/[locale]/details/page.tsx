@@ -27,7 +27,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
         </Button>
 
         {/* Main Details Content */}
-        <div className='space-y-12'>
+        <div className='space-y-16 md:space-y-20'>
           {/* Venue & Date/Time - Side by Side on Desktop */}
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in px-4'>
             {/* Venue Section */}
@@ -180,20 +180,27 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
               {t.details.accommodations.sectionTitle}
             </SectionHeading>
 
+            <p className='text-sm md:text-lg'>
+              {t.details.accommodations.details}
+            </p>
+
             {/* Accommodation Cards Grid */}
-            <div className='grid grid-cols-2 justify-center mt-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 max-w-5xl mx-auto mt-8 px-4 md:px-0'>
               {t.details.accommodations.options.map((hotel, index) => (
                 <div
                   key={index}
-                  className='md:w-70 w-50 justify-self-center rounded-md overflow-hidden transition-all hover:shadow-lg hover:shadow-text/10'
+                  className='flex flex-col rounded-md overflow-hidden transition-all hover:shadow-lg hover:shadow-text/10 w-full'
                 >
                   {/* Background image section */}
                   <div
-                    className='h-30 md:h-40 bg-cover bg-center'
+                    className='w-full aspect-video bg-cover bg-center shrink-0'
                     style={{ backgroundImage: `url(${hotel.image})` }}
                   />
                   {/* Details overlay at bottom */}
-                  <h3 className='p-1 md:p-3 bg-surface/10 border-t border-text/2 text-md md:text-xl font-heading text-text mb-1'>{hotel.name}</h3>
+                  <div className='text-text p-3 md:p-4 bg-surface/10 grow flex flex-col'>
+                    <h3 className='font-heading text-xl md:text-2xl mb-2 md:mb-3 font-semibold'>{hotel.name}</h3>
+                    <p className='text-sm md:text-base font-light grow'>{hotel.details}</p>
+                  </div>
                 </div>
               ))}
             </div>

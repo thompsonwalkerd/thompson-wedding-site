@@ -4,6 +4,7 @@
 export type Guest = {
   id: number;
   name: string;
+  from_america?: boolean;
 };
 
 export type GuestGroup = {
@@ -15,6 +16,7 @@ export type GuestGroup = {
 export type RsvpGuestResponse = {
   guest_id: number;
   attending: boolean;
+  from_america?: boolean;
 };
 
 export type RsvpSubmission = {
