@@ -38,7 +38,6 @@ export type Translations = {
         city: string;
         country: string;
       };
-      instructions: string;
     };
     dateAndTime: {
       sectionTitle: string;
@@ -162,7 +161,7 @@ export const translations: Record<Locale, Translations> = {
       day: '20',
       month: '06',
       year: '2026',
-      time: 'The ceremony begins at 12:00 pm',
+      time: 'The ceremony begins at 2:00 pm',
       dateString: 'June 20th, 2026',
     },
     home: {
@@ -185,7 +184,6 @@ export const translations: Record<Locale, Translations> = {
           city: 'Sedlčany',
           country: 'CZ',
         },
-        instructions: '[Instructions....]',
       },
       dateAndTime: {
         sectionTitle: 'Date & Time',
@@ -204,13 +202,13 @@ export const translations: Record<Locale, Translations> = {
             icon: 'ceremony.png',
           },
           {
-            name: 'Traditions',
-            time: '3:00 pm',
+            name: 'Food & Traditions',
+            time: '4:00 pm',
             icon: 'traditions.png',
           },
           {
-            name: 'Party',
-            time: '8:00 pm',
+            name: 'Celebration',
+            time: '7:00 pm',
             icon: 'party.png',
           },
           {
@@ -222,17 +220,17 @@ export const translations: Record<Locale, Translations> = {
       },
       accommodations: {
         sectionTitle: 'Accommodations',
-        details: 'Below you will find the options for your stay the night of the 20th.',
+        details: 'Below are two options for staying near the venue the night of the 20th. We have reserved spots for guests who wish to stay here. If you want to take one of these rooms at either location, contact us at thompsonwalker222@gmail.com',
         options: [
           {
             name: 'Pension Merano',
-            details: 'This hotel is a hotel that has what hotels have.',
+            details: '[ Describe this hotel ]',
             image: '/accommodations/hotel1.jpg',
             url: '',
           },
           {
             name: 'Hotel Florian Sedlčany',
-            details: 'This is also a hotel, but this one has what hotels never have.',
+            details: '[ Describe this hotel ]',
             image: '/accommodations/hotel2.jpg',
             url: '',
           },
@@ -241,7 +239,7 @@ export const translations: Record<Locale, Translations> = {
       dressCode: {
         sectionTitle: 'Dress Code',
         description:
-          'Vestibulum ut mi finibus, mattis justo imperdiet, fermentum velit.\n\n Sed volutpat quis urna vehicula eleifend. Morbi sodales ex sed massa lacinia fringilla. Fusce tincidunt, velit eu lacinia sollicitudin, dolor nisi elementum neque, quis posuere diam ante in sapien.\n\nPraesent vitae lectus at justo interdum finibus. Sed ac enim vitae turpis egestas bibendum.\n\nPhasellus mollis lacus eu nisi viverra, et tincidunt lacus auctor. ',
+          'Sed volutpat quis urna vehicula eleifend. Fusce tincidunt, velit eu lacinia sollicitudin, dolor nisi elementum neque, quis posuere diam ante in sapien.\n\nPhasellus mollis lacus eu nisi viverra, et tincidunt lacus auctor. ',
       },
     },
     photos: {
@@ -360,7 +358,7 @@ export const translations: Record<Locale, Translations> = {
       day: '20.',
       month: '6.',
       year: '2026',
-      time: 'Svatební obřad začíná ve 12:00',
+      time: 'Svatební obřad začíná ve 14:00',
       dateString: '20. června 2026',
     },
     home: {
@@ -383,7 +381,6 @@ export const translations: Record<Locale, Translations> = {
           city: 'Sedlčany',
           country: 'CZ',
         },
-        instructions: '[Návod....]',
       },
       dateAndTime: {
         sectionTitle: 'Datum a čas',

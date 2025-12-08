@@ -14,7 +14,7 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
       <div className='flex flex-col items-center justify-center h-full relative px-4 sm:px-6'>
         {/* Hero Section */}
         <div className='flex flex-col items-center justify-center text-center'>
-          <p className='font-heading text-home-elements text-xl md:text-2xl text-glow tracking-widest animate-fade-in'>
+          <p className='font-heading text-home-elements text-xl md:text-2xl text-glow tracking-widest animate-fade-in mt-10 md:mt-2'>
             {t.home.tagline}
           </p>
 
@@ -22,12 +22,12 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
             {t.home.couple.bride} {t.home.couple.and} {t.home.couple.groom}
           </h1>
 
-          <p className='font-heading text-home-elements text-xl md:text-2xl text-glow tracking-widest mb-12 -mt-2 animate-fade-in-delay-2'>
+          <p className='font-heading text-home-elements text-xl md:text-2xl text-glow tracking-widest -mt-2 animate-fade-in-delay-2'>
             {t.when.dateString}
           </p>
 
           {/* RSVP Button */}
-          <div className='animate-fade-in-delay-3 lg:pt-20 md:pt-30 pt-0'>
+          <div className='animate-fade-in-delay-3 lg:pt-20 md:pt-30 pt-0 mt-20 md:mt-10'>
             <Button as='link' href={`/${locale}/rsvp`} variant='home'>
               {t.home.rsvpButton}
             </Button>

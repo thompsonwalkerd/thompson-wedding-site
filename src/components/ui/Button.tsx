@@ -26,7 +26,7 @@ export default function Button(props: ButtonProps) {
   const variantStyles = {
     primary:
       'bg-surface/60 text-black px-10 sm:px-12 md:px-16 py-1.5 md:py-2 rounded-full text-xl md:text-2xl font-sans uppercase insert-shadow-sm shadow-xl hover:bg-surface/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out',
-    home: 'bg-home-elements/80 text-black/70 px-10 sm:px-12 md:px-16 py-1.5 md:py-2 rounded-full text-xl md:text-2xl font-sans uppercase insert-shadow-sm shadow-xl hover:bg-home-elements/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out',
+    home: 'bg-home-elements/80 text-black/70 px-14 sm:px-12 md:px-16 py-2 md:py-2 rounded-full text-2xl md:text-2xl font-sans uppercase insert-shadow-sm shadow-xl hover:bg-home-elements/90 hover:shadow-2xl hover:scale-105 transition-all duration-300 ease-in-out',
     link: 'inline-flex items-center gap-2 text-text/70 hover:text-text transition-all duration-200 font-sans text-xl group',
     back: 'inline-flex items-center gap-2 text-text/70 hover:text-text transition-all duration-200 font-sans',
   };
