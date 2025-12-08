@@ -83,8 +83,11 @@ export default function RsvpForm({
 
       {/* Email Address */}
       <div>
-        <label className='block text-text font-sans mb-2'>{t.rsvp.emailLabel}</label>
+        <label htmlFor='rsvp-email' className='block text-text font-sans mb-2'>
+          {t.rsvp.emailLabel}
+        </label>
         <input
+          id='rsvp-email'
           type='email'
           value={email}
           onChange={e => onEmailChange(e.target.value)}
@@ -137,7 +140,7 @@ export default function RsvpForm({
           type='button'
           onClick={onDecline}
           disabled={isSubmitting}
-          className='flex-1 px-6 py-3 bg-surface/20 border border-text/30 text-text font-sans rounded-lg hover:bg-surface/20 hover:border-text/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='flex-1 px-6 py-3 bg-surface/20 border border-text/30 text-text font-sans rounded-lg hover:bg-surface/30 hover:border-text/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {t.rsvp.declineButton}
         </button>

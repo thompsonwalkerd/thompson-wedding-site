@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { searchAlbums, checkMultipleAlbums, registerAlbum } from '@/lib/api/albums-api';
 import type { Album } from '@/lib/types/albums';
 
@@ -172,10 +173,12 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
         <div className='space-y-4'>
           <div className='rounded-lg bg-surface/20 p-6'>
             <div className='flex flex-col items-center gap-6 sm:flex-row'>
-              <img
+              <Image
                 src={selectedAlbum.coverUrl}
                 alt={`${selectedAlbum.title} by ${selectedAlbum.artist}`}
-                className='h-48 w-48 rounded-lg shadow-lg'
+                width={192}
+                height={192}
+                className='rounded-lg shadow-lg'
               />
               <div className='flex-1 text-center sm:text-left'>
                 <h4 className='text-2xl font-display text-accent mb-2'>{selectedAlbum.title}</h4>
@@ -227,10 +230,12 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
 
                 {/* Mobile: Horizontal layout with smaller cover */}
                 <div className='flex sm:hidden items-center gap-3'>
-                  <img
+                  <Image
                     src={album.coverUrl}
                     alt={`${album.title} by ${album.artist}`}
-                    className='h-20 w-20 flex-shrink-0 rounded-md shadow-md'
+                    width={80}
+                    height={80}
+                    className='flex-shrink-0 rounded-md shadow-md'
                   />
                   <div className='flex-1 min-w-0'>
                     <h5 className='font-display text-accent text-sm line-clamp-2 mb-1'>
@@ -243,10 +248,12 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
 
                 {/* Desktop: Vertical layout with larger cover */}
                 <div className='hidden sm:flex flex-col items-center gap-3'>
-                  <img
+                  <Image
                     src={album.coverUrl}
                     alt={`${album.title} by ${album.artist}`}
-                    className='h-32 w-32 rounded-md shadow-md'
+                    width={128}
+                    height={128}
+                    className='rounded-md shadow-md'
                   />
                   <div className='w-full text-center'>
                     <h5 className='font-display text-accent text-sm line-clamp-1'>{album.title}</h5>

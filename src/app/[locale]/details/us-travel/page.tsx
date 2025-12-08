@@ -17,7 +17,7 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
     <PageLayout locale={locale} t={t} currentPath='details/us-travel'>
       <Container align='center'>
         {/* Back Button */}
-        <Button as='link' href={`/${locale}/details`} variant='back' className='mb-8'>
+        <Button as='link' href={`/${locale}/details`} variant='back' className='mb-14'>
           <span>←</span>
           <span>Back to Details</span>
         </Button>
