@@ -24,6 +24,14 @@
 .DS_Store
 *.pem
 
+# package manager lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# local claude code settings
+.claude
+
 # debug
 npm-debug.log*
 yarn-debug.log*
