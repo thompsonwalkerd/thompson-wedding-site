@@ -106,16 +106,21 @@ export default function RsvpPage({ params }: RsvpPageProps) {
     setSubmitError('');
     setIsSubmitting(true);
 
+    // Trim email before submission
+    const trimmedEmail = email.trim();
+
     try {
       const result = await submitRsvp({
         group_id: guestGroup.group_id,
-        email,
+        email: trimmedEmail,
         songs,
         attendees,
         dietary_restrictions: dietaryRestrictions,
       });
 
       if (result.success) {
+        // Update state with trimmed email for display
+        setEmail(trimmedEmail);
         setFormState('success');
       } else {
         setSubmitError(result.message || t.rsvp.errorMessage);
