@@ -6,7 +6,7 @@ const cormorantGaramond = Cormorant_Garamond({
   variable: '--font-heading',
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'], // Includes italic for the "and"
+  style: ['normal', 'italic'],
 });
 
 const raleway = Raleway({
@@ -23,7 +23,7 @@ const luxuriousScript = Luxurious_Script({
 
 export const metadata: Metadata = {
   title: 'Thompson Wedding',
-  description: 'Wedding Website',
+  description: 'Thompson Wedding Website',
 };
 
 export default function RootLayout({

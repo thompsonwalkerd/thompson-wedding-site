@@ -49,7 +49,7 @@ export async function searchAlbums(query: string): Promise<Album[]> {
     // Filter and normalize Discogs results
     const seenAlbums = new Set<string>();
     const albums = data.results
-      .filter((result) => {
+      .filter(result => {
         // Only include releases with proper titles and album format
         if (!result.title || result.type === 'artist') return false;
 
@@ -74,7 +74,7 @@ export async function searchAlbums(query: string): Promise<Album[]> {
         return bWant - aWant;
       })
       .slice(0, 6) // Take top 6 most wanted unique albums
-      .map((result) => {
+      .map(result => {
         // Parse "Artist - Album" format
         const parts = result.title.split(' - ');
         const artist = parts[0] || 'Unknown Artist';
@@ -103,7 +103,7 @@ export async function searchAlbums(query: string): Promise<Album[]> {
  * @returns Map of "Artist-Album" keys to availability boolean
  */
 export async function checkMultipleAlbums(
-  albums: Array<{ artist: string; album: string }>
+  albums: Array<{ artist: string; album: string }>,
 ): Promise<{ [key: string]: boolean }> {
   try {
     const requestBody: BatchAvailabilityRequest = { albums };
@@ -125,11 +125,14 @@ export async function checkMultipleAlbums(
   } catch (error) {
     console.error('Error checking album availability:', error);
     // Return all albums as available if check fails (graceful degradation)
-    return albums.reduce((acc, album) => {
-      const key = `${album.artist}-${album.album}`;
-      acc[key] = true;
-      return acc;
-    }, {} as { [key: string]: boolean });
+    return albums.reduce(
+      (acc, album) => {
+        const key = `${album.artist}-${album.album}`;
+        acc[key] = true;
+        return acc;
+      },
+      {} as { [key: string]: boolean },
+    );
   }
 }
 

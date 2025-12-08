@@ -234,7 +234,7 @@ export const translations: Record<Locale, Translations> = {
             name: 'Hotel Florian Sedlčany',
             details: 'This is also a hotel, but this one has what hotels never have.',
             image: '/accommodations/hotel2.jpg',
-            url: ''
+            url: '',
           },
         ],
       },
@@ -406,13 +406,13 @@ export const translations: Record<Locale, Translations> = {
             name: 'Pension Merano',
             details: '',
             image: '/accommodations/hotel1.jpg',
-            url: ''
+            url: '',
           },
           {
             name: 'Hotel Příklad 2',
             details: '',
             image: '/accommodations/hotel2.jpg',
-            url: ''
+            url: '',
           },
         ],
       },

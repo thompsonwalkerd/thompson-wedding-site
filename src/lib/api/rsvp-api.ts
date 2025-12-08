@@ -28,7 +28,7 @@ export async function checkRsvpStatus(groupId: number): Promise<boolean> {
 }
 
 export async function submitRsvp(
-  data: RsvpSubmission
+  data: RsvpSubmission,
 ): Promise<{ success: boolean; message?: string }> {
   const response = await fetch(`${API_BASE_URL}/api/rsvp/submit/`, {
     method: 'POST',
@@ -46,7 +46,7 @@ export async function submitRsvp(
 
 export async function updateRsvpEmail(
   groupId: number,
-  newEmail: string
+  newEmail: string,
 ): Promise<{ success: boolean; message?: string }> {
   const response = await fetch(`${API_BASE_URL}/api/rsvp/update-email/`, {
     method: 'PUT',

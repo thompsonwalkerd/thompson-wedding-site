@@ -51,7 +51,7 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
       }
 
       // Step 2: Check which albums are already registered
-      const albumsToCheck = albums.map((album) => ({
+      const albumsToCheck = albums.map(album => ({
         artist: album.artist,
         album: album.title,
       }));
@@ -59,7 +59,7 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
       const availability = await checkMultipleAlbums(albumsToCheck);
 
       // Step 3: Mark albums as registered or available
-      const albumsWithStatus = albums.map((album) => {
+      const albumsWithStatus = albums.map(album => {
         const key = `${album.artist}-${album.title}`;
         return {
           ...album,
@@ -116,14 +116,14 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
   // Success state
   if (registrationSuccess) {
     return (
-      <div className="space-y-6">
-        <h3 className="text-2xl font-display text-accent">{t.title}</h3>
-        <div className="rounded-lg bg-surface/20 p-8 text-center">
-          <div className="mb-4 text-6xl">✓</div>
-          <p className="mb-6 text-lg text-text/90">{t.success}</p>
+      <div className='space-y-6'>
+        <h3 className='text-2xl font-display text-accent'>{t.title}</h3>
+        <div className='rounded-lg bg-surface/20 p-8 text-center'>
+          <div className='mb-4 text-6xl'>✓</div>
+          <p className='mb-6 text-lg text-text/90'>{t.success}</p>
           <button
             onClick={handleRegisterAnother}
-            className="bg-accent/90 hover:bg-accent text-bg font-sans py-2 px-6 rounded-lg transition-colors duration-200"
+            className='bg-accent/90 hover:bg-accent text-bg font-sans py-2 px-6 rounded-lg transition-colors duration-200'
           >
             {t.registerAnother}
           </button>
@@ -133,23 +133,23 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
   }
 
   return (
-    <div className="space-y-6">
-      <h3 className="text-2xl font-display text-accent">{t.title}</h3>
+    <div className='space-y-6'>
+      <h3 className='text-2xl font-display text-accent'>{t.title}</h3>
 
       {/* Search Form */}
-      <form onSubmit={handleSearch} className="space-y-4">
+      <form onSubmit={handleSearch} className='space-y-4'>
         <input
-          type="text"
+          type='text'
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={e => setSearchQuery(e.target.value)}
           placeholder={t.searchPlaceholder}
-          className="w-full rounded-lg border border-text/20 bg-surface/10 px-4 py-3 text-text placeholder:text-text/50 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20"
+          className='w-full rounded-lg border border-text/20 bg-surface/10 px-4 py-3 text-text placeholder:text-text/50 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20'
           disabled={isSearching}
         />
         <button
-          type="submit"
+          type='submit'
           disabled={isSearching || !searchQuery.trim()}
-          className="w-full bg-accent/90 hover:bg-accent text-bg font-sans py-2 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className='w-full bg-accent/90 hover:bg-accent text-bg font-sans py-2 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
         >
           {isSearching ? t.searching : t.searchButton}
         </button>
@@ -157,44 +157,44 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
 
       {/* Error Message */}
       {error && (
-        <div className="rounded-lg bg-red-500/10 p-4 text-red-400 border border-red-500/20">
+        <div className='rounded-lg bg-red-500/10 p-4 text-red-400 border border-red-500/20'>
           {error}
         </div>
       )}
 
       {/* No Results Message */}
       {!isSearching && searchResults.length === 0 && searchQuery && !selectedAlbum && (
-        <p className="text-center text-text/60">{t.noResults}</p>
+        <p className='text-center text-text/60'>{t.noResults}</p>
       )}
 
       {/* Selected Album View */}
       {selectedAlbum && (
-        <div className="space-y-4">
-          <div className="rounded-lg bg-surface/20 p-6">
-            <div className="flex flex-col items-center gap-6 sm:flex-row">
+        <div className='space-y-4'>
+          <div className='rounded-lg bg-surface/20 p-6'>
+            <div className='flex flex-col items-center gap-6 sm:flex-row'>
               <img
                 src={selectedAlbum.coverUrl}
                 alt={`${selectedAlbum.title} by ${selectedAlbum.artist}`}
-                className="h-48 w-48 rounded-lg shadow-lg"
+                className='h-48 w-48 rounded-lg shadow-lg'
               />
-              <div className="flex-1 text-center sm:text-left">
-                <h4 className="text-2xl font-display text-accent mb-2">{selectedAlbum.title}</h4>
-                <p className="text-lg text-text/80 mb-1">{selectedAlbum.artist}</p>
-                <p className="text-sm text-text/60">{selectedAlbum.year}</p>
+              <div className='flex-1 text-center sm:text-left'>
+                <h4 className='text-2xl font-display text-accent mb-2'>{selectedAlbum.title}</h4>
+                <p className='text-lg text-text/80 mb-1'>{selectedAlbum.artist}</p>
+                <p className='text-sm text-text/60'>{selectedAlbum.year}</p>
               </div>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className='flex flex-col sm:flex-row gap-3'>
             <button
               onClick={() => setSelectedAlbum(null)}
-              className="flex-1 bg-surface/30 hover:bg-surface/50 text-text/80 font-sans py-2 px-6 rounded-lg transition-colors duration-200"
+              className='flex-1 bg-surface/30 hover:bg-surface/50 text-text/80 font-sans py-2 px-6 rounded-lg transition-colors duration-200'
             >
               Back to Results
             </button>
             <button
               onClick={handleRegister}
               disabled={isRegistering}
-              className="flex-1 bg-accent/90 hover:bg-accent text-bg font-sans py-2 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className='flex-1 bg-accent/90 hover:bg-accent text-bg font-sans py-2 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed'
             >
               {isRegistering ? t.registering : t.registerButton}
             </button>
@@ -204,10 +204,10 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
 
       {/* Search Results Grid */}
       {!selectedAlbum && searchResults.length > 0 && (
-        <div className="space-y-4">
-          <p className="text-sm text-text/70">{t.selectAlbum}</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-            {searchResults.map((album) => (
+        <div className='space-y-4'>
+          <p className='text-sm text-text/70'>{t.selectAlbum}</p>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center'>
+            {searchResults.map(album => (
               <button
                 key={album.id}
                 onClick={() => handleAlbumSelect(album)}
@@ -220,36 +220,38 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
               >
                 {/* Registered Badge */}
                 {album.isRegistered && (
-                  <div className="absolute top-2 right-2 rounded-md bg-red-500/90 px-2 py-1 text-xs font-bold text-white shadow-lg z-10">
+                  <div className='absolute top-2 right-2 rounded-md bg-red-500/90 px-2 py-1 text-xs font-bold text-white shadow-lg z-10'>
                     {t.registeredBadge}
                   </div>
                 )}
 
                 {/* Mobile: Horizontal layout with smaller cover */}
-                <div className="flex sm:hidden items-center gap-3">
+                <div className='flex sm:hidden items-center gap-3'>
                   <img
                     src={album.coverUrl}
                     alt={`${album.title} by ${album.artist}`}
-                    className="h-20 w-20 flex-shrink-0 rounded-md shadow-md"
+                    className='h-20 w-20 flex-shrink-0 rounded-md shadow-md'
                   />
-                  <div className="flex-1 min-w-0">
-                    <h5 className="font-display text-accent text-sm line-clamp-2 mb-1">{album.title}</h5>
-                    <p className="text-xs text-text/70 line-clamp-1">{album.artist}</p>
-                    <p className="text-xs text-text/50">{album.year}</p>
+                  <div className='flex-1 min-w-0'>
+                    <h5 className='font-display text-accent text-sm line-clamp-2 mb-1'>
+                      {album.title}
+                    </h5>
+                    <p className='text-xs text-text/70 line-clamp-1'>{album.artist}</p>
+                    <p className='text-xs text-text/50'>{album.year}</p>
                   </div>
                 </div>
 
                 {/* Desktop: Vertical layout with larger cover */}
-                <div className="hidden sm:flex flex-col items-center gap-3">
+                <div className='hidden sm:flex flex-col items-center gap-3'>
                   <img
                     src={album.coverUrl}
                     alt={`${album.title} by ${album.artist}`}
-                    className="h-32 w-32 rounded-md shadow-md"
+                    className='h-32 w-32 rounded-md shadow-md'
                   />
-                  <div className="w-full text-center">
-                    <h5 className="font-display text-accent text-sm line-clamp-1">{album.title}</h5>
-                    <p className="text-xs text-text/70 line-clamp-1">{album.artist}</p>
-                    <p className="text-xs text-text/50">{album.year}</p>
+                  <div className='w-full text-center'>
+                    <h5 className='font-display text-accent text-sm line-clamp-1'>{album.title}</h5>
+                    <p className='text-xs text-text/70 line-clamp-1'>{album.artist}</p>
+                    <p className='text-xs text-text/50'>{album.year}</p>
                   </div>
                 </div>
               </button>

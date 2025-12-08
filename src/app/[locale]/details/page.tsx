@@ -32,7 +32,9 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in px-4'>
             {/* Venue Section */}
             <section>
-              <SectionHeading className='mt-4 md:mt-8'>{t.details.venue.sectionTitle}</SectionHeading>
+              <SectionHeading className='mt-4 md:mt-8'>
+                {t.details.venue.sectionTitle}
+              </SectionHeading>
               <div className='font-sans text-text/90 space-y-2 leading-relaxed'>
                 <p className='text-xl md:text-2xl font-semibold'>{t.details.venue.name}</p>
                 <p className='text-sm md:text-base'>
@@ -46,7 +48,9 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
 
             {/* Date & Time */}
             <section>
-              <SectionHeading className='mt-4 md:mt-8'>{t.details.dateAndTime.sectionTitle}</SectionHeading>
+              <SectionHeading className='mt-4 md:mt-8'>
+                {t.details.dateAndTime.sectionTitle}
+              </SectionHeading>
               <div className='font-sans text-text/90 space-y-2 leading-relaxed'>
                 <p className='text-xl md:text-2xl font-semibold'>{t.when.dateString}</p>
                 <p className='text-sm md:text-base'>{t.when.time}</p>
@@ -56,7 +60,9 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
 
           {/* Schedule */}
           <section className='animate-fade-in-delay-1'>
-            <SectionHeading className='mt-4 md:mt-8'>{t.details.schedule.sectionTitle}</SectionHeading>
+            <SectionHeading className='mt-4 md:mt-8'>
+              {t.details.schedule.sectionTitle}
+            </SectionHeading>
 
             {/* Timeline Container - Desktop: center-aligned alternating, Mobile: left-aligned list */}
             <div className='max-w-3xl mx-auto py-8 px-4'>
@@ -180,9 +186,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
               {t.details.accommodations.sectionTitle}
             </SectionHeading>
 
-            <p className='text-sm md:text-lg'>
-              {t.details.accommodations.details}
-            </p>
+            <p className='text-sm md:text-lg'>{t.details.accommodations.details}</p>
 
             {/* Accommodation Cards Grid */}
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 max-w-5xl mx-auto mt-8 px-4 md:px-0'>
@@ -198,7 +202,9 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
                   />
                   {/* Details overlay at bottom */}
                   <div className='text-text p-3 md:p-4 bg-surface/10 grow flex flex-col'>
-                    <h3 className='font-heading text-xl md:text-2xl mb-2 md:mb-3 font-semibold'>{hotel.name}</h3>
+                    <h3 className='font-heading text-xl md:text-2xl mb-2 md:mb-3 font-semibold'>
+                      {hotel.name}
+                    </h3>
                     <p className='text-sm md:text-base font-light grow'>{hotel.details}</p>
                   </div>
                 </div>

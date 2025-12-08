@@ -6,12 +6,10 @@
 }
 
 @theme inline {
-  /* Wedding brand colors - old naming (will be deprecated) */
-  --color-wedding-olive: #63704f;
+  /* Wedding brand colors */
   --color-wedding-black: #161616;
   --color-wedding-cream: #f5f2ee;
   --color-wedding-red: #802d20;
-  --color-wedding-gold: #d4af37;
 
   /* Semantic color system */
   --color-bg: var(--color-wedding-cream);

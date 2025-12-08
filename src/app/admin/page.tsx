@@ -212,9 +212,7 @@ export default function AdminPage() {
                               {formatDate(submission.submitted_at)}
                             </div>
                           </div>
-                          <div className='text-text/40'>
-                            {isExpanded ? '▼' : '▶'}
-                          </div>
+                          <div className='text-text/40'>{isExpanded ? '▼' : '▶'}</div>
                         </div>
                       </div>
                     </button>
@@ -227,8 +225,13 @@ export default function AdminPage() {
                           <h4 className='font-heading text-lg text-text mb-2'>Guests</h4>
                           <div className='space-y-1'>
                             {submission.attendees.map(attendee => (
-                              <div key={attendee.id} className='flex items-center gap-2 font-sans text-sm'>
-                                <span className={attendee.attending ? 'text-accent' : 'text-text/40'}>
+                              <div
+                                key={attendee.id}
+                                className='flex items-center gap-2 font-sans text-sm'
+                              >
+                                <span
+                                  className={attendee.attending ? 'text-accent' : 'text-text/40'}
+                                >
                                   {attendee.attending ? '✓' : '✗'}
                                 </span>
                                 <span className='text-text'>{attendee.guest_name}</span>
@@ -251,8 +254,12 @@ export default function AdminPage() {
                         {/* Dietary Restrictions */}
                         {submission.dietary_restrictions && (
                           <div>
-                            <h4 className='font-heading text-lg text-text mb-2'>Dietary Restrictions</h4>
-                            <p className='text-text/80 font-sans text-sm'>{submission.dietary_restrictions}</p>
+                            <h4 className='font-heading text-lg text-text mb-2'>
+                              Dietary Restrictions
+                            </h4>
+                            <p className='text-text/80 font-sans text-sm'>
+                              {submission.dietary_restrictions}
+                            </p>
                           </div>
                         )}
                       </div>

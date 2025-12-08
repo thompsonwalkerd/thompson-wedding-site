@@ -127,7 +127,10 @@ export default function PaymentOptions({
             {paymentOptions
               .filter(option => option.type === 'qr')
               .map(option => (
-                <div key={option.type} className='flex flex-col items-center justify-center space-y-3'>
+                <div
+                  key={option.type}
+                  className='flex flex-col items-center justify-center space-y-3'
+                >
                   <h4 className='font-heading text-lg text-text'>{option.label}</h4>
                   {option.qrImage && (
                     <>

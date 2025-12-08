@@ -45,7 +45,8 @@ export default function LanguageSwitcherNotification() {
       <div className='flex items-start gap-3'>
         <div className='flex-1'>
           <p className='text-sm text-text font-sans leading-relaxed'>
-            Language can be changed to <strong>English</strong> using the <strong>EN/CZ</strong> buttons in the header
+            Language can be changed to <strong>English</strong> using the <strong>EN/CZ</strong>{' '}
+            buttons in the header
           </p>
         </div>
         <button

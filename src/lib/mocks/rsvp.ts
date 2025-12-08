@@ -111,7 +111,7 @@ export async function checkRsvpStatus(groupId: number): Promise<boolean> {
  * Submit an RSVP
  */
 export async function submitRsvp(
-  data: RsvpSubmission
+  data: RsvpSubmission,
 ): Promise<{ success: boolean; message?: string }> {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 500));

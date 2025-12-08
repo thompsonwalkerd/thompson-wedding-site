@@ -37,7 +37,9 @@ export default function RegistryPage({ params }: { params: Promise<{ locale: str
                   className='object-contain'
                 />
               </h3>
-              <p className='text-text/70 font-sans mb-7 md:mb-12 leading-relaxed'>{t.registry.vinylInfo}</p>
+              <p className='text-text/70 font-sans mb-7 md:mb-12 leading-relaxed'>
+                {t.registry.vinylInfo}
+              </p>
               <p className='text-text/50 font-sans text-sm italic mb-2'>
                 {t.registry.vinylsPurchased}
               </p>

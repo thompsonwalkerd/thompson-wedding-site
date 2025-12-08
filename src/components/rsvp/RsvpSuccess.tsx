@@ -98,9 +98,7 @@ export default function RsvpSuccess({ t, locale, email, hasAttendees, groupId }:
               {updateError && <p className='text-error text-sm font-sans'>{updateError}</p>}
             </div>
           )}
-          {updateSuccess && (
-            <p className='text-success text-sm font-sans'>{t.rsvp.emailUpdated}</p>
-          )}
+          {updateSuccess && <p className='text-success text-sm font-sans'>{t.rsvp.emailUpdated}</p>}
         </div>
       )}
       {hasAttendees && (
