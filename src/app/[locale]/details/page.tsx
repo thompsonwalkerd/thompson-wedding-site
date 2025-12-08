@@ -31,7 +31,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
         {/* Main Details Content */}
         <div className='space-y-16 md:space-y-20'>
           {/* Venue & Date/Time - Side by Side on Desktop */}
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in px-4'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in'>
             {/* Venue Section */}
             <section>
               <SectionHeading className='mt-4 md:mt-8'>
@@ -75,7 +75,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
             <p className='text-sm md:text-lg'>{t.details.accommodations.details}</p>
 
             {/* Accommodation Cards Grid */}
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 max-w-5xl mx-auto mt-8 px-4 md:px-0'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 max-w-5xl mx-auto mt-8'>
               {t.details.accommodations.options.map((hotel, index) => (
                 <HotelCard
                   key={index}
@@ -91,7 +91,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
           <section className='animate-fade-in-delay-3'>
             <SectionHeading>{t.details.dressCode.sectionTitle}</SectionHeading>
 
-            <div className='flex flex-col md:flex-row justify-around items-center gap-6 md:gap-8 px-4'>
+            <div className='flex flex-col md:flex-row justify-around items-center gap-6 md:gap-8'>
               <Image
                 src='/details/color-palette.png'
                 width={300}

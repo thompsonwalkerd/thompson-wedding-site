@@ -14,7 +14,7 @@ export default function PhotosPage({ params }: { params: Promise<{ locale: strin
     <PageLayout locale={locale} t={t} currentPath='photos'>
       <Container align='center'>
         <PageTitle>{t.photos.title}</PageTitle>
-        <div className='flex flex-col items-center justify-center text-center px-6 h-full'>
+        <div className='flex flex-col items-center justify-center text-center h-full'>
           <p className='text-xl md:text-2xl font-sans text-text/70 leading-relaxed animate-fade-in-delay-1'>
             {t.photos.placeholder}
           </p>

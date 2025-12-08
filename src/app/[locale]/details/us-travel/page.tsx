@@ -133,12 +133,12 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
                   </strong>
                   <Image src='/details/us-flag.png' alt='' width={40} height={40} />
                 </h3>
-                <div className='max-w-2xl mx-auto px-4'>
+                <div className='max-w-2xl mx-auto'>
                   There are many things that are different in the Czech Republic. I won't flood you
                   with too much information, but I want to note a few things that are important.
                   <br />
                   <br />
-                  <ul className='list-disc list-outside max-w-xl mx-auto text-left pl-6'>
+                  <ul className='list-disc list-outside max-w-xl mx-auto text-left pl-6 pr-2'>
                     <li>
                       <strong>Length of celebration:</strong> The wedding tends to be a much longer
                       event over here, so don't be alarmed by the schedule length (the current end

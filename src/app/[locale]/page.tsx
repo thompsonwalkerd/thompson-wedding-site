@@ -11,7 +11,7 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
 
   return (
     <PageLayout locale={locale} t={t} currentPath='' backgroundImage='/home-bg.jpeg'>
-      <div className='flex flex-col items-center justify-center h-full relative px-4'>
+      <div className='flex flex-col items-center justify-center h-full relative px-4 sm:px-6'>
         {/* Hero Section */}
         <div className='flex flex-col items-center justify-center text-center'>
           <p className='font-heading text-home-elements text-xl md:text-2xl text-glow tracking-widest animate-fade-in'>
