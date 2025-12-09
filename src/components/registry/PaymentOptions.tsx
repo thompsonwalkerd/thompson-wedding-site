@@ -71,10 +71,10 @@ export default function PaymentOptions({
           <div className='flex flex-col gap-8 md:hidden'>
             {paymentOptions.map(option => (
               <div key={option.type} className='space-y-2'>
-                <h4 className='font-heading text-2xl text-text'>{option.label}</h4>
 
                 {option.type === 'qr' && option.qrImage ? (
                   <div className='flex flex-col items-center space-y-2'>
+                    <h4 className='font-heading text-2xl text-text'>{option.label}</h4>
                     <Image
                       src={option.qrImage}
                       alt={`${option.label} QR Code`}
@@ -86,6 +86,7 @@ export default function PaymentOptions({
                   </div>
                 ) : (
                   <div className='flex flex-col gap-2'>
+                    <h4 className='font-heading text-2xl text-text'>{option.label}</h4>
                     <code className='bg-bg/50 text-text px-3 py-2 rounded text-sm border border-text/20 break-all'>
                       {option.value}
                     </code>

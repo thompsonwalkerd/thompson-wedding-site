@@ -77,8 +77,20 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
                   <p>
                     We are having a special dinner the day before the wedding for any American
                     guests that wish to come. If you do wish to come to this dinner, you should
-                    arrive to the <strong>Prague airport</strong> by{' '}
-                    <strong>2:30 pm on June 19th</strong>.
+                    arrive to the <strong>Prague Main Train Station</strong> by{' '}
+                    <strong>3:30 pm on June 19th</strong>. We are using the Train Station over the Airport
+                    because many guests will likely arrive at various times that day and/or stay in Prague 
+                    before/after the days of the celebration.
+                  </p>
+                  <br />
+                  <p>
+                    This means that it is important that your flight arrives in time to allow for customs
+                    and travel to the Main Station. There is a bus, or you can uber/bolt. Make sure to
+                    plan accordingly based on your travel plans.
+                  </p>
+                  <br />
+                  <p>
+                    If you are not attending the dinner at all, the ceremony begins at 1:00 pm on the 20th.
                   </p>
                 </div>
               </div>
@@ -88,17 +100,25 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
                   <strong className='text-text text-lg md:text-2xl'>Getting to the Venue</strong>
                   <Image src='/details/transportation.png' alt='' width={40} height={40} />
                 </h3>
-                <div className='max-w-2xl mx-auto'>
-                  <p>
-                    We will offer transportation from Prague, to and from the venue. Please email{' '}
-                    <a
-                      href='mailto:thompsonwalker222@gmail.com'
-                      className='text-text hover:text-text/80 transition-colors underline font-bold'
-                    >
-                      thompsonwalker222@gmail.com
-                    </a>{' '}
-                    when you have booked your flights, so that we can arrange your transportation.
-                  </p>
+                <div className='max-w-2xl mx-auto flex-col-1 md:flex items-center justify-center gap-16'>
+                  <Image src='/details/map.png' alt='' width={400} height={400} className='h-100' />
+                  <div>
+                    <p>
+                      We will offer transportation from Prague, to and from the venue. Please email{' '}
+                      <a
+                        href='mailto:thompsonwalker222@gmail.com'
+                        className='text-text hover:text-text/80 transition-colors underline font-bold'
+                      >
+                        thompsonwalker222@gmail.com
+                      </a>{' '}
+                      when you have booked your flights, so that we can arrange your transportation.
+                    </p>
+                    <br />
+                    <p>
+                      This is important because the wedding is not in Prgaue but in a town outside of it. Think
+                      Columbia to Augusta. Below is a map drawn by Sofí to give you a little visual.
+                    </p>
+                  </div>
                 </div>
               </div>
 

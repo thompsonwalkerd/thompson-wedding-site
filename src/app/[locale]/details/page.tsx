@@ -168,17 +168,17 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
           <section className='animate-fade-in-delay-3'>
             <SectionHeading>{t.details.dressCode.sectionTitle}</SectionHeading>
 
-            <div className='flex flex-col justify-around items-center -mt-4 md:-mt-10'>
+            <div className='flex flex-col justify-around items-center'>
+              <p className='text-text/90 text-md md:text-lg text-center'>
+                {t.details.dressCode.description}
+              </p>
               <Image
                 src='/details/color-palette.png'
                 width={1000}
                 height={400}
                 alt='color palette'
-                className='px-8 mb-6 md:-mb-1'
+                className='px-8 -mt-10'
               />
-              <p className='text-text/90 text-md md:text-lg text-center -mt-8'>
-                {t.details.dressCode.description}
-              </p>
             </div>
           </section>
         </div>

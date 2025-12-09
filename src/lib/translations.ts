@@ -126,7 +126,6 @@ export type Translations = {
     vinylInfo: string;
     vinylsPurchased: string;
     vinylSearchPlaceholder: string;
-    vinylSearchButton: string;
     albumRegistration: {
       title: string;
       searchPlaceholder: string;
@@ -135,6 +134,7 @@ export type Translations = {
       noResults: string;
       selectAlbum: string;
       registeredBadge: string;
+      backToResultsButton: string;
       registerButton: string;
       registering: string;
       success: string;
@@ -175,7 +175,7 @@ export const translations: Record<Locale, Translations> = {
       day: '20',
       month: '06',
       year: '2026',
-      time: 'The ceremony begins at 2:00 pm',
+      time: 'The ceremony begins at 1:00 pm',
       dateString: 'June 20th, 2026',
     },
     home: {
@@ -235,7 +235,7 @@ export const translations: Record<Locale, Translations> = {
       accommodations: {
         sectionTitle: 'Accommodations',
         details:
-          'Below are two options for staying near the venue the night of the 20th. We have reserved spots for guests who wish to stay here.',
+          'Here you can find accommodation options for the night of Saturday, June 20.\n\nEveryone pays for their own accommodation, but we are happy to help you arrange it. If you would like to stay at one of these options, please contact Walker...\n\nthompsonwalker222@gmail.com\nWhatsApp: +420 731 742 805',
         labels: {
           roomTypes: 'Room Types',
           available: 'Available',
@@ -273,7 +273,7 @@ export const translations: Record<Locale, Translations> = {
       dressCode: {
         sectionTitle: 'Dress Code',
         description:
-          'Sed volutpat quis urna vehicula eleifend. Fusce tincidunt, velit eu lacinia sollicitudin, dolor nisi elementum neque, quis posuere diam ante in sapien.\n\nPhasellus mollis lacus eu nisi viverra, et tincidunt lacus auctor. ',
+          "If you can't think of what to wear, you can draw inspiration from the color palette we've prepared—but it's definitely not a requirement. We won't turn you away :)",
       },
     },
     photos: {
@@ -324,15 +324,15 @@ export const translations: Record<Locale, Translations> = {
         'We would love to hear it too! Bring an album you love in vinyl record or CD form. Feel free to write a note inside so we know who blessed our ears :)',
       vinylsPurchased: 'Make sure you have a unique choice',
       vinylSearchPlaceholder: 'Search album or artist...',
-      vinylSearchButton: 'Check',
       albumRegistration: {
-        title: 'Register Your Vinyl Gift',
+        title: 'Register Your Album',
         searchPlaceholder: 'Search for artist or album...',
         searchButton: 'Search',
         searching: 'Searching...',
         noResults: 'No albums found. Try a different search.',
         selectAlbum: 'Click an available album to register it',
         registeredBadge: 'REGISTERED',
+        backToResultsButton: 'Back to Results',
         registerButton: 'Register This Album',
         registering: 'Registering...',
         success: 'Album registered successfully!',
@@ -364,11 +364,6 @@ export const translations: Record<Locale, Translations> = {
           label: 'Venmo',
           value: '@walker_thompson',
         },
-        {
-          type: 'qr',
-          label: 'Czech Bank Transfer (QR Code)',
-          qrImage: '/registry/qr-code.png',
-        },
       ],
       paymentLabels: {
         copyButton: 'Copy',
@@ -390,7 +385,7 @@ export const translations: Record<Locale, Translations> = {
       day: '20.',
       month: '6.',
       year: '2026',
-      time: 'Svatební obřad začíná ve 14:00',
+      time: 'Svatební obřad začíná ve 13:00',
       dateString: '20. června 2026',
     },
     home: {
@@ -532,21 +527,21 @@ export const translations: Record<Locale, Translations> = {
     registry: {
       title: 'Svatební dary',
       message:
-        'Vaše přítomnost na naší svatbě je největším darem. Pokud nás však chcete poctít darem, zaregistrovali jsme se v následujících obchodech:',
-      vinylTitle: 'Preferujete hotovost?',
+        'Tvoje přítomnost na naší svatbě je tím největším darem. Pokud bys nás ale chtěl/a poctít svatebním darem, máme připravených pár (trochu netradičních:) možností. Samozřejmě můžeš také přinést cokoliv, co v nabídce není.',
+      vinylTitle: 'Jaké je tvoje oblíbené album?',
       vinylInfo:
-        'Pokud preferujete peněžní dar, hotovost nebo šeky jsou vřele vítány a půjdou do naší společné budoucnosti.',
-      vinylsPurchased: 'Ujistěte se, že máte jedinečný výběr',
+        'Taky bychom si ho rádi poslechli! Můžeš přinést album které máš rád/a ve formě gramofonové desky (vinyl) nebo CD. Kdybys chtěl/a, můžeš dovnitř napsat vzkaz abychom věděli, od koho je a pokaždé, když ho budeme poslouchat, vzpomeneme si na tebe.<3',
+      vinylsPurchased: 'Ujisti se, že máš jedinečný výběr',
       vinylSearchPlaceholder: 'Hledat album nebo umělce...',
-      vinylSearchButton: 'Zkontrolovat',
       albumRegistration: {
-        title: 'Registrovat vinylový dar',
+        title: 'Zaregistruj svůj hudební dárek',
         searchPlaceholder: 'Hledat umělce nebo album...',
         searchButton: 'Hledat',
         searching: 'Hledám...',
         noResults: 'Žádná alba nenalezena. Zkuste jiné vyhledávání.',
         selectAlbum: 'Klikněte na dostupné album a zaregistrujte ho',
         registeredBadge: 'REGISTROVÁNO',
+        backToResultsButton: 'Zpět do výsledků',
         registerButton: 'Registrovat toto album',
         registering: 'Registruji...',
         success: 'Album úspěšně zaregistrováno!',
@@ -568,16 +563,6 @@ export const translations: Record<Locale, Translations> = {
       ],
       externalLinkLabel: 'Přispět',
       paymentOptions: [
-        {
-          type: 'zelle',
-          label: 'Zelle',
-          value: 'thompsonwalker222@gmail.com',
-        },
-        {
-          type: 'venmo',
-          label: 'Venmo',
-          value: '@walker_thompson',
-        },
         {
           type: 'qr',
           label: 'Bankovní převod (QR kód)',

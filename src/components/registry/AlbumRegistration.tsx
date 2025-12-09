@@ -14,6 +14,7 @@ interface AlbumRegistrationProps {
     noResults: string;
     selectAlbum: string;
     registeredBadge: string;
+    backToResultsButton: string;
     registerButton: string;
     registering: string;
     success: string;
@@ -192,7 +193,7 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
               onClick={() => setSelectedAlbum(null)}
               className='flex-1 bg-surface/30 hover:bg-surface/50 text-text/80 font-sans py-2 px-6 rounded-lg transition-colors duration-200'
             >
-              Back to Results
+              {t.backToResultsButton}
             </button>
             <button
               onClick={handleRegister}
