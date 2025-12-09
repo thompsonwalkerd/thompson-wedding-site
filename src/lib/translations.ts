@@ -10,8 +10,6 @@ export type Translations = {
   };
   when: {
     dayOfWeek: string;
-    dayBefore: string;
-    dayAfter: string;
     day: string;
     month: string;
     year: string;
@@ -53,11 +51,29 @@ export type Translations = {
     accommodations: {
       sectionTitle: string;
       details: string;
+      labels: {
+        roomTypes: string;
+        available: string;
+        unavailable: string;
+        price: string;
+        contactToBook: string;
+        photos: string;
+      };
+      contact: {
+        phoneLabel: string;
+        email: string;
+        phone: string;
+      };
       options: Array<{
         name: string;
         details: string;
         image: string;
-        url: string;
+        gallery?: string[];
+        roomTypes: Array<{
+          type: string;
+          available: boolean;
+          price: string;
+        }>;
       }>;
     };
     dressCode: {
@@ -156,8 +172,6 @@ export const translations: Record<Locale, Translations> = {
     },
     when: {
       dayOfWeek: 'Saturday',
-      dayBefore: 'Friday',
-      dayAfter: 'Sunday',
       day: '20',
       month: '06',
       year: '2026',
@@ -192,18 +206,18 @@ export const translations: Record<Locale, Translations> = {
         sectionTitle: 'Schedule',
         activities: [
           {
-            name: 'Cocktail Hour',
-            time: '1:00 pm',
+            name: 'Welcome Drink',
+            time: '12:00 pm',
             icon: 'cocktail.png',
           },
           {
             name: 'Ceremony',
-            time: '2:00 pm',
+            time: '1:00 pm',
             icon: 'ceremony.png',
           },
           {
             name: 'Food & Traditions',
-            time: '4:00 pm',
+            time: '3:30 pm',
             icon: 'traditions.png',
           },
           {
@@ -220,19 +234,39 @@ export const translations: Record<Locale, Translations> = {
       },
       accommodations: {
         sectionTitle: 'Accommodations',
-        details: 'Below are two options for staying near the venue the night of the 20th. We have reserved spots for guests who wish to stay here. If you want to take one of these rooms at either location, contact us at thompsonwalker222@gmail.com',
+        details:
+          'Below are two options for staying near the venue the night of the 20th. We have reserved spots for guests who wish to stay here.',
+        labels: {
+          roomTypes: 'Room Types',
+          available: 'Available',
+          unavailable: 'Unavailable',
+          price: 'Price',
+          contactToBook: 'Contact Us to Book',
+          photos: 'Photos',
+        },
+        contact: {
+          phoneLabel: 'WhatsApp',
+          email: 'thompsonwalker222@gmail.com',
+          phone: '+420 731 742 805',
+        },
         options: [
           {
             name: 'Pension Merano',
             details: '[ Describe this hotel ]',
             image: '/accommodations/hotel1.jpg',
-            url: '',
+            roomTypes: [
+              { type: 'Double Room', available: true, price: '€70/night' },
+              { type: 'Family Suite', available: false, price: '€120/night' },
+            ],
           },
           {
             name: 'Hotel Florian Sedlčany',
             details: '[ Describe this hotel ]',
             image: '/accommodations/hotel2.jpg',
-            url: '',
+            roomTypes: [
+              { type: 'Standard Room', available: true, price: '€60/night' },
+              { type: 'Deluxe Room', available: true, price: '€90/night' },
+            ],
           },
         ],
       },
@@ -270,8 +304,8 @@ export const translations: Record<Locale, Translations> = {
       submitting: 'Submitting...',
       declineButton: 'We Cannot Attend',
       declining: 'Submitting...',
-      successMessage: 'Thank you! Your RSVP has been received.',
-      declineSuccessMessage: 'Thank you for letting us know.',
+      successMessage: 'Thank you! Your RSVP has been received. See you soon!',
+      declineSuccessMessage: "Thank you for letting us know. We are sorry you can't make it, but we hope to see you soon!",
       confirmationSent: 'A confirmation has been sent to:',
       viewDetails: 'View Wedding Details',
       errorMessage: 'Something went wrong. Please try again.',
@@ -353,8 +387,6 @@ export const translations: Record<Locale, Translations> = {
     },
     when: {
       dayOfWeek: 'sobota',
-      dayBefore: 'pátek',
-      dayAfter: 'neděle',
       day: '20.',
       month: '6.',
       year: '2026',
@@ -389,33 +421,72 @@ export const translations: Record<Locale, Translations> = {
         sectionTitle: 'Harmonogram',
         activities: [
           {
-            name: '',
-            time: '',
+            name: '"Welcome drink"',
+            time: '12:00',
             icon: 'cocktail.png',
+          },
+          {
+            name: 'Obřad',
+            time: '13:00',
+            icon: 'ceremony.png',
+          },
+          {
+            name: 'Jidlo a tradice',
+            time: '15:30',
+            icon: 'traditions.png',
+          },
+          {
+            name: 'Party',
+            time: '19:00',
+            icon: 'party.png',
+          },
+          {
+            name: 'Konec',
+            time: '00:00',
+            icon: 'end.png',
           },
         ],
       },
       accommodations: {
         sectionTitle: 'Ubytování',
-        details: '[[ FILL ME IN ]]',
+        details: 'tady můžeš najít možnosti kde se ubytovat ze soboty 20. 6. na neděli 21.6.\n\n ubytování si každý hradí sám, ale rádi ti pomůžeme se zařízením ubytování. pokud se chceš ubytovat v nějaké z těchto možností, kontaktuj prosím Sofi... \n\nsofiebendova@gmail.com\ntel. č.: 773593573',
+        labels: {
+          roomTypes: 'Typy pokojů',
+          available: 'Dostupné',
+          unavailable: 'Nedostupné',
+          price: 'Cena',
+          contactToBook: 'Kontaktujte nás pro rezervaci',
+          photos: 'Fotografie',
+        },
+        contact: {
+          phoneLabel: 'Telefonní číslo',
+          email: 'sofiebendova@gmail.com',
+          phone: '773 593 573',
+        },
         options: [
           {
             name: 'Pension Merano',
             details: '',
             image: '/accommodations/hotel1.jpg',
-            url: '',
+            roomTypes: [
+              { type: 'Dvoulůžkový pokoj', available: true, price: ' czk/noc' },
+              { type: 'Rodinný apartmán', available: false, price: ' czk/noc' },
+            ],
           },
           {
-            name: 'Hotel Příklad 2',
+            name: 'Hotel Florian Sedlčany',
             details: '',
             image: '/accommodations/hotel2.jpg',
-            url: '',
+            roomTypes: [
+              { type: 'Standardní pokoj', available: true, price: ' czk/noc' },
+              { type: 'Deluxe pokoj', available: true, price: ' czk/noc' },
+            ],
           },
         ],
       },
       dressCode: {
         sectionTitle: '"Dress code"',
-        description: "[Zde je uveden 'dress code']",
+        description: 'Pokud tě nenapadá co si vzít na sebe, můžeš se inspirovat z palety barev, kterou jsme po náš den připravili - rozhodně to není podmínkou:) Nepustíme tě jen v případě, že budeš mít bílé šaty;)',
       },
     },
     photos: {
@@ -424,15 +495,15 @@ export const translations: Record<Locale, Translations> = {
     },
     rsvp: {
       pageTitle: 'Potvrzení účasti',
-      searchPrompt: 'Zadej prosím své jméno pro nalezení pozvánky',
+      searchPrompt: 'Zde prosím zadej své jméno pro nalezení pozvánky',
       searchPlaceholder: 'Zadej své jméno...',
       searchButton: 'Hledat',
       searching: 'Hledám...',
       notFound: 'Pozvánka nenalezena. Zkontroluj prosím pravopis nebo nás kontaktuj.',
-      resultsPrompt: 'Vyber své jméno z výsledků:',
+      resultsPrompt: 'Vyber své jméno nebo skupinu z výsledků:',
       selectGuest: 'Vybrat',
       alreadySubmitted:
-        'Vaše skupina již odeslala potvrzení účasti. Pokud potřebuješ provést změny, kontaktuj nás prosím přímo.',
+        'Tvoje skupina již odeslala potvrzení účasti. Pokud potřebuješ provést změny, kontaktuj nás prosím přímo.',
       contactPrompt: 'Pokud potřebuješ provést změny ve svém potvrzení:',
       groupLabel: 'Potvrzuji účast za:',
       attendingLabel: 'Účast',
@@ -440,15 +511,15 @@ export const translations: Record<Locale, Translations> = {
       emailPlaceholder: 'tvuj.email@priklad.cz',
       songLabel:
         'Písnička na přání (Tohle je tvoje šance na písničku na přání v čase svatební party! Ale nic neslibujeme xoxo;)',
-      songPlaceholder: 'Napiš svoji písničku na přání sem',
-      dietaryLabel: 'Dietní omezení nebo potravinové alergie',
+      songPlaceholder: 'Sem napiš svoji písničku na přání',
+      dietaryLabel: 'Dietní omezení nebo alergie ',
       dietaryPlaceholder: 'např. vegetarián, bezlepková strava, alergie na ořechy...',
       submitButton: 'Odeslat potvrzení',
       submitting: 'Odesílám...',
       declineButton: 'Nemůžeme se zúčastnit',
       declining: 'Odesílám...',
       successMessage: 'Děkujeme! Tvoje potvrzení účasti bylo přijato.',
-      declineSuccessMessage: 'Děkujeme, že jste nám dali vědět.',
+      declineSuccessMessage: 'Děkujeme že jsi nám dal/a vědět! Moc nás mrzí, že nemůžeš dorazit. Snad se uvidíme brzy<3',
       confirmationSent: 'Potvrzení bylo odesláno na:',
       viewDetails: 'Zobrazit podrobnosti o svatbě',
       errorMessage: 'Něco se pokazilo. Zkus to prosím znovu.',
@@ -456,7 +527,7 @@ export const translations: Record<Locale, Translations> = {
       updateEmail: 'Aktualizovat a znovu odeslat',
       updatingEmail: 'Aktualizuji...',
       emailUpdated: 'Email aktualizován a potvrzení znovu odesláno!',
-      emailUpdateFailed: 'Nepodařilo se aktualizovat email. Zkuste to znovu.',
+      emailUpdateFailed: 'Nepodařilo se aktualizovat email. Zkus to prosím znovu.',
     },
     registry: {
       title: 'Svatební dary',
@@ -484,18 +555,18 @@ export const translations: Record<Locale, Translations> = {
       },
       options: [
         {
-          name: 'Honeymoon Fund',
+          name: 'Fond na svatební cestu',
           description:
-            'We would love some help to enjoy our first adventure as a married couple. If you wanna help us out, this is the place!',
+            'Rádi bychom si užili naše první společné dobrodružství jako manželé, ale všechny naše penízky putují na přípravu svatby. Pokud bys nám s tím chtěl/a pomoct, tady je to pravé místo!',
           icon: '/registry/honeymoon.png',
         },
         {
-          name: 'Car Fund',
-          description: "If you're a little more practical, we are also both carless :)",
+          name: 'Fond na auto',
+          description: "Pokud jsi spíše na praktičtější věci, tak ani jeden z nás nemá auto :)",
           icon: '/registry/car.png',
         },
       ],
-      externalLinkLabel: 'Zobrazit seznam',
+      externalLinkLabel: 'Přispět',
       paymentOptions: [
         {
           type: 'zelle',
@@ -516,7 +587,7 @@ export const translations: Record<Locale, Translations> = {
       paymentLabels: {
         copyButton: 'Kopírovat',
         copiedButton: 'Zkopírováno!',
-        scanQr: 'Naskenujte pomocí bankovní aplikace',
+        scanQr: 'Naskenuj pomocí své bankovní aplikace',
       },
     },
   },

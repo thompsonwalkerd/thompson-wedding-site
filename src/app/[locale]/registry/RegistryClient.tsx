@@ -116,7 +116,7 @@ export default function RegistryClient({ t }: RegistryClientProps) {
             >
               {/* Fund Info Section - Top */}
               <div className={`${isExpanded ? 'text-center mb-6' : 'grow'}`}>
-                <h3 className='text-3xl font-heading text-heading mb-3 flex items-center justify-center gap-4'>
+                <h3 className='text-2xl font-heading text-heading mb-3 flex items-center justify-center gap-4'>
                   {option.name}
                   <Image
                     src={option.icon}

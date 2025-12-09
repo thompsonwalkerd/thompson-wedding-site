@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
-import { use } from 'react';
+import { use, useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import PageLayout from '@/components/PageLayout';
 import Button from '@/components/ui/Button';
 import Container from '@/components/ui/Container';
@@ -9,11 +12,39 @@ import { getTranslations } from '@/lib/translations';
 import { validateLocale } from '@/utils/locale';
 import ScheduleTimeline from '@/components/details/ScheduleTimeline';
 import HotelCard from '@/components/details/HotelCard';
+import AccommodationDetails from '@/components/details/AccommodationDetails';
 
 export default function DetailsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeString } = use(params);
   const locale = validateLocale(localeString);
   const t = getTranslations(locale);
+
+  const [expandedHotel, setExpandedHotel] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Body scroll lock when modal is open
+  useEffect(() => {
+    if (expandedHotel !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [expandedHotel]);
+
+  const handleToggle = (index: number) => {
+    setExpandedHotel(expandedHotel === index ? null : index);
+  };
+
+  const handleClose = () => {
+    setExpandedHotel(null);
+  };
 
   return (
     <PageLayout locale={locale} t={t} currentPath='details'>
@@ -72,16 +103,62 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
               {t.details.accommodations.sectionTitle}
             </SectionHeading>
 
-            <p className='text-sm md:text-lg'>{t.details.accommodations.details}</p>
+            <p className='text-md md:text-lg mt-6 whitespace-pre-wrap'>{t.details.accommodations.details}</p>
+
+            {/* Modal for both Mobile and Desktop */}
+            {mounted &&
+              expandedHotel !== null &&
+              createPortal(
+                <div
+                  className='fixed inset-0 z-50 flex items-center justify-center p-4'
+                  role='dialog'
+                  aria-modal='true'
+                  onClick={handleClose}
+                >
+                  {/* Backdrop with blur and overlay */}
+                  <div className='absolute inset-0 bg-text/20 backdrop-blur-sm' />
+
+                  {/* Modal Content */}
+                  <div
+                    className='relative bg-bg w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-lg shadow-2xl'
+                    onClick={e => e.stopPropagation()}
+                  >
+                    {/* Sticky Header with Close Button */}
+                    <div className='sticky top-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-text/20 p-4 md:p-6 flex justify-between items-center'>
+                      <h2 className='font-heading text-2xl md:text-3xl text-heading'>
+                        {t.details.accommodations.options[expandedHotel].name}
+                      </h2>
+                      <button
+                        onClick={handleClose}
+                        className='text-3xl text-text hover:text-heading transition-colors'
+                        aria-label='Close'
+                      >
+                        ×
+                      </button>
+                    </div>
+
+                    {/* Scrollable Content */}
+                    <div className='p-4 md:p-6'>
+                      <AccommodationDetails
+                        contact={t.details.accommodations.contact}
+                        hotel={t.details.accommodations.options[expandedHotel]}
+                        labels={t.details.accommodations.labels}
+                      />
+                    </div>
+                  </div>
+                </div>,
+                document.body,
+              )}
 
             {/* Accommodation Cards Grid */}
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 max-w-5xl mx-auto mt-8'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 sm:gap-6 max-w-5xl mx-10 sm:mx-10 mt-8'>
               {t.details.accommodations.options.map((hotel, index) => (
                 <HotelCard
                   key={index}
                   name={hotel.name}
                   details={hotel.details}
                   image={hotel.image}
+                  onToggle={() => handleToggle(index)}
                 />
               ))}
             </div>
@@ -91,15 +168,15 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
           <section className='animate-fade-in-delay-3'>
             <SectionHeading>{t.details.dressCode.sectionTitle}</SectionHeading>
 
-            <div className='flex flex-col md:flex-row justify-around items-center gap-6 md:gap-8'>
+            <div className='flex flex-col justify-around items-center -mt-4 md:-mt-10'>
               <Image
                 src='/details/color-palette.png'
-                width={300}
-                height={300}
-                alt='schedule'
-                className='opacity-100 w-48 h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 object-contain'
+                width={1000}
+                height={400}
+                alt='color palette'
+                className='px-8 mb-6 md:-mb-1'
               />
-              <p className='font-sans text-text/90 text-base md:text-lg leading-relaxed whitespace-break-spaces max-w-xl text-center md:text-left'>
+              <p className='text-text/90 text-md md:text-lg text-center -mt-8'>
                 {t.details.dressCode.description}
               </p>
             </div>

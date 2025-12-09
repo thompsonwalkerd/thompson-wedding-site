@@ -28,7 +28,7 @@ export default function Header({ locale, t, currentPath = '' }: HeaderProps) {
           href={`/${locale}/rsvp`}
           className={`px-4 py-2 rounded font-sans font-base uppercase text-base tracking-wide border transition-colors ${
             isHomePage
-              ? 'text-home-elements border border-home-elements/40 hover:border-home-elements/80 hover:bg-home-elements/10 hover:text-bg'
+              ? 'text-wedding-cream border border-home-elements/40 bg-home-elements/10 hover:border-home-elements/80 hover:bg-home-elements/10 hover:text-bg'
               : 'text-text border-text hover:bg-text hover:text-bg'
           }`}
         >

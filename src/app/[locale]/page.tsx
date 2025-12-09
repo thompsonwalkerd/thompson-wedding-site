@@ -1,4 +1,5 @@
 import { use } from 'react';
+import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import Button from '@/components/ui/Button';
 import { getTranslations } from '@/lib/translations';
@@ -10,24 +11,42 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
   const t = getTranslations(locale);
 
   return (
-    <PageLayout locale={locale} t={t} currentPath='' backgroundImage='/home-bg.jpeg'>
+    <PageLayout locale={locale} t={t} currentPath=''>
+      {/* Mobile Background */}
+      <Image
+        src='/mobile-bg.png'
+        alt='Background'
+        fill
+        className='object-cover md:hidden -z-10'
+        quality={85}
+        priority
+      />
+      {/* Desktop Background */}
+      <Image
+        src='/home-bg.jpeg'
+        alt='Background'
+        fill
+        className='object-cover hidden md:block -z-10'
+        quality={85}
+        priority
+      />
       <div className='flex flex-col items-center justify-center h-full relative px-4 sm:px-6'>
         {/* Hero Section */}
         <div className='flex flex-col items-center justify-center text-center'>
-          <p className='font-heading text-home-elements text-xl md:text-2xl text-glow tracking-widest animate-fade-in mt-10 md:mt-2'>
+          <p className='font-heading text-home-elements text-2xl text-glow tracking-widest animate-fade-in mt-10 md:mt-2'>
             {t.home.tagline}
           </p>
 
-          <h1 className='text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-script text-home-elements text-glow leading-tight -mt-2 animate-fade-in-delay-1'>
+          <h1 className='text-7xl md:text-8xl font-script text-home-elements text-glow leading-tight -mt-2 animate-fade-in-delay-1'>
             {t.home.couple.bride} {t.home.couple.and} {t.home.couple.groom}
           </h1>
 
-          <p className='font-heading text-home-elements text-xl md:text-2xl text-glow tracking-widest -mt-2 animate-fade-in-delay-2'>
+          <p className='font-heading text-home-elements text-2xl text-glow tracking-widest -mt-2 animate-fade-in-delay-2'>
             {t.when.dateString}
           </p>
 
           {/* RSVP Button */}
-          <div className='animate-fade-in-delay-3 lg:pt-20 md:pt-30 pt-0 mt-20 md:mt-10'>
+          <div className='animate-fade-in-delay-3 fixed top-[66.67vh] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20'>
             <Button as='link' href={`/${locale}/rsvp`} variant='home'>
               {t.home.rsvpButton}
             </Button>
