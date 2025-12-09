@@ -102,9 +102,9 @@ export default function PaymentOptions({
             ))}
           </div>
 
-          {/* Desktop: 2-column layout - Zelle/Venmo stacked left, QR code right */}
-          <div className='hidden md:grid md:grid-cols-2 gap-8'>
-            {/* Left column: Zelle and Venmo stacked */}
+          {/* Desktop */}
+          <div className='hidden md:block'>
+            {/* Americn: Zelle and Venmo */}
             <div className='flex flex-col gap-6 justify-center'>
               {paymentOptions
                 .filter(option => option.type !== 'qr')
@@ -124,7 +124,7 @@ export default function PaymentOptions({
                 ))}
             </div>
 
-            {/* Right column: QR code */}
+            {/* Czech: QR code */}
             {paymentOptions
               .filter(option => option.type === 'qr')
               .map(option => (
