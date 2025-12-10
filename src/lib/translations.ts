@@ -221,7 +221,7 @@ export const translations: Record<Locale, Translations> = {
             icon: 'traditions.png',
           },
           {
-            name: 'Celebration',
+            name: 'Party',
             time: '7:00 pm',
             icon: 'party.png',
           },
@@ -426,7 +426,7 @@ export const translations: Record<Locale, Translations> = {
             icon: 'ceremony.png',
           },
           {
-            name: 'Jidlo a tradice',
+            name: 'Jídlo a tradice',
             time: '15:30',
             icon: 'traditions.png',
           },
@@ -444,7 +444,7 @@ export const translations: Record<Locale, Translations> = {
       },
       accommodations: {
         sectionTitle: 'Ubytování',
-        details: 'tady můžeš najít možnosti kde se ubytovat ze soboty 20. 6. na neděli 21.6.\n\n ubytování si každý hradí sám, ale rádi ti pomůžeme se zařízením ubytování. pokud se chceš ubytovat v nějaké z těchto možností, kontaktuj prosím Sofi... \n\nsofiebendova@gmail.com\ntel. č.: 773593573',
+        details: 'tady můžeš najít možnosti kde se ubytovat ze soboty 20. 6. na neděli 21. 6.\n\n ubytování si každý hradí sám, ale rádi ti pomůžeme se zařízením ubytování. pokud se chceš ubytovat v nějaké z těchto možností, kontaktuj prosím Sofi... \n\nsofiebendova@gmail.com\ntel. č.: 773593573',
         labels: {
           roomTypes: 'Typy pokojů',
           available: 'Dostupné',
@@ -530,7 +530,7 @@ export const translations: Record<Locale, Translations> = {
         'Tvoje přítomnost na naší svatbě je tím největším darem. Pokud bys nás ale chtěl/a poctít svatebním darem, máme připravených pár (trochu netradičních:) možností. Samozřejmě můžeš také přinést cokoliv, co v nabídce není.',
       vinylTitle: 'Jaké je tvoje oblíbené album?',
       vinylInfo:
-        'Taky bychom si ho rádi poslechli! Můžeš přinést album které máš rád/a ve formě gramofonové desky (vinyl) nebo CD. Kdybys chtěl/a, můžeš dovnitř napsat vzkaz abychom věděli, od koho je a pokaždé, když ho budeme poslouchat, vzpomeneme si na tebe.<3',
+        'Rádi bychom ho měli v naší budoucí sbírce! Můžeš přinést album které máš rád/a ve formě gramofonové desky (vinyl) nebo CD. Kdybys chtěl/a, můžeš dovnitř napsat vzkaz abychom věděli, od koho je a pokaždé, když ho budeme poslouchat, vzpomeneme si na tebe.<3',
       vinylsPurchased: 'Ujisti se, že máš jedinečný výběr',
       vinylSearchPlaceholder: 'Hledat album nebo umělce...',
       albumRegistration: {

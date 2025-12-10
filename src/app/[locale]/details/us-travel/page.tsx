@@ -100,25 +100,21 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
                   <strong className='text-text text-lg md:text-2xl'>Getting to the Venue</strong>
                   <Image src='/details/transportation.png' alt='' width={40} height={40} />
                 </h3>
-                <div className='max-w-2xl mx-auto flex-col-1 md:flex items-center justify-center gap-16'>
-                  <Image src='/details/map.png' alt='' width={400} height={400} className='h-100' />
-                  <div>
+                <div className='max-w-2xl mx-auto flex flex-col gap-6 md:flex-row-reverse md:items-center md:gap-8'>
+                  <div className='md:text-left'>
                     <p>
-                      We will offer transportation from Prague, to and from the venue. Please email{' '}
-                      <a
-                        href='mailto:thompsonwalker222@gmail.com'
-                        className='text-text hover:text-text/80 transition-colors underline font-bold'
-                      >
-                        thompsonwalker222@gmail.com
-                      </a>{' '}
-                      when you have booked your flights, so that we can arrange your transportation.
+                      We will offer transportation by bus between Prague and the town of the venue for those who want us to organize it for them.
+                    </p>
+                    <br />
+                    <p>  
+                      Please email <strong className='underline'>thompsonwalker222@gmail.com</strong> when you have booked your flights, so that we can arrange your transportation.
                     </p>
                     <br />
                     <p>
-                      This is important because the wedding is not in Prgaue but in a town outside of it. Think
-                      Columbia to Augusta. Below is a map drawn by Sofí to give you a little visual.
+                      The wedding is not in Prgaue but a town outside of it. You can look at this map drawn by Sofí to get an idea of the distance.
                     </p>
                   </div>
+                  <Image src='/details/map.png' alt='Hand-drawn map showing route from Prague to wedding venue' width={400} height={400} className='w-auto max-w-xs md:max-w-lg lg:max-w-xl h-auto object-contain mx-auto' />
                 </div>
               </div>
 

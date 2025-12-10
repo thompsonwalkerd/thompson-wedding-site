@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import SectionHeading from '../ui/SectionHeading';
 
 type Activity = {
   name: string;
@@ -14,12 +15,12 @@ type ScheduleTimelineProps = {
 export default function ScheduleTimeline({ sectionTitle, activities }: ScheduleTimelineProps) {
   return (
     <section className='animate-fade-in-delay-1'>
-      <h2 className='text-3xl md:text-5xl font-heading text-heading mb-2 md:mb-4 border-b border-heading/30 pb-4 leading-tight mt-4 md:mt-8'>
+      <SectionHeading>
         {sectionTitle}
-      </h2>
+      </SectionHeading>
 
       {/* Timeline Container - Desktop: center-aligned alternating, Mobile: left-aligned list */}
-      <div className='max-w-3xl mx-auto py-8 px-4'>
+      <div className='max-w-3xl mx-auto pt-4 px-4'>
         {/* Mobile: Left-aligned timeline layout */}
         <div className='md:hidden relative max-w-lg mx-auto'>
           {/* Vertical Line on the left */}

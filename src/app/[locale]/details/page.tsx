@@ -62,10 +62,10 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
         {/* Main Details Content */}
         <div className='space-y-16 md:space-y-20'>
           {/* Venue & Date/Time - Side by Side on Desktop */}
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-10 animate-fade-in'>
             {/* Venue Section */}
             <section>
-              <SectionHeading className='mt-4 md:mt-8'>
+              <SectionHeading>
                 {t.details.venue.sectionTitle}
               </SectionHeading>
               <div className='font-sans text-text/90 space-y-2 leading-relaxed'>
@@ -81,7 +81,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
 
             {/* Date & Time */}
             <section>
-              <SectionHeading className='mt-4 md:mt-8'>
+              <SectionHeading>
                 {t.details.dateAndTime.sectionTitle}
               </SectionHeading>
               <div className='font-sans text-text/90 space-y-2 leading-relaxed'>
@@ -99,11 +99,11 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
 
           {/* Accommodations */}
           <section className='animate-fade-in-delay-2'>
-            <SectionHeading className='mt-4 md:mt-8'>
+            <SectionHeading>
               {t.details.accommodations.sectionTitle}
             </SectionHeading>
 
-            <p className='text-md md:text-lg mt-6 whitespace-pre-wrap'>{t.details.accommodations.details}</p>
+            <p className='text-md md:text-lg whitespace-pre-wrap'>{t.details.accommodations.details}</p>
 
             {/* Modal for both Mobile and Desktop */}
             {mounted &&
@@ -177,7 +177,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
                 width={1000}
                 height={400}
                 alt='color palette'
-                className='px-8 -mt-10'
+                className='p-12'
               />
             </div>
           </section>
