@@ -19,7 +19,7 @@ type AccommodationDetailsProps = {
     name: string;
     details: string;
     gallery?: string[];
-    roomOptions: Array<{ name: string; details: string; extraGuests: string; price: string }>;
+    roomOptions: Array<{ name: string; details: string; extraGuests?: string; price: string }>;
   };
 };
 
@@ -46,7 +46,11 @@ export default function AccommodationDetails({ contact, hotel, labels }: Accommo
             >
               <h4 className='font-heading text-xl md:text-2xl font-bold text-text'>{room.name}</h4>
               <p className='text-text/80 font-sans text-md whitespace-pre-wrap'>{room.details}</p>
-              <i className='text-text/80 font-sans text-sm font-extralight whitespace-pre-wrap'>{room.extraGuests}</i>
+              {room.extraGuests && (
+                <i className='text-text/80 font-sans text-sm font-extralight whitespace-pre-wrap'>
+                  {room.extraGuests}
+                </i>
+              )}
               <p className='text-text/80 font-sans text-md text-right font-semibold'>{room.price}</p>
             </div>
           ))}
