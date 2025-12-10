@@ -173,11 +173,18 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
                 {t.details.dressCode.description}
               </p>
               <Image
-                src='/details/color-palette.png'
+                src='/details/desktop-color-palette.png'
                 width={1000}
                 height={400}
                 alt='color palette'
-                className='p-12'
+                className='p-12 hidden sm:block'
+              />
+              <Image
+                src='/details/mobile-color-palette.png'
+                width={600}
+                height={400}
+                alt='color palette'
+                className='p-12 sm:hidden'
               />
             </div>
           </section>
