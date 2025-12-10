@@ -52,10 +52,8 @@ export type Translations = {
       sectionTitle: string;
       details: string;
       labels: {
-        roomTypes: string;
-        available: string;
-        unavailable: string;
-        price: string;
+        rooms: string;
+        priceNote: string;
         contactToBook: string;
         photos: string;
       };
@@ -69,9 +67,10 @@ export type Translations = {
         details: string;
         image: string;
         gallery?: string[];
-        roomTypes: Array<{
-          type: string;
-          available: boolean;
+        roomOptions: Array<{
+          name: string;
+          details: string;
+          extraGuests?: string;
           price: string;
         }>;
       }>;
@@ -237,10 +236,8 @@ export const translations: Record<Locale, Translations> = {
         details:
           'Here you can find accommodation options for the night of Saturday, June 20.\n\nEveryone pays for their own accommodation, but we are happy to help you arrange it. If you would like to stay at one of these options, please contact Walker...\n\nthompsonwalker222@gmail.com\nWhatsApp: +420 731 742 805',
         labels: {
-          roomTypes: 'Room Types',
-          available: 'Available',
-          unavailable: 'Unavailable',
-          price: 'Price',
+          rooms: 'Rooms',
+          priceNote: 'Prices may depend on number of guests',
           contactToBook: 'Contact Us to Book',
           photos: 'Photos',
         },
@@ -254,18 +251,23 @@ export const translations: Record<Locale, Translations> = {
             name: 'Pension Merano',
             details: '[ Describe this hotel ]',
             image: '/accommodations/hotel1.jpg',
-            roomTypes: [
-              { type: 'Double Room', available: true, price: '€70/night' },
-              { type: 'Family Suite', available: false, price: '€120/night' },
+            gallery: ['/pm/1.jpg', '/pm/2.jpg', '/pm/3.jpg', '/pm/4.jpg', '/pm/5.jpg', '/pm/6.jpg', '/pm/7.jpg'],
+            roomOptions: [
+              { name: 'Jantar', details: 'Apartment w/ kitchen\n2 Beds | 4 Guests', price: '$77-120/night' },
+              { name: 'Reneta', details: 'Apartment w/o kitchen\n1 Bed | 2 Guests', price: '$62/night' },
+              { name: 'Juno', details: 'Apartment w/ kitchen\n1 Bed | 2 Guests', extraGuests: 'Option to add 2 extra single beds (4 guests total), but not as comfortable', price: '$72-115/night' },
+              { name: 'Rubín', details: 'Large apartment w/ kitchen\n5 Beds | 8 Guests', extraGuests: 'Option to add 2 extra single beds (10 guests total), but not as comfortable', price: '$125-270/night' },
+              { name: 'Opál', details: 'Apartment w/ kitchen\n1 Bed | 2 Guests', extraGuests: 'Option to add 2 extra single beds (4 guests total), but not as comfortable', price: '$72-115/night' },
             ],
           },
           {
             name: 'Hotel Florian Sedlčany',
             details: '[ Describe this hotel ]',
             image: '/accommodations/hotel2.jpg',
-            roomTypes: [
-              { type: 'Standard Room', available: true, price: '€60/night' },
-              { type: 'Deluxe Room', available: true, price: '€90/night' },
+            gallery: ['/hfs/1.jpg', '/hfs/2.jpg', '/hfs/3.jpg', '/hfs/4.jpg'],
+            roomOptions: [
+              { name: 'Double Bed', details: '1 Bed | 2 Guests', price: '$90/night' },
+              { name: 'Double Bed + Single Bed', details: '2 Bed | 3 Guests', price: '$90-115/night' },
             ],
           },
         ],
@@ -446,10 +448,8 @@ export const translations: Record<Locale, Translations> = {
         sectionTitle: 'Ubytování',
         details: 'tady můžeš najít možnosti kde se ubytovat ze soboty 20. 6. na neděli 21. 6.\n\n ubytování si každý hradí sám, ale rádi ti pomůžeme se zařízením ubytování. pokud se chceš ubytovat v nějaké z těchto možností, kontaktuj prosím Sofi... \n\nsofiebendova@gmail.com\ntel. č.: 773593573',
         labels: {
-          roomTypes: 'Typy pokojů',
-          available: 'Dostupné',
-          unavailable: 'Nedostupné',
-          price: 'Cena',
+          rooms: 'Typy pokojů',
+          priceNote: 'FILL ME INNNNNNNNN',
           contactToBook: 'Kontaktujte nás pro rezervaci',
           photos: 'Fotografie',
         },
@@ -463,18 +463,18 @@ export const translations: Record<Locale, Translations> = {
             name: 'Pension Merano',
             details: '',
             image: '/accommodations/hotel1.jpg',
-            roomTypes: [
-              { type: 'Dvoulůžkový pokoj', available: true, price: ' czk/noc' },
-              { type: 'Rodinný apartmán', available: false, price: ' czk/noc' },
+            gallery: [''],
+            roomOptions: [
+              { name: '', details: '', price: '' },
             ],
           },
           {
             name: 'Hotel Florian Sedlčany',
             details: '',
             image: '/accommodations/hotel2.jpg',
-            roomTypes: [
-              { type: 'Standardní pokoj', available: true, price: ' czk/noc' },
-              { type: 'Deluxe pokoj', available: true, price: ' czk/noc' },
+            gallery: [''],
+            roomOptions: [
+              { name: '', details: '', price: '' },
             ],
           },
         ],

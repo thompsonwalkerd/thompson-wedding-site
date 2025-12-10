@@ -4,6 +4,12 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 type AccommodationDetailsProps = {
+  labels: {
+    rooms: string;
+    priceNote: string;
+    contactToBook: string;
+    photos: string;
+  };
   contact: {
     phoneLabel: string;
     email: string;
@@ -11,16 +17,9 @@ type AccommodationDetailsProps = {
   };
   hotel: {
     name: string;
-    roomTypes: Array<{ type: string; available: boolean; price: string }>;
+    details: string;
     gallery?: string[];
-  };
-  labels: {
-    roomTypes: string;
-    available: string;
-    unavailable: string;
-    price: string;
-    contactToBook: string;
-    photos: string;
+    roomOptions: Array<{ name: string; details: string; extraGuests: string; price: string }>;
   };
 };
 
@@ -37,30 +36,18 @@ export default function AccommodationDetails({ contact, hotel, labels }: Accommo
     <div className='space-y-6 md:space-y-8'>
       {/* Room Types Section */}
       <div>
-        <h3 className='font-heading text-2xl md:text-3xl mb-4 text-heading'>{labels.roomTypes}</h3>
+        <h3 className='font-heading text-2xl md:text-3xl mb-2 text-heading'>{labels.rooms}</h3>
+        <p className='text-text/60 font-sans text-sm mb-4'>{labels.priceNote}</p>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-          {hotel.roomTypes.map((room, index) => (
+          {hotel.roomOptions.map((room, index) => (
             <div
               key={index}
               className='bg-surface/5 border border-text/20 rounded-lg p-4 md:p-5 flex flex-col gap-3'
             >
-              <h4 className='font-heading text-xl md:text-2xl font-semibold text-text'>
-                {room.type}
-              </h4>
-              <div className='flex items-center justify-between'>
-                <span
-                  className={`px-3 py-1 rounded-full text-sm font-sans ${
-                    room.available
-                      ? 'bg-green-100 text-green-700 border border-green-300'
-                      : 'bg-red-100 text-red-700 border border-red-300'
-                  }`}
-                >
-                  {room.available ? labels.available : labels.unavailable}
-                </span>
-                <span className='text-text/80 font-sans text-lg'>
-                  <span className='text-text/60 text-sm'>{labels.price}:</span> {room.price}
-                </span>
-              </div>
+              <h4 className='font-heading text-xl md:text-2xl font-bold text-text'>{room.name}</h4>
+              <p className='text-text/80 font-sans text-md whitespace-pre-wrap'>{room.details}</p>
+              <i className='text-text/80 font-sans text-sm font-extralight whitespace-pre-wrap'>{room.extraGuests}</i>
+              <p className='text-text/80 font-sans text-md text-right font-semibold'>{room.price}</p>
             </div>
           ))}
         </div>
@@ -118,7 +105,7 @@ export default function AccommodationDetails({ contact, hotel, labels }: Accommo
             {hotel.gallery.map((image, index) => (
               <div key={index} className='relative aspect-video rounded-lg overflow-hidden'>
                 <Image
-                  src={image}
+                  src={'/accommodations'.concat(image)}
                   alt={`${hotel.name} ${index + 1}`}
                   fill
                   className='object-cover'
