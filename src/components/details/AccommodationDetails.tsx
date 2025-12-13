@@ -17,7 +17,8 @@ type AccommodationDetailsProps = {
   };
   hotel: {
     name: string;
-    details: string;
+    extraInfoNote: string;
+    url: string;
     gallery?: string[];
     roomOptions: Array<{ name: string; details: string; extraGuests?: string; price: string }>;
   };
