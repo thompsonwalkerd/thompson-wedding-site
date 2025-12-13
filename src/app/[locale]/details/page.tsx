@@ -156,7 +156,6 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
                 <HotelCard
                   key={index}
                   name={hotel.name}
-                  details={hotel.details}
                   image={hotel.image}
                   onToggle={() => handleToggle(index)}
                 />

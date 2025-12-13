@@ -65,8 +65,8 @@ export type Translations = {
       options: Array<{
         name: string;
         image: string;
-        extraInfoNote: string,
-        url: string,
+        extraInfoNote: string;
+        url: string;
         gallery?: string[];
         roomOptions: Array<{
           name: string;

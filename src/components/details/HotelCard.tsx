@@ -2,12 +2,11 @@ import Button from '@/components/ui/Button';
 
 type HotelCardProps = {
   name: string;
-  details: string;
   image: string;
   onToggle: () => void;
 };
 
-export default function HotelCard({ name, details, image, onToggle }: HotelCardProps) {
+export default function HotelCard({ name, image, onToggle }: HotelCardProps) {
   return (
     <div className='flex flex-col rounded-md overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-text/10 w-full'>
       {/* Background image section */}
