@@ -70,7 +70,8 @@ export type Translations = {
         gallery?: string[];
         roomOptions: Array<{
           name: string;
-          details: string;
+          type?: string;
+          size?: string;
           extraGuests?: string;
           price: string;
         }>;
@@ -255,11 +256,11 @@ export const translations: Record<Locale, Translations> = {
             url: 'Booking.com',
             gallery: ['/pm/1.jpg', '/pm/2.jpg', '/pm/3.jpg', '/pm/4.jpg', '/pm/5.jpg', '/pm/6.jpg', '/pm/7.jpg'],
             roomOptions: [
-              { name: 'Jantar', details: 'Apartment w/ kitchen\n2 Beds | 4 Guests', price: '$77-120/night' },
-              { name: 'Reneta', details: 'Apartment w/o kitchen\n1 Bed | 2 Guests', price: '$62/night' },
-              { name: 'Juno', details: 'Apartment w/ kitchen\n1 Bed | 2 Guests', extraGuests: 'Option to add 2 extra single beds (4 guests total), but not as comfortable', price: '$72-115/night' },
-              { name: 'Rubín', details: 'Large apartment w/ kitchen\n5 Beds | 8 Guests', extraGuests: 'Option to add 2 extra single beds (10 guests total), but not as comfortable', price: '$125-270/night' },
-              { name: 'Opál', details: 'Apartment w/ kitchen\n1 Bed | 2 Guests', extraGuests: 'Option to add 2 extra single beds (4 guests total), but not as comfortable', price: '$72-115/night' },
+              { name: 'Jantar', type: 'Apartment w/ kitchen', size: '2 Beds | 4 Guests', price: '$77-120/night' },
+              { name: 'Reneta', type: 'Apartment w/o kitchen', size: '1 Bed | 2 Guests', price: '$62/night' },
+              { name: 'Juno', type: 'Apartment w/ kitchen', size: '1 Bed | 2 Guests', extraGuests: 'Option to add 2 extra single beds (4 guests total), but not as comfortable', price: '$72-115/night' },
+              { name: 'Rubín', type: 'Large apartment w/ kitchen', size: '5 Beds | 8 Guests', extraGuests: 'Option to add 2 extra single beds (10 guests total), but not as comfortable', price: '$125-270/night' },
+              { name: 'Opál', type: 'Apartment w/ kitchen', size: '1 Bed | 2 Guests', extraGuests: 'Option to add 2 extra single beds (4 guests total), but not as comfortable', price: '$72-115/night' },
             ],
           },
           {
@@ -269,8 +270,8 @@ export const translations: Record<Locale, Translations> = {
             url: 'Booking.com',
             gallery: ['/hfs/1.jpg', '/hfs/2.jpg', '/hfs/3.jpg', '/hfs/4.jpg'],
             roomOptions: [
-              { name: 'Double Bed', details: '1 Bed | 2 Guests', price: '$90/night' },
-              { name: 'Double Bed + Single Bed', details: '2 Bed | 3 Guests', price: '$90-115/night' },
+              { name: 'Double Bed', size: '1 Bed | 2 Guests', price: '$90/night' },
+              { name: 'Double Bed + Single Bed', size: '2 Bed | 3 Guests', price: '$90-115/night' },
             ],
           },
         ],
@@ -469,12 +470,12 @@ export const translations: Record<Locale, Translations> = {
             url: 'https://www.pensionmerano.eu/',
             gallery: ['/pm/1.jpg', '/pm/2.jpg', '/pm/3.jpg', '/pm/4.jpg', '/pm/5.jpg', '/pm/6.jpg', '/pm/7.jpg'],
             roomOptions: [
-              { name: 'Jantar', details: 'Apartmán s kuchyní\n\nČtyřlůžkový pokoj se dvěma manželskými postelemi', price: '1600-2500 Kč/noc' },
-              { name: 'Reneta', details: 'Apartmán s kuchyní\n\nDvoulůžkový pokoj s manželskou postelí', price: '1280 Kč/noc' },
-              { name: 'Juno', details: 'Apartmán s kuchyní\n\nDvoulůžkový pokoj s manželskou postelí', extraGuests: 'Možnost přidat dvě přistýlky', price: '1500-2400 Kč/noc' },
-              { name: 'Rubín', details: 'Velký apartmán s kuchyní\n\nOsmilůžkový apartmán se třemi manželskými postelemi a dvěma jednolůžky', extraGuests: 'Možnost přidat dvě přistýlky', price: '4 osoby 2400 Kč/noc\n+ každá další osoba 500 Kč' },
-              { name: 'Opál', details: 'Apartmán s kuchyní\n\nDvoulůžkový pokoj s manželskou postelí', extraGuests: 'Možnost přidat dvě přistýlky', price: '1500-2400 Kč/noc' },
-              { name: 'Rondo', details: 'Pokoj ve formě společenské místnosti', extraGuests: 'Možnost přistýlek 2+1', price: '1600-2200 Kč/noc' },
+              { name: 'Jantar', type: 'Apartmán s kuchyní', size: 'Čtyřlůžkový pokoj se dvěma manželskými postelemi', price: '1600-2500 Kč/noc' },
+              { name: 'Reneta', type: 'Apartmán s kuchyní', size: 'Dvoulůžkový pokoj s manželskou postelí', price: '1280 Kč/noc' },
+              { name: 'Juno', type: 'Apartmán s kuchyní', size: 'Dvoulůžkový pokoj s manželskou postelí', extraGuests: 'Možnost přidat dvě přistýlky', price: '1500-2400 Kč/noc' },
+              { name: 'Rubín', type: 'Velký apartmán s kuchyní', size: 'Osmilůžkový apartmán se třemi manželskými postelemi a dvěma jednolůžky', extraGuests: 'Možnost přidat dvě přistýlky', price: '4 osoby 2400 Kč/noc\n+ každá další osoba 500 Kč' },
+              { name: 'Opál', type: 'Apartmán s kuchyní', size: 'Dvoulůžkový pokoj s manželskou postelí', extraGuests: 'Možnost přidat dvě přistýlky', price: '1500-2400 Kč/noc' },
+              { name: 'Rondo', type: 'Pokoj ve formě společenské místnosti', size: '', extraGuests: 'Možnost přistýlek 2+1', price: '1600-2200 Kč/noc' },
             ],
           },
           {
@@ -484,8 +485,8 @@ export const translations: Record<Locale, Translations> = {
             url: 'https://www.hotel-florian.cz/',
             gallery: ['/hfs/1.jpg', '/hfs/2.jpg', '/hfs/3.jpg', '/hfs/4.jpg'],
             roomOptions: [
-              { name: 'Dvoulůžkový pokoj', details: '1 manželská postel', price: '1900 Kč/noc' },
-              { name: 'Třílůžkový pokoj', details: '1 manželská postel + 1 jednolůžko', price: '2400 Kč/noc' },
+              { name: 'Dvoulůžkový pokoj', size: '1 manželská postel', price: '1900 Kč/noc' },
+              { name: 'Třílůžkový pokoj', size: '1 manželská postel + 1 jednolůžko', price: '2400 Kč/noc' },
             ],
           },
         ],

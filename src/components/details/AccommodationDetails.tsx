@@ -20,7 +20,7 @@ type AccommodationDetailsProps = {
     extraInfoNote: string;
     url: string;
     gallery?: string[];
-    roomOptions: Array<{ name: string; details: string; extraGuests?: string; price: string }>;
+    roomOptions: Array<{ name: string; type?: string; size?: string; extraGuests?: string; price: string }>;
   };
 };
 
@@ -43,16 +43,25 @@ export default function AccommodationDetails({ contact, hotel, labels }: Accommo
           {hotel.roomOptions.map((room, index) => (
             <div
               key={index}
-              className='bg-surface/5 border border-text/20 rounded-lg p-4 md:p-5 flex flex-col gap-3'
+              className='bg-surface/5 border border-text/20 rounded-lg p-4 md:p-5 flex flex-col gap-2 md:gap-6'
             >
               <h4 className='font-heading text-xl md:text-2xl font-bold text-text'>{room.name}</h4>
-              <p className='text-text/80 font-sans text-md whitespace-pre-wrap'>{room.details}</p>
+
+              {room.type && (
+                <p className='text-text/80 font-sans text-md'>{room.type}</p>
+              )}
+
+              {room.size && (
+                <p className='text-text/80 font-sans text-md'>{room.size}</p>
+              )}
+
               {room.extraGuests && (
                 <i className='text-text/80 font-sans text-sm font-extralight whitespace-pre-wrap'>
                   {room.extraGuests}
                 </i>
               )}
-              <p className='text-text/80 font-sans text-md text-right font-semibold whitespace-pre-wrap'>{room.price}</p>
+
+              <p className='text-text/80 font-sans text-md text-right font-semibold whitespace-pre-wrap mt-auto'>{room.price}</p>
             </div>
           ))}
         </div>
