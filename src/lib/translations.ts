@@ -454,7 +454,7 @@ export const translations: Record<Locale, Translations> = {
       },
       accommodations: {
         sectionTitle: 'Ubytování',
-        details: 'tady můžeš najít možnosti kde se ubytovat ze soboty 20. 6. na neděli 21. 6.\n\n ubytování si každý hradí sám, ale rádi ti pomůžeme se zařízením ubytování. pokud se chceš ubytovat v nějaké z těchto možností, kontaktuj prosím Sofi... \n\nsofiebendova@gmail.com\ntel. č.: 773593573',
+        details: 'tady můžeš najít možnosti kde se ubytovat ze soboty 20. 6. na neděli 21. 6.\n\n ubytování si každý hradí sám, ale rádi ti pomůžeme se zařízením ubytování. pokud se chceš ubytovat v nějaké z těchto možností, kontaktuj prosím Sofi... \n\nsofiebendova@gmail.com\ntel. č.: 773 593 573',
         labels: {
           rooms: 'Typy pokojů',
           priceNote: 'Cena pokoje může záviset na počtu ubytovaných',
