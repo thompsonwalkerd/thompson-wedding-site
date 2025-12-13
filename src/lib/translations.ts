@@ -61,6 +61,8 @@ export type Translations = {
         phoneLabel: string;
         email: string;
         phone: string;
+        copyButton: string;
+        copiedButton: string;
       };
       options: Array<{
         name: string;
@@ -247,6 +249,8 @@ export const translations: Record<Locale, Translations> = {
           phoneLabel: 'WhatsApp',
           email: 'thompsonwalker222@gmail.com',
           phone: '+420 731 742 805',
+          copyButton: 'Copy',
+          copiedButton: 'Copied!',
         },
         options: [
           {
@@ -461,6 +465,8 @@ export const translations: Record<Locale, Translations> = {
           phoneLabel: 'Telefonní číslo',
           email: 'sofiebendova@gmail.com',
           phone: '773 593 573',
+          copyButton: 'Kopírovat',
+          copiedButton: 'Zkopírováno!',
         },
         options: [
           {

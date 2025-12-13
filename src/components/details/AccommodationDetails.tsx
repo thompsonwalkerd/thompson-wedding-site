@@ -14,6 +14,8 @@ type AccommodationDetailsProps = {
     phoneLabel: string;
     email: string;
     phone: string;
+    copyButton: string;
+    copiedButton: string;
   };
   hotel: {
     name: string;
@@ -24,7 +26,7 @@ type AccommodationDetailsProps = {
   };
 };
 
-export default function AccommodationDetails({ contact, hotel, labels }: AccommodationDetailsProps) {
+export default function AccommodationDetails({ labels, contact, hotel }: AccommodationDetailsProps) {
   const [copiedType, setCopiedType] = useState<string | null>(null);
 
   const handleCopy = (text: string, type: string) => {
@@ -87,7 +89,7 @@ export default function AccommodationDetails({ contact, hotel, labels }: Accommo
                   : 'bg-accent/90 hover:bg-accent text-bg'
               }`}
             >
-              {copiedType === 'email' ? 'Copied!' : 'Copy'}
+              {copiedType === 'email' ? contact.copiedButton : contact.copyButton}
             </button>
           </div>
 
@@ -105,7 +107,7 @@ export default function AccommodationDetails({ contact, hotel, labels }: Accommo
                   : 'bg-accent/90 hover:bg-accent text-bg'
               }`}
             >
-              {copiedType === 'phone' ? 'Copied!' : 'Copy'}
+              {copiedType === 'phone' ? contact.copiedButton : contact.copyButton}
             </button>
           </div>
         </div>
