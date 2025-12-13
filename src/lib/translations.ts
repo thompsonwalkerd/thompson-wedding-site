@@ -64,8 +64,9 @@ export type Translations = {
       };
       options: Array<{
         name: string;
-        details: string;
         image: string;
+        extraInfoNote: string,
+        url: string,
         gallery?: string[];
         roomOptions: Array<{
           name: string;
@@ -238,7 +239,7 @@ export const translations: Record<Locale, Translations> = {
         labels: {
           rooms: 'Rooms',
           priceNote: 'Prices may depend on number of guests',
-          contactToBook: 'Contact Us to Book',
+          contactToBook: 'Contact Walker to book',
           photos: 'Photos',
         },
         contact: {
@@ -249,8 +250,9 @@ export const translations: Record<Locale, Translations> = {
         options: [
           {
             name: 'Pension Merano',
-            details: '[ Describe this hotel ]',
             image: '/accommodations/hotel1.jpg',
+            extraInfoNote: 'For more details on the hotel, visit this link',
+            url: 'Booking.com',
             gallery: ['/pm/1.jpg', '/pm/2.jpg', '/pm/3.jpg', '/pm/4.jpg', '/pm/5.jpg', '/pm/6.jpg', '/pm/7.jpg'],
             roomOptions: [
               { name: 'Jantar', details: 'Apartment w/ kitchen\n2 Beds | 4 Guests', price: '$77-120/night' },
@@ -262,8 +264,9 @@ export const translations: Record<Locale, Translations> = {
           },
           {
             name: 'Hotel Florian Sedlčany',
-            details: '[ Describe this hotel ]',
             image: '/accommodations/hotel2.jpg',
+            extraInfoNote: 'For more details on the hotel, visit this link',
+            url: 'Booking.com',
             gallery: ['/hfs/1.jpg', '/hfs/2.jpg', '/hfs/3.jpg', '/hfs/4.jpg'],
             roomOptions: [
               { name: 'Double Bed', details: '1 Bed | 2 Guests', price: '$90/night' },
@@ -449,8 +452,8 @@ export const translations: Record<Locale, Translations> = {
         details: 'tady můžeš najít možnosti kde se ubytovat ze soboty 20. 6. na neděli 21. 6.\n\n ubytování si každý hradí sám, ale rádi ti pomůžeme se zařízením ubytování. pokud se chceš ubytovat v nějaké z těchto možností, kontaktuj prosím Sofi... \n\nsofiebendova@gmail.com\ntel. č.: 773593573',
         labels: {
           rooms: 'Typy pokojů',
-          priceNote: 'FILL ME INNNNNNNNN',
-          contactToBook: 'Kontaktujte nás pro rezervaci',
+          priceNote: 'Cena pokoje může záviset na počtu ubytovaných',
+          contactToBook: 'Pro objednání pokoje prosím kontaktuj Sofi…',
           photos: 'Fotografie',
         },
         contact: {
@@ -461,20 +464,28 @@ export const translations: Record<Locale, Translations> = {
         options: [
           {
             name: 'Pension Merano',
-            details: '',
             image: '/accommodations/hotel1.jpg',
-            gallery: [''],
+            extraInfoNote: 'Pro detailnější informace se můžeš podívat přímo na webové stránky',
+            url: 'https://www.pensionmerano.eu/',
+            gallery: ['/pm/1.jpg', '/pm/2.jpg', '/pm/3.jpg', '/pm/4.jpg', '/pm/5.jpg', '/pm/6.jpg', '/pm/7.jpg'],
             roomOptions: [
-              { name: '', details: '', price: '' },
+              { name: 'Jantar', details: 'Apartmán s kuchyní\n\nČtyřlůžkový pokoj se dvěma manželskými postelemi', price: '1600-2500 Kč/noc' },
+              { name: 'Reneta', details: 'Apartmán s kuchyní\n\nDvoulůžkový pokoj s manželskou postelí', price: '1280 Kč/noc' },
+              { name: 'Juno', details: 'Apartmán s kuchyní\n\nDvoulůžkový pokoj s manželskou postelí', extraGuests: 'Možnost přidat dvě přistýlky', price: '1500-2400 Kč/noc' },
+              { name: 'Rubín', details: 'Velký apartmán s kuchyní\n\nOsmilůžkový apartmán se třemi manželskými postelemi a dvěma jednolůžky', extraGuests: 'Možnost přidat dvě přistýlky', price: '4 osoby 2400 Kč/noc\n+ každá další osoba 500 Kč' },
+              { name: 'Opál', details: 'Apartmán s kuchyní\n\nDvoulůžkový pokoj s manželskou postelí', extraGuests: 'Možnost přidat dvě přistýlky', price: '1500-2400 Kč/noc' },
+              { name: 'Rondo', details: 'Pokoj ve formě společenské místnosti', extraGuests: 'Možnost přistýlek 2+1', price: '1600-2200 Kč/noc' },
             ],
           },
           {
             name: 'Hotel Florian Sedlčany',
-            details: '',
             image: '/accommodations/hotel2.jpg',
-            gallery: [''],
+            extraInfoNote: 'Pro detailnější informace se můžeš podívat přímo na webové stránky',
+            url: 'https://www.hotel-florian.cz/',
+            gallery: ['/hfs/1.jpg', '/hfs/2.jpg', '/hfs/3.jpg', '/hfs/4.jpg'],
             roomOptions: [
-              { name: '', details: '', price: '' },
+              { name: 'Dvoulůžkový pokoj', details: '1 manželská postel', price: '1900 Kč/noc' },
+              { name: 'Třílůžkový pokoj', details: '1 manželská postel + 1 jednolůžko', price: '2400 Kč/noc' },
             ],
           },
         ],

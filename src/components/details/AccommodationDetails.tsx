@@ -51,7 +51,7 @@ export default function AccommodationDetails({ contact, hotel, labels }: Accommo
                   {room.extraGuests}
                 </i>
               )}
-              <p className='text-text/80 font-sans text-md text-right font-semibold'>{room.price}</p>
+              <p className='text-text/80 font-sans text-md text-right font-semibold whitespace-pre-wrap'>{room.price}</p>
             </div>
           ))}
         </div>
