@@ -15,9 +15,7 @@ type ScheduleTimelineProps = {
 export default function ScheduleTimeline({ sectionTitle, activities }: ScheduleTimelineProps) {
   return (
     <section className='animate-fade-in-delay-1'>
-      <SectionHeading>
-        {sectionTitle}
-      </SectionHeading>
+      <SectionHeading>{sectionTitle}</SectionHeading>
 
       {/* Timeline Container - Desktop: center-aligned alternating, Mobile: left-aligned list */}
       <div className='max-w-3xl mx-auto pt-4 px-4'>

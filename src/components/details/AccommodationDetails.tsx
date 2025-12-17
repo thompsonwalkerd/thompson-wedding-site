@@ -22,11 +22,21 @@ type AccommodationDetailsProps = {
     extraInfoNote: string;
     url: string;
     gallery?: string[];
-    roomOptions: Array<{ name: string; type?: string; size?: string; extraGuests?: string; price: string }>;
+    roomOptions: Array<{
+      name: string;
+      type?: string;
+      size?: string;
+      extraGuests?: string;
+      price: string;
+    }>;
   };
 };
 
-export default function AccommodationDetails({ labels, contact, hotel }: AccommodationDetailsProps) {
+export default function AccommodationDetails({
+  labels,
+  contact,
+  hotel,
+}: AccommodationDetailsProps) {
   const [copiedType, setCopiedType] = useState<string | null>(null);
 
   const handleCopy = (text: string, type: string) => {
@@ -49,13 +59,9 @@ export default function AccommodationDetails({ labels, contact, hotel }: Accommo
             >
               <h4 className='font-heading text-xl md:text-2xl font-bold text-text'>{room.name}</h4>
 
-              {room.type && (
-                <p className='text-text/80 font-sans text-md'>{room.type}</p>
-              )}
+              {room.type && <p className='text-text/80 font-sans text-md'>{room.type}</p>}
 
-              {room.size && (
-                <p className='text-text/80 font-sans text-md'>{room.size}</p>
-              )}
+              {room.size && <p className='text-text/80 font-sans text-md'>{room.size}</p>}
 
               {room.extraGuests && (
                 <i className='text-text/80 font-sans text-sm font-extralight whitespace-pre-wrap'>
@@ -63,7 +69,9 @@ export default function AccommodationDetails({ labels, contact, hotel }: Accommo
                 </i>
               )}
 
-              <p className='text-text/80 font-sans text-md text-right font-semibold whitespace-pre-wrap mt-auto'>{room.price}</p>
+              <p className='text-text/80 font-sans text-md text-right font-semibold whitespace-pre-wrap mt-auto'>
+                {room.price}
+              </p>
             </div>
           ))}
         </div>

@@ -1,8 +1,8 @@
 'use client';
 
-import Image from 'next/image';
-import { use, useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
+import AccommodationDetails from '@/components/details/AccommodationDetails';
+import HotelCard from '@/components/details/HotelCard';
+import ScheduleTimeline from '@/components/details/ScheduleTimeline';
 import PageLayout from '@/components/PageLayout';
 import Button from '@/components/ui/Button';
 import Container from '@/components/ui/Container';
@@ -10,9 +10,9 @@ import PageTitle from '@/components/ui/PageTitle';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { getTranslations } from '@/lib/translations';
 import { validateLocale } from '@/utils/locale';
-import ScheduleTimeline from '@/components/details/ScheduleTimeline';
-import HotelCard from '@/components/details/HotelCard';
-import AccommodationDetails from '@/components/details/AccommodationDetails';
+import Image from 'next/image';
+import { use, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 export default function DetailsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeString } = use(params);
@@ -65,9 +65,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
           <div className='grid grid-cols-1 md:grid-cols-2 gap-10 animate-fade-in'>
             {/* Venue Section */}
             <section>
-              <SectionHeading>
-                {t.details.venue.sectionTitle}
-              </SectionHeading>
+              <SectionHeading>{t.details.venue.sectionTitle}</SectionHeading>
               <div className='font-sans text-text/90 space-y-2 leading-relaxed'>
                 <p className='text-xl md:text-2xl font-semibold'>{t.details.venue.name}</p>
                 <p className='text-sm md:text-base'>
@@ -81,9 +79,7 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
 
             {/* Date & Time */}
             <section>
-              <SectionHeading>
-                {t.details.dateAndTime.sectionTitle}
-              </SectionHeading>
+              <SectionHeading>{t.details.dateAndTime.sectionTitle}</SectionHeading>
               <div className='font-sans text-text/90 space-y-2 leading-relaxed'>
                 <p className='text-xl md:text-2xl font-semibold'>{t.when.dateString}</p>
                 <p className='text-sm md:text-base'>{t.when.time}</p>
@@ -99,11 +95,11 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
 
           {/* Accommodations */}
           <section className='animate-fade-in-delay-2'>
-            <SectionHeading>
-              {t.details.accommodations.sectionTitle}
-            </SectionHeading>
+            <SectionHeading>{t.details.accommodations.sectionTitle}</SectionHeading>
 
-            <p className='text-md md:text-lg whitespace-pre-wrap'>{t.details.accommodations.details}</p>
+            <p className='text-md md:text-lg whitespace-pre-wrap'>
+              {t.details.accommodations.details}
+            </p>
 
             {/* Modal for both Mobile and Desktop */}
             {mounted &&

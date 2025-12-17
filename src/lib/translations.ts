@@ -258,13 +258,52 @@ export const translations: Record<Locale, Translations> = {
             image: '/accommodations/hotel1.jpg',
             extraInfoNote: 'For more details on the hotel, visit this link',
             url: 'Booking.com',
-            gallery: ['/pm/1.jpg', '/pm/2.jpg', '/pm/3.jpg', '/pm/4.jpg', '/pm/5.jpg', '/pm/6.jpg', '/pm/7.jpg'],
+            gallery: [
+              '/pm/1.jpg',
+              '/pm/2.jpg',
+              '/pm/3.jpg',
+              '/pm/4.jpg',
+              '/pm/5.jpg',
+              '/pm/6.jpg',
+              '/pm/7.jpg',
+            ],
             roomOptions: [
-              { name: 'Jantar', type: 'Apartment w/ kitchen', size: '2 Beds | 4 Guests', price: '$77-120/night' },
-              { name: 'Reneta', type: 'Apartment w/o kitchen', size: '1 Bed | 2 Guests', price: '$62/night' },
-              { name: 'Juno', type: 'Apartment w/ kitchen', size: '1 Bed | 2 Guests', extraGuests: 'Option to add 2 extra single beds (4 guests total), but not as comfortable', price: '$72-115/night' },
-              { name: 'Rubín', type: 'Large apartment w/ kitchen', size: '5 Beds | 8 Guests', extraGuests: 'Option to add 2 extra single beds (10 guests total), but not as comfortable', price: '$125-270/night' },
-              { name: 'Opál', type: 'Apartment w/ kitchen', size: '1 Bed | 2 Guests', extraGuests: 'Option to add 2 extra single beds (4 guests total), but not as comfortable', price: '$72-115/night' },
+              {
+                name: 'Jantar',
+                type: 'Apartment w/ kitchen',
+                size: '2 Beds | 4 Guests',
+                price: '$77-120/night',
+              },
+              {
+                name: 'Reneta',
+                type: 'Apartment w/o kitchen',
+                size: '1 Bed | 2 Guests',
+                price: '$62/night',
+              },
+              {
+                name: 'Juno',
+                type: 'Apartment w/ kitchen',
+                size: '1 Bed | 2 Guests',
+                extraGuests:
+                  'Option to add 2 extra single beds (4 guests total), but not as comfortable',
+                price: '$72-115/night',
+              },
+              {
+                name: 'Rubín',
+                type: 'Large apartment w/ kitchen',
+                size: '5 Beds | 8 Guests',
+                extraGuests:
+                  'Option to add 2 extra single beds (10 guests total), but not as comfortable',
+                price: '$125-270/night',
+              },
+              {
+                name: 'Opál',
+                type: 'Apartment w/ kitchen',
+                size: '1 Bed | 2 Guests',
+                extraGuests:
+                  'Option to add 2 extra single beds (4 guests total), but not as comfortable',
+                price: '$72-115/night',
+              },
             ],
           },
           {
@@ -315,7 +354,8 @@ export const translations: Record<Locale, Translations> = {
       declineButton: 'We Cannot Attend',
       declining: 'Submitting...',
       successMessage: 'Thank you! Your RSVP has been received. See you soon!',
-      declineSuccessMessage: "Thank you for letting us know. We are sorry you can't make it, but we hope to see you soon!",
+      declineSuccessMessage:
+        "Thank you for letting us know. We are sorry you can't make it, but we hope to see you soon!",
       confirmationSent: 'A confirmation has been sent to:',
       viewDetails: 'View Wedding Details',
       errorMessage: 'Something went wrong. Please try again.',
@@ -454,7 +494,8 @@ export const translations: Record<Locale, Translations> = {
       },
       accommodations: {
         sectionTitle: 'Ubytování',
-        details: 'tady můžeš najít možnosti kde se ubytovat ze soboty 20. 6. na neděli 21. 6.\n\n ubytování si každý hradí sám, ale rádi ti pomůžeme se zařízením ubytování. pokud se chceš ubytovat v nějaké z těchto možností, kontaktuj prosím Sofi... \n\nsofiebendova@gmail.com\ntel. č.: 773 593 573',
+        details:
+          'tady můžeš najít možnosti kde se ubytovat ze soboty 20. 6. na neděli 21. 6.\n\n ubytování si každý hradí sám, ale rádi ti pomůžeme se zařízením ubytování. pokud se chceš ubytovat v nějaké z těchto možností, kontaktuj prosím Sofi... \n\nsofiebendova@gmail.com\ntel. č.: 773 593 573',
         labels: {
           rooms: 'Typy pokojů',
           priceNote: 'Cena pokoje může záviset na počtu ubytovaných',
@@ -474,14 +515,56 @@ export const translations: Record<Locale, Translations> = {
             image: '/accommodations/hotel1.jpg',
             extraInfoNote: 'Pro detailnější informace se můžeš podívat přímo na webové stránky',
             url: 'https://www.pensionmerano.eu/',
-            gallery: ['/pm/1.jpg', '/pm/2.jpg', '/pm/3.jpg', '/pm/4.jpg', '/pm/5.jpg', '/pm/6.jpg', '/pm/7.jpg'],
+            gallery: [
+              '/pm/1.jpg',
+              '/pm/2.jpg',
+              '/pm/3.jpg',
+              '/pm/4.jpg',
+              '/pm/5.jpg',
+              '/pm/6.jpg',
+              '/pm/7.jpg',
+            ],
             roomOptions: [
-              { name: 'Jantar', type: 'Apartmán s kuchyní', size: 'Čtyřlůžkový pokoj se dvěma manželskými postelemi', price: '1600-2500 Kč/noc' },
-              { name: 'Reneta', type: 'Apartmán s kuchyní', size: 'Dvoulůžkový pokoj s manželskou postelí', price: '1280 Kč/noc' },
-              { name: 'Juno', type: 'Apartmán s kuchyní', size: 'Dvoulůžkový pokoj s manželskou postelí', extraGuests: 'Možnost přidat dvě přistýlky', price: '1500-2400 Kč/noc' },
-              { name: 'Rubín', type: 'Velký apartmán s kuchyní', size: 'Osmilůžkový apartmán se třemi manželskými postelemi a dvěma jednolůžky', extraGuests: 'Možnost přidat dvě přistýlky', price: '4 osoby 2400 Kč/noc\n+ každá další osoba 500 Kč' },
-              { name: 'Opál', type: 'Apartmán s kuchyní', size: 'Dvoulůžkový pokoj s manželskou postelí', extraGuests: 'Možnost přidat dvě přistýlky', price: '1500-2400 Kč/noc' },
-              { name: 'Rondo', type: 'Pokoj ve formě společenské místnosti', size: '', extraGuests: 'Možnost přistýlek 2+1', price: '1600-2200 Kč/noc' },
+              {
+                name: 'Jantar',
+                type: 'Apartmán s kuchyní',
+                size: 'Čtyřlůžkový pokoj se dvěma manželskými postelemi',
+                price: '1600-2500 Kč/noc',
+              },
+              {
+                name: 'Reneta',
+                type: 'Apartmán s kuchyní',
+                size: 'Dvoulůžkový pokoj s manželskou postelí',
+                price: '1280 Kč/noc',
+              },
+              {
+                name: 'Juno',
+                type: 'Apartmán s kuchyní',
+                size: 'Dvoulůžkový pokoj s manželskou postelí',
+                extraGuests: 'Možnost přidat dvě přistýlky',
+                price: '1500-2400 Kč/noc',
+              },
+              {
+                name: 'Rubín',
+                type: 'Velký apartmán s kuchyní',
+                size: 'Osmilůžkový apartmán se třemi manželskými postelemi a dvěma jednolůžky',
+                extraGuests: 'Možnost přidat dvě přistýlky',
+                price: '4 osoby 2400 Kč/noc\n+ každá další osoba 500 Kč',
+              },
+              {
+                name: 'Opál',
+                type: 'Apartmán s kuchyní',
+                size: 'Dvoulůžkový pokoj s manželskou postelí',
+                extraGuests: 'Možnost přidat dvě přistýlky',
+                price: '1500-2400 Kč/noc',
+              },
+              {
+                name: 'Rondo',
+                type: 'Pokoj ve formě společenské místnosti',
+                size: '',
+                extraGuests: 'Možnost přistýlek 2+1',
+                price: '1600-2200 Kč/noc',
+              },
             ],
           },
           {
@@ -492,14 +575,19 @@ export const translations: Record<Locale, Translations> = {
             gallery: ['/hfs/1.jpg', '/hfs/2.jpg', '/hfs/3.jpg', '/hfs/4.jpg'],
             roomOptions: [
               { name: 'Dvoulůžkový pokoj', size: '1 manželská postel', price: '1900 Kč/noc' },
-              { name: 'Třílůžkový pokoj', size: '1 manželská postel + 1 jednolůžko', price: '2400 Kč/noc' },
+              {
+                name: 'Třílůžkový pokoj',
+                size: '1 manželská postel + 1 jednolůžko',
+                price: '2400 Kč/noc',
+              },
             ],
           },
         ],
       },
       dressCode: {
         sectionTitle: '"Dress code"',
-        description: 'Pokud tě nenapadá co si vzít na sebe, můžeš se inspirovat z palety barev, kterou jsme po náš den připravili - rozhodně to není podmínkou:) Nepustíme tě jen v případě, že budeš mít bílé šaty;)',
+        description:
+          'Pokud tě nenapadá co si vzít na sebe, můžeš se inspirovat z palety barev, kterou jsme po náš den připravili - rozhodně to není podmínkou:) Nepustíme tě jen v případě, že budeš mít bílé šaty;)',
       },
     },
     photos: {
@@ -532,7 +620,8 @@ export const translations: Record<Locale, Translations> = {
       declineButton: 'Nemůžeme se zúčastnit',
       declining: 'Odesílám...',
       successMessage: 'Děkujeme! Tvoje potvrzení účasti bylo přijato.',
-      declineSuccessMessage: 'Děkujeme že jsi nám dal/a vědět! Moc nás mrzí, že nemůžeš dorazit. Snad se uvidíme brzy<3',
+      declineSuccessMessage:
+        'Děkujeme že jsi nám dal/a vědět! Moc nás mrzí, že nemůžeš dorazit. Snad se uvidíme brzy<3',
       confirmationSent: 'Potvrzení bylo odesláno na:',
       viewDetails: 'Zobrazit podrobnosti o svatbě',
       errorMessage: 'Něco se pokazilo. Zkus to prosím znovu.',
@@ -575,7 +664,7 @@ export const translations: Record<Locale, Translations> = {
         },
         {
           name: 'Fond na auto',
-          description: "Pokud jsi spíše na praktičtější věci, tak ani jeden z nás nemá auto :)",
+          description: 'Pokud jsi spíše na praktičtější věci, tak ani jeden z nás nemá auto :)',
           icon: '/registry/car.png',
         },
       ],

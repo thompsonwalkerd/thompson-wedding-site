@@ -1,9 +1,9 @@
-import { use } from 'react';
-import Image from 'next/image';
 import PageLayout from '@/components/PageLayout';
 import Button from '@/components/ui/Button';
 import { getTranslations } from '@/lib/translations';
 import { validateLocale } from '@/utils/locale';
+import Image from 'next/image';
+import { use } from 'react';
 
 export default function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeString } = use(params);

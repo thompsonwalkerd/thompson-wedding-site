@@ -78,19 +78,20 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
                     We are having a special dinner the day before the wedding for any American
                     guests that wish to come. If you do wish to come to this dinner, you should
                     arrive to the <strong>Prague Main Train Station</strong> by{' '}
-                    <strong>3:30 pm on June 19th</strong>. We are using the Train Station over the Airport
-                    because many guests will likely arrive at various times that day and/or stay in Prague 
-                    before/after the days of the celebration.
+                    <strong>3:30 pm on June 19th</strong>. We are using the Train Station over the
+                    Airport because many guests will likely arrive at various times that day and/or
+                    stay in Prague before/after the days of the celebration.
                   </p>
                   <br />
                   <p>
-                    This means that it is important that your flight arrives in time to allow for customs
-                    and travel to the Main Station. There is a bus, or you can uber/bolt. Make sure to
-                    plan accordingly based on your travel plans.
+                    This means that it is important that your flight arrives in time to allow for
+                    customs and travel to the Main Station. There is a bus, or you can uber/bolt.
+                    Make sure to plan accordingly based on your travel plans.
                   </p>
                   <br />
                   <p>
-                    If you are not attending the dinner at all, the ceremony begins at 1:00 pm on the 20th.
+                    If you are not attending the dinner at all, the ceremony begins at 1:00 pm on
+                    the 20th.
                   </p>
                 </div>
               </div>
@@ -103,18 +104,28 @@ export default function USTravelPage({ params }: { params: Promise<{ locale: str
                 <div className='max-w-2xl mx-auto flex flex-col gap-6 md:flex-row-reverse md:items-center md:gap-8'>
                   <div className='md:text-left'>
                     <p>
-                      We will offer transportation by bus between Prague and the town of the venue for those who want us to organize it for them.
-                    </p>
-                    <br />
-                    <p>  
-                      Please email <strong className='underline'>thompsonwalker222@gmail.com</strong> when you have booked your flights, so that we can arrange your transportation.
+                      We will offer transportation by bus between Prague and the town of the venue
+                      for those who want us to organize it for them.
                     </p>
                     <br />
                     <p>
-                      The wedding is not in Prgaue but a town outside of it. You can look at this map drawn by Sofí to get an idea of the distance.
+                      Please email{' '}
+                      <strong className='underline'>thompsonwalker222@gmail.com</strong> when you
+                      have booked your flights, so that we can arrange your transportation.
+                    </p>
+                    <br />
+                    <p>
+                      The wedding is not in Prgaue but a town outside of it. You can look at this
+                      map drawn by Sofí to get an idea of the distance.
                     </p>
                   </div>
-                  <Image src='/details/map.png' alt='Hand-drawn map showing route from Prague to wedding venue' width={400} height={400} className='w-auto max-w-xs md:max-w-lg lg:max-w-xl h-auto object-contain mx-auto' />
+                  <Image
+                    src='/details/map.png'
+                    alt='Hand-drawn map showing route from Prague to wedding venue'
+                    width={400}
+                    height={400}
+                    className='w-auto max-w-xs md:max-w-lg lg:max-w-xl h-auto object-contain mx-auto'
+                  />
                 </div>
               </div>
 
