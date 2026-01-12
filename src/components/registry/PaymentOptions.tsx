@@ -39,8 +39,8 @@ export default function PaymentOptions({
       await navigator.clipboard.writeText(text);
       setCopiedType(type);
       setTimeout(() => setCopiedType(null), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
+    } catch {
+      // Silently fail - user will notice if copy doesn't work
     }
   };
 
@@ -103,7 +103,7 @@ export default function PaymentOptions({
 
           {/* Desktop */}
           <div className='hidden md:block'>
-            {/* Americn: Zelle and Venmo */}
+            {/* American: Zelle and Venmo */}
             <div className='flex flex-col gap-6 justify-center'>
               {paymentOptions
                 .filter(option => option.type !== 'qr')

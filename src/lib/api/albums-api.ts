@@ -91,8 +91,7 @@ export async function searchAlbums(query: string): Promise<Album[]> {
       });
 
     return albums;
-  } catch (error) {
-    console.error('Error searching albums:', error);
+  } catch {
     throw new Error('Failed to search albums');
   }
 }
@@ -122,8 +121,7 @@ export async function checkMultipleAlbums(
 
     const data: BatchAvailabilityResponse = await response.json();
     return data.availability;
-  } catch (error) {
-    console.error('Error checking album availability:', error);
+  } catch {
     // Return all albums as available if check fails (graceful degradation)
     return albums.reduce(
       (acc, album) => {

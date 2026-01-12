@@ -8,7 +8,12 @@ const nextConfig: NextConfig = {
         hostname: 'i.discogs.com',
       },
     ],
+    formats: ['image/avif', 'image/webp'], // Enable modern image formats
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048], // Common device breakpoints
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Icon and thumbnail sizes
   },
+  compress: true, // Enable gzip compression
+  poweredByHeader: false, // Remove X-Powered-By header for security
 };
 
 export default nextConfig;

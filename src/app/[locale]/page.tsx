@@ -14,7 +14,7 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
     <PageLayout locale={locale} t={t} currentPath=''>
       {/* Mobile Background */}
       <Image
-        src='/mobile-bg.png'
+        src='/mobile-bg.jpeg'
         alt='Background'
         fill
         className='object-cover md:hidden -z-10'

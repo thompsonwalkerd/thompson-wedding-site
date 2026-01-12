@@ -39,9 +39,8 @@ export default function AdminPage() {
     try {
       const data = await fetchRsvpSubmissions(filterType);
       setSubmissions(data.submissions);
-    } catch (err) {
+    } catch {
       setError('Failed to load submissions. Please try again.');
-      console.error(err);
     } finally {
       setLoading(false);
     }

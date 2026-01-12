@@ -70,8 +70,7 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
       });
 
       setSearchResults(albumsWithStatus);
-    } catch (err) {
-      console.error('Search error:', err);
+    } catch {
       setError(t.error);
     } finally {
       setIsSearching(false);
@@ -99,8 +98,7 @@ export default function AlbumRegistration({ translations: t }: AlbumRegistration
       setRegistrationSuccess(true);
       setSelectedAlbum(null);
       setSearchResults([]);
-    } catch (err) {
-      console.error('Registration error:', err);
+    } catch {
       setError(t.error);
     } finally {
       setIsRegistering(false);
