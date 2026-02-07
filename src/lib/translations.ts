@@ -634,12 +634,12 @@ export const translations: Record<Locale, Translations> = {
       submitting: 'Odesílám...',
       declineButton: 'Nemůžeme se zúčastnit',
       declining: 'Odesílám...',
-      confirmTitle: 'Confirm your RSVP', // TRANSLATE
-      reviewDetails: 'Please review your details before submitting', // TRANSLATE
-      missingGroupPlaceholder: 'Your group', // TRANSLATE
-      noGuestsAttending: 'No guests attending', //TRANSLATE
+      confirmTitle: 'Potvrďte svou účast na svatbě',
+      reviewDetails: 'Zkontrolujte si prosím zadané informace před odesláním',
+      missingGroupPlaceholder: 'Vaše skupina',
+      noGuestsAttending: 'Žádný host',
       songRequestConfirmLabel: 'Písnička na přání',
-      editFormButton: 'Edit Form', // TRANSLATE
+      editFormButton: 'Upravit',
       successMessage: 'Děkujeme! Tvoje potvrzení účasti bylo přijato.',
       declineSuccessMessage:
         'Děkujeme že jsi nám dal/a vědět! Moc nás mrzí, že nemůžeš dorazit. Snad se uvidíme brzy<3',
