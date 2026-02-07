@@ -1,9 +1,9 @@
 'use client';
 
+import { updateRsvpEmail } from '@/lib/api/rsvp-api';
+import { Locale, Translations } from '@/lib/translations';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Locale, Translations } from '@/lib/translations';
-import { updateRsvpEmail } from '@/lib/api/rsvp-api';
 
 type RsvpSuccessProps = {
   t: Translations;

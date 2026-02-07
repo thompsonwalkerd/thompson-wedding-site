@@ -81,6 +81,7 @@ export type Translations = {
     };
     dressCode: {
       sectionTitle: string;
+      style: string;
       description: string;
     };
   };
@@ -111,6 +112,12 @@ export type Translations = {
     submitting: string;
     declineButton: string;
     declining: string;
+    confirmTitle: string;
+    reviewDetails: string;
+    missingGroupPlaceholder: string;
+    noGuestsAttending: string;
+    songRequestConfirmLabel: string;
+    editFormButton: string; // implement
     successMessage: string;
     declineSuccessMessage: string;
     confirmationSent: string;
@@ -321,6 +328,7 @@ export const translations: Record<Locale, Translations> = {
       },
       dressCode: {
         sectionTitle: 'Dress Code',
+        style: 'Cocktail',
         description:
           "If you can't think of what to wear, you can draw inspiration from the color palette we've prepared—but it's definitely not a requirement. We won't turn you away :)",
       },
@@ -353,6 +361,12 @@ export const translations: Record<Locale, Translations> = {
       submitting: 'Submitting...',
       declineButton: 'We Cannot Attend',
       declining: 'Submitting...',
+      confirmTitle: 'Confirm your RSVP',
+      reviewDetails: 'Please review your details before submitting',
+      missingGroupPlaceholder: 'Your Group',
+      noGuestsAttending: 'No one attending',
+      songRequestConfirmLabel: 'Song Requests',
+      editFormButton: 'Edit Form',
       successMessage: 'Thank you! Your RSVP has been received. See you soon!',
       declineSuccessMessage:
         "Thank you for letting us know. We are sorry you can't make it, but we hope to see you soon!",
@@ -586,6 +600,7 @@ export const translations: Record<Locale, Translations> = {
       },
       dressCode: {
         sectionTitle: '"Dress code"',
+        style: 'Společenský oděv',
         description:
           'Pokud tě nenapadá co si vzít na sebe, můžeš se inspirovat z palety barev, kterou jsme po náš den připravili - rozhodně to není podmínkou:) Nepustíme tě jen v případě, že budeš mít bílé šaty;)',
       },
@@ -613,12 +628,18 @@ export const translations: Record<Locale, Translations> = {
       songLabel:
         'Písnička na přání (Tohle je tvoje šance na písničku na přání v čase svatební party! Ale nic neslibujeme xoxo;)',
       songPlaceholder: 'Sem napiš svoji písničku na přání',
-      dietaryLabel: 'Dietní omezení nebo alergie ',
+      dietaryLabel: 'Dietní omezení nebo alergie',
       dietaryPlaceholder: 'např. vegetarián, bezlepková strava, alergie na ořechy...',
       submitButton: 'Odeslat potvrzení',
       submitting: 'Odesílám...',
       declineButton: 'Nemůžeme se zúčastnit',
       declining: 'Odesílám...',
+      confirmTitle: 'Confirm your RSVP', // TRANSLATE
+      reviewDetails: 'Please review your details before submitting', // TRANSLATE
+      missingGroupPlaceholder: 'Your group', // TRANSLATE
+      noGuestsAttending: 'No guests attending', //TRANSLATE
+      songRequestConfirmLabel: 'Písnička na přání',
+      editFormButton: 'Edit Form', // TRANSLATE
       successMessage: 'Děkujeme! Tvoje potvrzení účasti bylo přijato.',
       declineSuccessMessage:
         'Děkujeme že jsi nám dal/a vědět! Moc nás mrzí, že nemůžeš dorazit. Snad se uvidíme brzy<3',

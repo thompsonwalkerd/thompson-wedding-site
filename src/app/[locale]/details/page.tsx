@@ -164,6 +164,9 @@ export default function DetailsPage({ params }: { params: Promise<{ locale: stri
             <SectionHeading>{t.details.dressCode.sectionTitle}</SectionHeading>
 
             <div className='flex flex-col justify-around items-center'>
+              <p className='text-text font-heading text-2xl md:text-4xl text-center m-6 italic'>
+                {t.details.dressCode.style}
+              </p>
               <p className='text-text/90 text-md md:text-lg text-center'>
                 {t.details.dressCode.description}
               </p>
